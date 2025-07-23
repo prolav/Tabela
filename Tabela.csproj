@@ -52,4 +52,22 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Helpers\" />
+      <Folder Include="Services\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Views\Primeiro.cs" />
+      <Compile Remove="Views\Primeiro.xaml.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Views\Primeiro.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <MauiXaml Remove="Views\Primeiro.xaml" />
+    </ItemGroup>
+
 </Project>
