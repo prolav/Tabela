@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Border
+    x:Class="Tabela.Controls.CustomEntry"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Tabela.Controls"
+    x:Name="RootBorder"
+    Stroke="Gray"
+    StrokeThickness="1"
+    BackgroundColor="White"
+    Padding="10"
+>
+    <!-- CornerRadius="8" -->
+
+    <Entry
+        x:Name="InnerEntry"
+        Text="{Binding Text, Mode=TwoWay, Source={x:Reference RootBorder}}"
+        Placeholder="{Binding Placeholder, Source={x:Reference RootBorder}}"
+        TextColor="Black"
+        FontSize="16"
+        BackgroundColor="Transparent"
+    />
+
+</Border>

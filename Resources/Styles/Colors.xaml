@@ -41,4 +41,13 @@
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
 
+
+    <Color x:Key="GateVermelho">#D12D43</Color>
+    <Color x:Key="GatePreto">#000000</Color>
+    <Color x:Key="GatePretoSecundario">#444444</Color>
+    <Color x:Key="GateCreme">#F5D5C6</Color>
+    <Color x:Key="GateCremeFundoDashBoard">#F9EFD4</Color>
+    <Color x:Key="GateCinza">#F0ECE9</Color>
+    <Color x:Key="GateBordoSelecao">#8E1E2D</Color>
+    <Color x:Key="GateBranco">#FFFFFF</Color>
 </ResourceDictionary>

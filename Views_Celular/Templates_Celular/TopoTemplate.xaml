@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tabela.Views_Celular.Templates_Celular.TopoTemplate">
+    <Grid Padding="10" BackgroundColor="#eeeeee">
+        <Frame HasShadow="True" CornerRadius="20" Padding="0" HeightRequest="120">
+            <ImageButton
+                Source="logo_kyoyu.jpeg"
+                Aspect="AspectFill"
+                BackgroundColor="Transparent"
+                Command="{Binding ImageTappedCommand}" />
+        </Frame>
+    </Grid>
+</ContentView>

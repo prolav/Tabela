@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tabela.View_PC.PC_LoginView" 
+             BackgroundColor="White">
+
+    <Grid RowDefinitions="7*,3*, Auto" >
+            <Image 
+                Grid.Row="0" 
+                HeightRequest="350"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Source="logo_kyoyu.jpeg" 
+                Aspect="AspectFit" />
+
+            <Grid Grid.Row="1" Margin="10"
+                  HorizontalOptions="Fill"
+                  VerticalOptions="Fill"
+                  RowSpacing="10"
+                  RowDefinitions="Auto,Auto,Auto"
+                  ColumnDefinitions="*,*,*">
+                <Border Grid.Row="0" Grid.Column="1" 
+                        Stroke="Black" StrokeThickness="2" 
+                        StrokeShape="RoundRectangle 10" 
+                        Padding="10"
+                        HorizontalOptions="Fill">
+                    <Entry Placeholder="Usuário" TextColor="{StaticResource GatePreto}"
+                           Text="{Binding NomeUsuario, Mode=TwoWay}"/>
+                </Border>
+
+                <Border Grid.Row="1" Grid.Column="1" 
+                        Stroke="Black" StrokeThickness="2" 
+                        StrokeShape="RoundRectangle 10" 
+                        Padding="10" 
+                        HorizontalOptions="Fill">
+                    <Entry Placeholder="Senha" TextColor="{StaticResource GatePreto}"
+                           Text="{Binding Senha, Mode=TwoWay}"/>
+                </Border>
+
+                <Button Grid.Row="2" Grid.Column="1"
+                        BackgroundColor="{StaticResource GateVermelho}" 
+                        BorderColor="{StaticResource GateVermelho}" BorderWidth="5"
+                        HorizontalOptions="Fill"
+                        TextColor="{StaticResource GateCreme}"
+                        Text="ENTRAR" 
+                        Command="{Binding EntrarCommand, Mode=TwoWay}"/>
+            </Grid>
+
+            <Label Grid.Row="2" FontSize="12"
+                   BackgroundColor="Green" Text="Espaco Vazio"  HorizontalOptions="Fill"/>
+
+   </Grid>
+</ContentPage>

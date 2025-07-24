@@ -53,6 +53,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Controls\" />
       <Folder Include="Helpers\" />
       <Folder Include="Services\" />
     </ItemGroup>
@@ -60,14 +61,22 @@
     <ItemGroup>
       <Compile Remove="Views\Primeiro.cs" />
       <Compile Remove="Views\Primeiro.xaml.cs" />
+      <Compile Remove="Views_Celular\Primeiro.xaml.cs" />
+      <Compile Remove="Views_Celular\PrimeiroView.xaml.cs" />
+      <Compile Remove="Views_Celular\Primeiro.cs" />
+      <Compile Remove="ViewModels_Celular\PrimeiroViewModel.cs" />
+      <Compile Remove="CustomEntry.cs" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Views\Primeiro.xml" />
+      <None Remove="Views_Celular\Primeiro.xml" />
     </ItemGroup>
 
     <ItemGroup>
       <MauiXaml Remove="Views\Primeiro.xaml" />
+      <MauiXaml Remove="Views_Celular\Primeiro.xaml" />
+      <MauiXaml Remove="Views_Celular\PrimeiroView.xaml" />
     </ItemGroup>
 
 </Project>
