@@ -7,8 +7,10 @@ public class PC_DashBoardViewModel: BaseViewModel
 {
     #region Fields
     private string _secaoAtual;
+    public PC_DashBoardViewModel _pc_DashBoardViewModel;
     private View? _currentView;
-    private enum TipoPage
+    private string _tituloCard;
+    public enum TipoPage
     {
         Dashboard,
         Tabela,
@@ -16,6 +18,8 @@ public class PC_DashBoardViewModel: BaseViewModel
         ClassificacaoGeral,
         HistoricoJogos,
         CadastroJogador,
+        Clube,
+        Jogador,
         CadastroClube,
         NovoCampeonato
     }
@@ -29,10 +33,20 @@ public class PC_DashBoardViewModel: BaseViewModel
         set => SetProperty(ref _secaoAtual, value); // Se usar BaseViewModel com SetProperty
     }
 
+    public string TituloCard{
+        get => _tituloCard;
+        set => SetProperty(ref _tituloCard, value); // Se usar BaseViewModel com SetProperty
+    }
     public View CurrentView
     {
         get => _currentView;
         set => SetProperty(ref _currentView, value); // Se usar BaseViewModel com SetProperty
+    }
+
+    public PC_DashBoardViewModel PC_DashBoardVM 
+    {
+        get => _pc_DashBoardViewModel;
+        set => SetProperty(ref _pc_DashBoardViewModel, value); // Se usar BaseViewModel com SetProperty
     }
 
     #endregion
@@ -47,6 +61,8 @@ public class PC_DashBoardViewModel: BaseViewModel
     public ICommand MostrarNovoCampeonatoCommand => new Command(() => MudancaPage(TipoPage.NovoCampeonato));
     public ICommand MostrarCadastroJogadorCommand => new Command(() => MudancaPage(TipoPage.CadastroJogador));
     public ICommand MostrarCadastroClubeCommand => new Command(() => MudancaPage(TipoPage.CadastroClube));
+    public ICommand MostrarClubeCommand => new Command(() => MudancaPage(TipoPage.Clube));
+    public ICommand MostrarJogadorCommand => new Command(() => MudancaPage(TipoPage.Jogador));
     
     public ICommand SairCommand { get; }
     #endregion
@@ -56,49 +72,63 @@ public class PC_DashBoardViewModel: BaseViewModel
     {
         SairCommand = new Command(SairCommandExecute);
         SecaoAtual = TipoPage.Dashboard.ToString();
-        CurrentView = new PC_DashBoard_Partial();
+        PC_DashBoardVM = this;
+        MudancaPage(TipoPage.Dashboard);
     }
     #endregion
 
     #region Methods
+
+    public void AtualizarPage()
+    {
+
+    }
     private void SairCommandExecute()
     {
         
 
     }
 
-    private void MudancaPage(TipoPage tipoPage)
+    public void MudancaPage(TipoPage tipoPage)
     {
         SecaoAtual = tipoPage.ToString();
         if (tipoPage == TipoPage.Dashboard)
         {
-            CurrentView = new PC_DashBoard_Partial();
+            TituloCard = "DashBoard";
+            CurrentView = new PC_DashBoard_Partial(PC_DashBoardVM);
         }
         else if (tipoPage == TipoPage.Tabela)
         {
-
+            TituloCard = "Tabela";
         }
         else if (tipoPage == TipoPage.PlayOff)
         {
-
+            TituloCard = "Mata-Mata";
         }
         else if (tipoPage == TipoPage.ClassificacaoGeral)
         {
-            
+            TituloCard = "Classificação Geral";
         }
         else if (tipoPage == TipoPage.HistoricoJogos)
         {
-            
-        }
-        else if (tipoPage == TipoPage.CadastroJogador)
-        {
-
+            TituloCard = "Histórico de Jogos";
         }
         else if (tipoPage == TipoPage.CadastroClube)
         {
-            CurrentView = new PC_Clube_Partial();
+            TituloCard = "Cadastro de Clubes";
+            SecaoAtual = TipoPage.Clube.ToString();
+            CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM);
         }
-        
+        else if (tipoPage == TipoPage.Clube)
+        {
+            TituloCard = "Lista de Clubes";
+            CurrentView = new PC_Clube_Partial(PC_DashBoardVM);
+        }
+        else if (tipoPage == TipoPage.Jogador)
+        {
+            TituloCard = "Lista de Jogadores";
+            //CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM);
+        }
     }
     #endregion
 }

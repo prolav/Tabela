@@ -11,6 +11,7 @@ public static class MauiProgram
 
         var conn = AppDatabase.GetConnection();
         builder.Services.AddSingleton<IJogadorRepository>(new JogadorRepository(conn));
+        builder.Services.AddSingleton<IClubeRepository>(new ClubeRepository(conn));
 
         return builder.Build();
     }

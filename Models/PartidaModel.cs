@@ -4,8 +4,6 @@ namespace Tabela.Models;
 
 public class PartidaModel : BaseModel
 {
-    [Key] // Chave primária
-    public Guid Partida_Id { get; set; }
     public DateTime Partida_DataHora { get; set; }
     public Guid FaseId { get; set; }
     public FaseModel Fase { get; set; }

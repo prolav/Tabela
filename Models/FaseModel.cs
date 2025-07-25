@@ -4,8 +4,6 @@ namespace Tabela.Models;
 
 public class FaseModel : BaseModel
 {
-    [Key] // Chave primária
-    public Guid Fase_Id { get; set; }
     public string Fase_Nome { get; set; } // Ex: "Grupos", "Oitavas", "Final"
     public string Fase_Tipo { get; set; } // "Grupo" ou "MataMata"
     public Guid Fase_CampeonatoId { get; set; }
