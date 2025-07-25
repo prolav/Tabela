@@ -2,6 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Tabela.Controls"
              x:Class="Tabela.View_PC.PC_LoginView" 
              BackgroundColor="White">
 
@@ -20,30 +21,18 @@
                   RowSpacing="10"
                   RowDefinitions="Auto,Auto,Auto"
                   ColumnDefinitions="*,*,*">
-                <Border Grid.Row="0" Grid.Column="1" 
-                        Stroke="{StaticResource GateVermelho}" StrokeThickness="2" 
-                        StrokeShape="RoundRectangle 10" 
-                        Padding="10"
-                        HorizontalOptions="Fill">
-                    <Entry Placeholder="Usuário" TextColor="{StaticResource GatePreto}"
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                    <Entry Placeholder="Usuário" Style="{StaticResource Entry24Style}" 
                            Text="{Binding NomeUsuario, Mode=TwoWay}"/>
                 </Border>
 
-                <Border Grid.Row="1" Grid.Column="1" 
-                        Stroke="{StaticResource GateVermelho}" StrokeThickness="2" 
-                        StrokeShape="RoundRectangle 10" 
-                        Padding="10" 
-                        HorizontalOptions="Fill">
-                    <Entry Placeholder="Senha" TextColor="{StaticResource GatePreto}"
+                <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                    <Entry Placeholder="Senha" Style="{StaticResource Entry24Style}" 
                            Text="{Binding Senha, Mode=TwoWay}"/>
                 </Border>
 
-                <Button Grid.Row="2" Grid.Column="1"
-                        BackgroundColor="{StaticResource GateVermelho}" 
-                        BorderColor="{StaticResource GateVermelho}" BorderWidth="5"
-                        HorizontalOptions="Fill"
-                        TextColor="{StaticResource GateCreme}"
-                        Text="ENTRAR" 
+                <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource Button24_Vermelho}" 
+                        HorizontalOptions="Fill" Text="ENTRAR"
                         Command="{Binding EntrarCommand, Mode=TwoWay}"/>
             </Grid>
 

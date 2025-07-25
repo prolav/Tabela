@@ -3,8 +3,9 @@ using Tabela.Models;
 
 namespace Tabela.ViewModel_PC;
 
-public class PC_Jogador_PartialViewModel : BaseViewModel
+public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
 {
+    
     #region Fields
     private List<JogadorModel> _listaJogador;
     private PC_DashBoardViewModel _pc_DashBoardVM;
@@ -17,11 +18,11 @@ public class PC_Jogador_PartialViewModel : BaseViewModel
     #endregion
             
     #region Commands
-    public ICommand CadastrarJogadorCommand => new Command(() => CadastrarJogadorExecute());
+    public ICommand CadastrarClubeCommand => new Command(() => CadastrarJogadorExecute());
     #endregion
             
     #region Constructor
-    public PC_Jogador_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM)
+    public PC_NovoCampeonato_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM)
     {
         ListaClube = new List<JogadorModel>();
         _pc_DashBoardVM = pc_DashBoardVM;

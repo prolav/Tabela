@@ -10,36 +10,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd0aee71-e14d-4067-a502-2f820f23b813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Repositories/ClubeRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/IClubeRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Images/sem_imagem.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroClube_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Clube_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoard_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Jogador_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Jogador_Partial.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controls/CustomEntry2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_PlayOff_PartialViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Tabela_PartialViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_HistoricoJogos_Partial.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_HistoricoJogos_Partial.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_PlayOff_Partial.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_PlayOff_Partial.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Tabela_Partial.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Tabela_Partial.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/BaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/BaseModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ClubeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ClubeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/FaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/FaseModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/GrupoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/GrupoModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/JogadorModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/JogadorModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/PartidaModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/PartidaModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/TimeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/TimeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/IJogadorInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/IJogadorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Control/CustomEntry.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CustomEntry.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tabela.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Tabela.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Jogador_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Jogador_Partial.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +88,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2e7e7e632d20584c425172331c9bc3d26782ebd22675ce2b46341387b91aaaf/ConstructorInvoker.Mono.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/487df95234d628de9d727a1471b5f6ba2751195/View_PC_PC_LoginView.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomEntry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/viniciusyoshino/RiderProjects/Tabela/Models/BaseModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Android/MainApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Windows/App.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels_Celular/PrimeiroViewModel.cs" root0="SKIP_HIGHLIGHTING" />
@@ -120,13 +120,14 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Android.Tabela.executor": "Run",
     "Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: Tabela": "iPhone 11",
     "DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider": "Simulator",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "iOS.Tabela.executor": "Run",
-    "macOS.Tabela.executor": "Run",
+    "macOS.Tabela.executor": "Debug",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -216,7 +217,7 @@
       <workItem from="1753403116868" duration="46000" />
       <workItem from="1753403692170" duration="218000" />
       <workItem from="1753403950054" duration="378000" />
-      <workItem from="1753404331804" duration="19221000" />
+      <workItem from="1753404331804" duration="31271000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial">
       <option name="closed" value="true" />
@@ -274,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753454145021</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Inicio dash">
+      <option name="closed" value="true" />
+      <created>1753468740306</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1753468740306</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,7 +311,8 @@
     <MESSAGE value="Inicial" />
     <MESSAGE value="Tela dash" />
     <MESSAGE value="Iniciar bd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Iniciar bd" />
+    <MESSAGE value="Inicio dash" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio dash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -344,6 +354,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs</url>
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" containingFunctionPresentation="Method 'CadastrarJogadorExecute'">
+            <startOffsets>
+              <option value="966" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1042" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

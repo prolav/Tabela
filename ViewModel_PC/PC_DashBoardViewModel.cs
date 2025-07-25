@@ -100,24 +100,34 @@ public class PC_DashBoardViewModel: BaseViewModel
         else if (tipoPage == TipoPage.Tabela)
         {
             TituloCard = "Tabela";
+            CurrentView = new PC_Tabela_Partial(PC_DashBoardVM);
         }
         else if (tipoPage == TipoPage.PlayOff)
         {
             TituloCard = "Mata-Mata";
+            CurrentView = new PC_PlayOff_Partial(PC_DashBoardVM);
         }
         else if (tipoPage == TipoPage.ClassificacaoGeral)
         {
             TituloCard = "Classificação Geral";
+            CurrentView = new PC_ClassificacaoGeral_Partial(PC_DashBoardVM);
         }
         else if (tipoPage == TipoPage.HistoricoJogos)
         {
             TituloCard = "Histórico de Jogos";
+            CurrentView = new PC_HistoricoJogos_Partial(PC_DashBoardVM);
         }
         else if (tipoPage == TipoPage.CadastroClube)
         {
             TituloCard = "Cadastro de Clubes";
             SecaoAtual = TipoPage.Clube.ToString();
             CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM);
+        }
+        else if (tipoPage == TipoPage.CadastroJogador)
+        {
+            TituloCard = "Cadastro de Jogadores";
+            SecaoAtual = TipoPage.Clube.ToString();
+            CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM);
         }
         else if (tipoPage == TipoPage.Clube)
         {
@@ -127,7 +137,12 @@ public class PC_DashBoardViewModel: BaseViewModel
         else if (tipoPage == TipoPage.Jogador)
         {
             TituloCard = "Lista de Jogadores";
-            //CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM);
+            CurrentView = new PC_Jogador_Partial(PC_DashBoardVM);
+        }
+        else if (tipoPage == TipoPage.NovoCampeonato)
+        {
+            TituloCard = "Novo Campeonato";
+            CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM);
         }
     }
     #endregion

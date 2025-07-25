@@ -3,7 +3,8 @@
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:tabela="clr-namespace:Tabela">
+    xmlns:tabela="clr-namespace:Tabela"
+    xmlns:controls="clr-namespace:Tabela.Controls">
 
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
@@ -403,12 +404,95 @@
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>
 
+    <Style x:Key="FrameDashBoard" TargetType="Frame">
+        <Setter Property="Padding" Value="20"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource GateBranco}"/>
+        <Setter Property="BorderColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
     <Style x:Key="MenuButtonDashBoardStyle" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{StaticResource GateCreme}"/>
         <Setter Property="TextColor" Value="{StaticResource GatePreto}"/>
         <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="BorderEntry" TargetType="Border">
+        <Setter Property="Stroke" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="StrokeThickness" Value="2"/>
+        <Setter Property="StrokeShape" Value="RoundRectangle 10"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="HorizontalOptions" Value="Fill"/>
+    </Style>
+
+    <Style x:Key="Button24_Vermelho" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="TextColor" Value="{StaticResource GateCreme}"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="Label16Style" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="Label16BoldStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontAttributes" Value="Bold"/>
     </Style>
 
+    <Style x:Key="Label24Style" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontSize" Value="24"/>
+    </Style>
+
+    <Style x:Key="Label24BoldStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="Label32Style" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="Label32BoldStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="Label40Style" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Label40BoldStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="Label48Style" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontSize" Value="48"/>
+    </Style>
+
+    <Style x:Key="Label48BoldStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+        <Setter Property="FontSize" Value="48"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="Entry24Style" TargetType="Entry">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
+    </Style>
 </ResourceDictionary>

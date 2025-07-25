@@ -3,5 +3,76 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tabela.View_PC.PC_Partial.PC_DashBoard_Partial">
-    
+
+    <Grid RowDefinitions="2*,3*,5*" RowSpacing="10">
+        <Frame Grid.Row="0" Style="{StaticResource FrameDashBoard}">
+            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                 <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label32BoldStyle}"
+                       Text="Nome Campeonato -> Binding"/>
+                 <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24Style}"
+                       Text="Fase de Grupos -> Binding"/>
+                 <Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
+                       Text="Ver Detalhes" Command="{Binding DetalhesCommand}"/>
+            </Grid>
+       </Frame>
+
+        <Grid Row="1" RowDefinitions="Auto, *" RowSpacing="10">
+            <Label Grid.Row="0" Style="{StaticResource Label32BoldStyle}"
+                   Text="Resumo Geral"/>
+            <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*" ColumnSpacing="20">
+                  <Frame Grid.Column="0" Style="{StaticResource FrameDashBoard}">
+                        <Grid RowDefinitions="Auto, Auto">
+                            <Label Grid.Row="0" Style="{StaticResource Label24Style}" 
+                                   Text="Total de Jogos"/>
+                            <Label Grid.Row="1" Style="{StaticResource Label32BoldStyle}" 
+                                   Text="66 -> Binding"/>
+                        </Grid>
+                  </Frame>
+                
+                <Frame Grid.Column="1" Style="{StaticResource FrameDashBoard}">
+                    <Grid RowDefinitions="Auto, *, Auto">
+                        <Label Grid.Row="0" Style="{StaticResource Label24Style}" 
+                               Text="Último Jogo"/>
+                        <!-- binding imagem -->
+                        <Image Source="{Binding ClubeLider}" Aspect="AspectFit" HeightRequest="75"/>
+
+                        <Label Grid.Row="2" Style="{StaticResource Label24BoldStyle}"  HorizontalOptions="Center"
+                               Text="Líder -> Binding"/>
+                    </Grid>
+                </Frame>
+
+                <Frame Grid.Column="2" Style="{StaticResource FrameDashBoard}">
+                    <Grid RowDefinitions="Auto, *" RowSpacing="10">
+                        <Label Grid.Row="0" Style="{StaticResource Label24Style}" 
+                               Text="Próximo Jogo"/>
+                        <ListView Grid.Row="1" >
+                            
+                        </ListView>
+                    </Grid>
+                </Frame>
+
+                <Frame Grid.Column="3" Style="{StaticResource FrameDashBoard}">
+                    <Grid RowDefinitions="Auto, *" RowSpacing="10">
+                        <Label Grid.Row="0" Style="{StaticResource Label24Style}" HorizontalOptions="Center"
+                               Text="Classificação"/>
+                        <ListView Grid.Row="1" >
+                            
+                        </ListView>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </Grid>
+
+        <Grid Row="2" RowDefinitions="Auto, *" RowSpacing="10">
+            <Label Grid.Row="0" Style="{StaticResource Label32BoldStyle}"
+                   Text="Próximos Jogos"/>
+
+                <Frame Grid.Row="1" Style="{StaticResource FrameDashBoard}">
+                    <Grid RowDefinitions="Auto, Auto">
+                       
+                    </Grid>
+                </Frame>
+          
+        </Grid>
+    </Grid>
 </ContentView>

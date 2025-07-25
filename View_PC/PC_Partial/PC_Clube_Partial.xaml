@@ -6,7 +6,7 @@
     
         <Grid  RowDefinitions="Auto, *">
             
-            <Button Grid.Row="0" FontSize="14" TextColor="{StaticResource GateCreme}" BackgroundColor="{StaticResource GateVermelho}"
+            <Button Grid.Row="0" Style="{StaticResource Button24_Vermelho}"
                     Text="Cadastrar" Command="{Binding CadastrarClubeCommand}" HorizontalOptions="End"/>
 
             <ListView Grid.Row="1" >

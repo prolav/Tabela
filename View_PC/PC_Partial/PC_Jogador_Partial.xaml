@@ -5,10 +5,10 @@
              x:Class="Tabela.View_PC.PC_Partial.PC_Jogador_Partial">
     <Grid  RowDefinitions="Auto, *">
             
-        <Button Grid.Row="0" FontSize="14" TextColor="{StaticResource GateCreme}" BackgroundColor="{StaticResource GateVermelho}"
+        <Button Grid.Row="0" Style="{StaticResource Button24_Vermelho}"
                 Text="Cadastrar" Command="{Binding CadastrarJogadorCommand}" HorizontalOptions="End"/>
 
-        <ListView Grid.Row="1" >
+        <ListView Grid.Row="1" BackgroundColor="blue">
 
         </ListView>
     </Grid>

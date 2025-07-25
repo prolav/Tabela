@@ -5,7 +5,7 @@
              x:Class="Tabela.View_PC.PC_Partial.PC_CadastroClube_Partial">
         <Grid  RowSpacing="10" ColumnSpacing="10" BackgroundColor="{StaticResource GateCremeFundoDashBoard}"
               ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,*">
-            <Label Grid.Row="0" Grid.Column="0" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource GateVermelho}"
+            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
                    Text="Logo"/>
             
             <Border Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" Stroke="{StaticResource GateVermelho}">
@@ -14,25 +14,16 @@
 
                 </Border.GestureRecognizers>
             </Border>
-            <Label Grid.Row="1" Grid.Column="0" FontSize="16" FontAttributes="Bold" 
-                   TextColor="{StaticResource GateVermelho}"
+            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
                    VerticalOptions="Center"
                    Text="Nome:"/>
 
-            <Border Grid.Row="1" Grid.Column="1" 
-                    Stroke="{StaticResource GateVermelho}" StrokeThickness="2" 
-                    StrokeShape="RoundRectangle 10" 
-                    Padding="10"
-                    HorizontalOptions="Fill">
-                <Entry Placeholder="Nome do Clube" TextColor="{StaticResource GatePreto}"
-                      FontSize="16" Text="{Binding NomeClube, Mode=TwoWay}"/>
+            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                <Entry Placeholder="Nome do Clube" Style="{StaticResource Entry24Style}"
+                       Text="{Binding NomeClube, Mode=TwoWay}"/>
             </Border>
             
-            <Button Grid.Row="3" Grid.Column="1" 
-                    BackgroundColor="{StaticResource GateVermelho}" 
-                    BorderColor="{StaticResource GateVermelho}" BorderWidth="5"
-                    HorizontalOptions="Start"
-                    TextColor="{StaticResource GateCreme}"
+            <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource Button24_Vermelho}"
                     Text="Adicionar" 
                     Command="{Binding AdicionarCommand, Mode=TwoWay}"/>
         </Grid>
