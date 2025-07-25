@@ -5,7 +5,7 @@
              x:Class="Tabela.View_PC.PC_LoginView" 
              BackgroundColor="White">
 
-    <Grid RowDefinitions="7*,3*, Auto" >
+    <Grid RowDefinitions="7*,3*, Auto" BackgroundColor="{StaticResource GateCreme}">
             <Image 
                 Grid.Row="0" 
                 HeightRequest="350"
@@ -21,7 +21,7 @@
                   RowDefinitions="Auto,Auto,Auto"
                   ColumnDefinitions="*,*,*">
                 <Border Grid.Row="0" Grid.Column="1" 
-                        Stroke="Black" StrokeThickness="2" 
+                        Stroke="{StaticResource GateVermelho}" StrokeThickness="2" 
                         StrokeShape="RoundRectangle 10" 
                         Padding="10"
                         HorizontalOptions="Fill">
@@ -30,7 +30,7 @@
                 </Border>
 
                 <Border Grid.Row="1" Grid.Column="1" 
-                        Stroke="Black" StrokeThickness="2" 
+                        Stroke="{StaticResource GateVermelho}" StrokeThickness="2" 
                         StrokeShape="RoundRectangle 10" 
                         Padding="10" 
                         HorizontalOptions="Fill">
@@ -47,8 +47,8 @@
                         Command="{Binding EntrarCommand, Mode=TwoWay}"/>
             </Grid>
 
-            <Label Grid.Row="2" FontSize="12"
-                   BackgroundColor="Green" Text="Espaco Vazio"  HorizontalOptions="Fill"/>
+            <Label Grid.Row="2" FontSize="12" Padding="0,10,0,10"
+                   BackgroundColor="{StaticResource GateVermelho}" Text="Espaco Vazio"  HorizontalOptions="Fill"/>
 
    </Grid>
 </ContentPage>

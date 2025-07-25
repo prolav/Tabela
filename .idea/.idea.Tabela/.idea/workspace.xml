@@ -10,42 +10,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd0aee71-e14d-4067-a502-2f820f23b813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BaseViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Control/CustomEntry.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Control/CustomEntry.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CustomEntry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/AppDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Images/logo_kyoyu.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_LoginViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_MenuInicialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModels_Celular/TopoTemplateViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_MenuInicialView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_MenuInicialView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views_Celular/Templates_Celular/TopoTemplate.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views_Celular/Templates_Celular/TopoTemplate.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/AppDataBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/MauiProgram.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/BaseModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/ClubeModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/BaseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/IBaseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/IJogadorInterface.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/JogadorRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_CadastroGeralView.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_CadastroGeralView.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/Android/MainActivity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/Android/MainActivity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/MacCatalyst/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/MacCatalyst/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/iOS/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/iOS/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Styles/Colors.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles/Colors.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/CampeonatoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CampeonatoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/FaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/FaseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/GrupoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/GrupoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/JogadorModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/JogadorModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/PartidaModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/PartidaModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/TimeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/TimeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UsuarioModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UsuarioModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UsuarioTipoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UsuarioTipoModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tabela.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Tabela.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/PrimeiroViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels_Celular/PrimeiroViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Primeiro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views_Celular/Primeiro.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Primeiro.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views_Celular/Primeiro.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Primeiro.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views_Celular/Primeiro.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Primeiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Views_Celular/Primeiro.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/PrimeiroView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views_Celular/PrimeiroView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/PrimeiroView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views_Celular/PrimeiroView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,17 +81,22 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.dotnet/packs/Microsoft.Android.Sdk.Darwin/34.0.154/tools/Xamarin.Android.Tooling.targets" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2871d8abe6fc4dd1ae00b32dfcea0c711e428/47/70d0b163/ApplyPropertiesVisitor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2e7e7e632d20584c425172331c9bc3d26782ebd22675ce2b46341387b91aaaf/ConstructorInvoker.Mono.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/487df95234d628de9d727a1471b5f6ba2751195/View_PC_PC_LoginView.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomEntry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Android/MainApplication.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Platforms/Windows/App.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels_Celular/PrimeiroViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/View_PC/PC_MenuInicialView.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views_Celular/Primeiro.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views_Celular/Primeiro.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views_Celular/Primeiro.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views_Celular/PrimeiroView.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///usr/local/share/dotnet/sdk/8.0.412/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.Sdk.ImportWorkloads.targets" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/local/share/dotnet/sdk/8.0.412/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.TargetFrameworkInference.targets" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -108,7 +105,7 @@
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="SWEA" />
+    <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -120,6 +117,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: Tabela": "iPhone 11",
+    "DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider": "Simulator",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -130,11 +129,20 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="macOS.Tabela">
+    <configuration name="Tabela" type="XamarinAndroidProject" factoryName="Xamarin.Android">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Tabela.csproj" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="DEPLOY_BEHAVIOUR_NAME" value="Default" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="Tabela" type="XamarinAndroidProject" factoryName="Xamarin.Android">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/Tabela.csproj" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -151,6 +159,23 @@
       <option name="EXTRA_MLAUNCH_PARAMETERS" value="" />
       <option name="PLATFORM_TYPE" value="IOS" />
       <method v="2" />
+    </configuration>
+    <configuration name="Tabela" type="XamarinIOSProject" factoryName="Xamarin.iOS">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Tabela.csproj" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="IS_PASS_PARENT_ENVS" value="false" />
+      <option name="EXTRA_MLAUNCH_PARAMETERS" value="" />
+      <option name="PLATFORM_TYPE" value="IOS" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Tabela" type="XamarinMacProject" factoryName="Xamarin.Mac">
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Tabela.csproj" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS_MAC" value="1" />
+      <method v="2">
+        <option name="Build" />
+      </method>
     </configuration>
     <configuration name="Tabela" type="XamarinMacProject" factoryName="Xamarin.Mac">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/Tabela.csproj" />
@@ -177,7 +202,18 @@
       <workItem from="1753227686425" duration="295000" />
       <workItem from="1753227998895" duration="13536000" />
       <workItem from="1753308162798" duration="1102000" />
-      <workItem from="1753365575714" duration="13550000" />
+      <workItem from="1753365575714" duration="13661000" />
+      <workItem from="1753390931038" duration="1510000" />
+      <workItem from="1753392522478" duration="830000" />
+      <workItem from="1753393368399" duration="261000" />
+      <workItem from="1753393643920" duration="381000" />
+      <workItem from="1753394201832" duration="393000" />
+      <workItem from="1753394609435" duration="770000" />
+      <workItem from="1753395513555" duration="2191000" />
+      <workItem from="1753403116868" duration="46000" />
+      <workItem from="1753403692170" duration="218000" />
+      <workItem from="1753403950054" duration="378000" />
+      <workItem from="1753404331804" duration="7020000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial">
       <option name="closed" value="true" />
@@ -219,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753277478359</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Tela dash">
+      <option name="closed" value="true" />
+      <created>1753390483821</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753390483821</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +271,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Commit inicial" />
@@ -234,7 +289,8 @@
     <MESSAGE value="Inicial 2" />
     <MESSAGE value="Tabelas Sql" />
     <MESSAGE value="Inicial" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicial" />
+    <MESSAGE value="Tela dash" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tela dash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

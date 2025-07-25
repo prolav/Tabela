@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Tabela.Models;
 
-public class GrupoModel
+public class GrupoModel : BaseModel
 {
     [Key] // Chave primária
     public Guid Grupo_Id { get; set; }

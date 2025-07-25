@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Tabela.Models;
 
-public class FaseModel
+public class FaseModel : BaseModel
 {
     [Key] // Chave primária
     public Guid Fase_Id { get; set; }

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Tabela.Models;
 
-public class TimeModel
+public class TimeModel : BaseModel
 {
     [Key] // Chave primária
     public Guid Time_Id { get; set; }

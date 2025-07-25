@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Tabela.Models;
 
-public class CampeonatoModel
+public class CampeonatoModel : BaseModel
 {
     [Key] // Chave primária
     public Guid Campeonato_Id { get; set; }

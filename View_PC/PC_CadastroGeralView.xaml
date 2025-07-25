@@ -2,8 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tabela.View_PC.PC_DashBoardView" 
-             BackgroundColor="{StaticResource GateVermelho}" Padding="30">
+             x:Class="Tabela.View_PC.PC_CadastroGeralView">
 
     <Grid ColumnDefinitions="2*,8*">
         <Grid Column="0" Padding="0,0,0,10"
@@ -19,55 +18,56 @@
             </Grid>
 
             <Grid Row="1" 
-                  RowDefinitions=" Auto,Auto,Auto,Auto,Auto,*,Auto,Auto,Auto">
+                  RowDefinitions=" Auto,Auto,Auto,Auto,Auto,*,Auto,Auto">
+
                 <Label Grid.Row="0"
-                        Text="DashBoard"
+                        Text="Jogadores"
                         Padding="40,20,0,20"
                         Style="{StaticResource MenuButtonDashBoardStyle}">
                     <Label.Triggers>
                     <DataTrigger TargetType="Label"
                                  Binding="{Binding SecaoAtual}"
-                                 Value="Dashboard">
+                                 Value="Jogadores">
                         <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                         <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                     </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarDashboardCommand}" />
+                        <TapGestureRecognizer Command="{Binding MostrarJogadoresCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
 
                 <Label Grid.Row="1"
-                       Text="Tabela de Grupos"
+                       Text="Time"
                        Padding="40,20,0,20"
                        Style="{StaticResource MenuButtonDashBoardStyle}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="Tabela">
+                                     Value="Times">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarTabelaCommand}" />
+                        <TapGestureRecognizer Command="{Binding MostrarTimesCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
 
                 <Label Grid.Row="2"
-                       Text="Mata-Mata"
+                       Text="Usuário"
                        Padding="40,20,0,20"
                        Style="{StaticResource MenuButtonDashBoardStyle}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="PlayOff">
+                                     Value="Usuario">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarPlayOffCommand}" />
+                        <TapGestureRecognizer Command="{Binding MostrarUsuariosCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -106,43 +106,25 @@
                 </Label>
 
                 <!-- LINHA 5 -->
-
                 <Label Grid.Row="6"
-                       Text="Cadastro de Clube"
+                       Text="Cadastro Geral"
                        Padding="40,20,0,20"
                        Style="{StaticResource MenuButtonDashBoardStyle}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="CadastroClube">
+                                     Value="CadastroGeral">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarCadastroClubeCommand}" />
+                        <TapGestureRecognizer Command="{Binding MostrarCadastroGeralCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
+
 
                 <Label Grid.Row="7"
-                       Text="Cadastro de Jogador"
-                       Padding="40,20,0,20"
-                       Style="{StaticResource MenuButtonDashBoardStyle}">
-                    <Label.Triggers>
-                        <DataTrigger TargetType="Label"
-                                     Binding="{Binding SecaoAtual}"
-                                     Value="CadastroJogador">
-                            <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
-                            <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
-                        </DataTrigger>
-                    </Label.Triggers>
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarCadastroJogadorCommand}" />
-                    </Label.GestureRecognizers>
-                </Label>
-
-
-                <Label Grid.Row="8"
                        Text="Novo Campeonato"
                        Padding="40,20,0,20"
                        Style="{StaticResource MenuButtonDashBoardStyle}">
@@ -164,8 +146,11 @@
 
         <!-- DASHBOARD -->
         <Grid Column="1" BackgroundColor="{StaticResource GateCremeFundoDashBoard}">
-            <ContentView Content="{Binding CurrentView}"/>
+        <!-- RECARREGAR O DASHBOARD E COLOCAR A NOVA PAGE AQUI  -->
+
         </Grid>
+
+        
 
         </Grid>
 </ContentPage>

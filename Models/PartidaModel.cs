@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Tabela.Models;
 
-public class PartidaModel
+public class PartidaModel : BaseModel
 {
     [Key] // Chave primária
     public Guid Partida_Id { get; set; }
