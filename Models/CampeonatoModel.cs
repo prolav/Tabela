@@ -1,14 +1,21 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using SQLite;
 
 namespace Tabela.Models;
 
-public class CampeonatoModel : BaseModel
+public class CampeonatoModel : BaseModel, INotifyPropertyChanged
 {
-    [Key] // Chave primária
-    public Guid Campeonato_Id { get; set; }
-    [Required] // Obrigatório
-    [MaxLength(100)]
+    [MaxLength(100)][Column("Campeonato_Nome")]
     public string Campeonato_Nome { get; set; }
+    [Column("Campeonato_Data")]
     public DateTime Campeonato_Data { get; set; }
-    public List<FaseModel> Campeonato_Fases { get; set; } = new();
+
+    [Ignore]
+    public virtual List<FaseModel> Campeonato_Fases { get; set; } = new();
+
+    #region Notify
+    public event PropertyChangedEventHandler PropertyChanged;
+    public void OnPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    #endregion
 }

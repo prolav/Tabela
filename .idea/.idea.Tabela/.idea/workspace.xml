@@ -10,35 +10,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd0aee71-e14d-4067-a502-2f820f23b813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controls/CustomEntry2.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_PlayOff_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Tabela_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_HistoricoJogos_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_HistoricoJogos_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_PlayOff_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_PlayOff_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Tabela_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Tabela_Partial.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/DbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Interface/FaseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Interface/IBaseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Interface/ICampeonatoRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Interface/IFaseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Interface/IGrupoRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Interface/IPartidaRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Interface/ITimeRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Interface/IUsuarioRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/BaseRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/CampeonatoRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/FasesRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/GrupoRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/PartidaRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/TimeRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/UsuarioRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Control/CustomEntry.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Control/CustomEntry.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tabela.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Tabela.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Jogador_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Jogador_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/AppDataBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/AppDataBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/MauiProgram.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/BaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/BaseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/CampeonatoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CampeonatoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ClubeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ClubeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/FaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/FaseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/GrupoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/GrupoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/JogadorModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/JogadorModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/PartidaModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/PartidaModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/TimeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/TimeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UsuarioModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UsuarioModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/UsuarioTipoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/UsuarioTipoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/BaseRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/ClubeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Repositories/ClubeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/IBaseRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/IClubeRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Interface/IClubeRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/IJogadorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Interface/IJogadorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/JogadorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Repositories/JogadorRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,9 +94,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2e7e7e632d20584c425172331c9bc3d26782ebd22675ce2b46341387b91aaaf/ConstructorInvoker.Mono.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/487df95234d628de9d727a1471b5f6ba2751195/View_PC_PC_LoginView.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomEntry.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Users/viniciusyoshino/RiderProjects/Tabela/Models/BaseModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Android/MainApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Windows/App.xaml.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Repositories/Repositories/BaseRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels_Celular/PrimeiroViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/View_PC/PC_MenuInicialView.xaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -118,25 +124,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Android.Tabela.executor": "Run",
-    "Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: Tabela": "iPhone 11",
-    "DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider": "Simulator",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "iOS.Tabela.executor": "Run",
-    "macOS.Tabela.executor": "Debug",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Android.Tabela.executor&quot;: &quot;Run&quot;,
+    &quot;Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: Tabela&quot;: &quot;iPhone 11&quot;,
+    &quot;DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider&quot;: &quot;Simulator&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;iOS.Tabela.executor&quot;: &quot;Run&quot;,
+    &quot;macOS.Tabela.executor&quot;: &quot;Run&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="macOS.Tabela">
     <configuration name="Tabela" type="XamarinAndroidProject" factoryName="Xamarin.Android">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/Tabela.csproj" />
@@ -217,7 +223,10 @@
       <workItem from="1753403116868" duration="46000" />
       <workItem from="1753403692170" duration="218000" />
       <workItem from="1753403950054" duration="378000" />
-      <workItem from="1753404331804" duration="31271000" />
+      <workItem from="1753404331804" duration="35704000" />
+      <workItem from="1753486613683" duration="194000" />
+      <workItem from="1753486812294" duration="16000" />
+      <workItem from="1753487368191" duration="377000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial">
       <option name="closed" value="true" />
@@ -283,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753468740306</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Inicio sql de novo">
+      <option name="closed" value="true" />
+      <created>1753482236895</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1753482236895</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +329,8 @@
     <MESSAGE value="Tela dash" />
     <MESSAGE value="Iniciar bd" />
     <MESSAGE value="Inicio dash" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicio dash" />
+    <MESSAGE value="Inicio sql de novo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio sql de novo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

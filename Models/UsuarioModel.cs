@@ -1,12 +1,20 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using SQLite;
 
 namespace Tabela.Models;
 
-public class UsuarioModel : BaseModel
+public class UsuarioModel : BaseModel, INotifyPropertyChanged
 {
-    [Key] // Chave primária
-    public Guid Usuario_Id { get; set; }
+    [MaxLength(100)][Column("Usuario_Login")]
     public string Usuario_Login { get; set; }
+    [MaxLength(100)][Column("Usuario_Password")]
     public string Usuario_Password { get; set; }
-    public UsuarioTipoModel UsuarioTipoModel { get; set; }
+    [MaxLength(100)][Column("Usuario_Tipo")]
+    public string Usuario_Tipo { get; set; }
+
+    #region Notify
+    public event PropertyChangedEventHandler PropertyChanged;
+    public void OnPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    #endregion
 }

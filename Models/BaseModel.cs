@@ -1,12 +1,15 @@
 using System.ComponentModel.DataAnnotations;
+using SQLite;
 
 namespace Tabela.Models;
 
-public abstract class BaseModel
+public class BaseModel
 {
-    [Key]
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public DateTime Criacao_Data { get; set; }
-    public DateTime Altecacao_Data { get; set; }
-    public bool Ativo { get; set; } = true;
+    [PrimaryKey]
+    public Guid Id { get;  set; } = Guid.NewGuid();
+    [Column("Dt_Inclusao")]
+    public DateTime  Dt_Inclusao { get;  set; } = DateTime.Now;
+    [Column("Dt_Alteracao")]
+    public DateTime Dt_Alteracao { get; set; } = DateTime.Now;
+    public bool Ativo { get;  set; } = true;
 }
