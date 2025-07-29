@@ -97,7 +97,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : new()
         {
             try
             {
-                if (obj is null)
+                if (obj == null)
                     throw new Exception("Objeto não pode ser nulo para esta acão de inserir");
                 _conn.InsertOrReplace(obj);
             }

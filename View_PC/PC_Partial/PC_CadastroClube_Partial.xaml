@@ -2,29 +2,104 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tabela.View_PC.PC_Partial.PC_CadastroClube_Partial">
-        <Grid  RowSpacing="10" ColumnSpacing="10" BackgroundColor="{StaticResource GateCremeFundoDashBoard}"
-              ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,*">
+             x:Class="Tabela.View_PC.PC_Partial.PC_CadastroClube_Partial"
+             xmlns:behaviors="clr-namespace:Tabela.Controls">
+<ScrollView>
+       <Grid  RowSpacing="10" ColumnSpacing="10" BackgroundColor="{StaticResource GateCremeFundoDashBoard}"
+              ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*">
             <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
                    Text="Logo"/>
             
             <Border Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" Stroke="{StaticResource GateVermelho}">
                 <Image Aspect="AspectFit" MaximumHeightRequest="200" Source="{Binding ImagemClube}" />
                 <Border.GestureRecognizers>
-
+                    <TapGestureRecognizer 
+                        Command="{Binding AdicionarImagemClubeCommand}"/>
                 </Border.GestureRecognizers>
             </Border>
-            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
-                   VerticalOptions="Center"
-                   Text="Nome:"/>
 
+            <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="Nome"/>
             <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderEntry}">
                 <Entry Placeholder="Nome do Clube" Style="{StaticResource Entry24Style}"
                        Text="{Binding NomeClube, Mode=TwoWay}"/>
             </Border>
+
+            <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="Regional"/>
             
-            <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource Button24_Vermelho}"
-                    Text="Adicionar" 
-                    Command="{Binding AdicionarCommand, Mode=TwoWay}"/>
+            <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                <Picker Style="{StaticResource Label24BoldStyle}"
+                        ItemsSource="{Binding RegionalList, Mode=TwoWay}"
+                        ItemDisplayBinding="{Binding Regional_Nome, Mode=TwoWay}"
+                        SelectedItem="{Binding RegionalSelecionado, Mode=TwoWay}" />
+            </Border>
+
+            <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="Presidente"/>
+            <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                   <Entry Placeholder="Presidente do Clube" Style="{StaticResource Entry24Style}"
+                          Text="{Binding PresidenteClube, Mode=TwoWay}"/>
+            </Border>
+
+            <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="Telefone"/>
+            <Border Grid.Row="4" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                   <Entry Placeholder="Telefone do Clube" Style="{StaticResource Entry24Style}"
+                          Text="{Binding TelefoneClube, Mode=TwoWay}">
+                          <Entry.Behaviors>
+                                 <behaviors:EntryMaskTelefoneBehavior Mascara="(##) #####-####" />
+                          </Entry.Behaviors>
+                   </Entry>
+            </Border>
+
+            <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="E-mail"/>
+            <Border Grid.Row="5" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                   <Entry Placeholder="E-mail do Clube" Style="{StaticResource Entry24Style}"
+                          Text="{Binding EmailClube, Mode=TwoWay}"/>
+            </Border>
+            
+            <Label Grid.Row="6" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="País"/>
+            <Border Grid.Row="6" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                <Entry Placeholder="País do Clube" Style="{StaticResource Entry24Style}"
+                       Text="{Binding PaisClube, Mode=TwoWay}"/>
+            </Border>
+
+            <Label Grid.Row="7" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="UF"/>
+            <Border Grid.Row="7" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                <Entry Placeholder="UF do Clube" Style="{StaticResource Entry24Style}"
+                       MaxLength="2"
+                       Text="{Binding UFClube, Mode=TwoWay}"/>
+            </Border>
+
+            <Label Grid.Row="8" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="Cidade"/>
+            <Border Grid.Row="8" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                   <Entry Placeholder="Cidade do Clube" Style="{StaticResource Entry24Style}"
+                          Text="{Binding CidadeClube, Mode=TwoWay}"/>
+            </Border>
+
+            <Label Grid.Row="9" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="Bairro"/>
+            <Border Grid.Row="9" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                   <Entry Placeholder="Bairro do Clube" Style="{StaticResource Entry24Style}"
+                          Text="{Binding BairroClube, Mode=TwoWay}"/>
+            </Border>
+
+            <Label Grid.Row="10" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center" Text="Logradouro"/>
+            <Border Grid.Row="10" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                   <Entry Placeholder="Logradouro do Clube" Style="{StaticResource Entry24Style}"
+                          Text="{Binding LogradouroClube, Mode=TwoWay}"/>
+            </Border>
+
+
+
+            <Button Grid.Row="11" Grid.Column="1" Style="{StaticResource Button24_Vermelho}"
+                    Text="Salvar" Command="{Binding AdicionarClubeCommand, Mode=TwoWay}"/>
         </Grid>
+</ScrollView>
 </ContentView>

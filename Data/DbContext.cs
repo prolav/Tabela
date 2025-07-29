@@ -30,6 +30,7 @@ public class DbContext
         _sqlConnection.CreateTable<PartidaModel>();
         _sqlConnection.CreateTable<TimeModel>();
         _sqlConnection.CreateTable<UsuarioModel>();
+        _sqlConnection.CreateTable<RegionalModel>();
     }
 
     public SQLiteConnection Connection

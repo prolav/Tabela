@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tabela.View_PC.PC_Partial.PC_CadastroRegional_Partial"
+             xmlns:behaviors="clr-namespace:Tabela.Controls">
+
+    <Grid  RowSpacing="10" ColumnSpacing="10" BackgroundColor="{StaticResource GateCremeFundoDashBoard}"
+           ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto, *">
+
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+               VerticalOptions="Center"
+               Text="Nome"/>
+
+        <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderEntry}">
+            <Entry Placeholder="Nome" Style="{StaticResource Entry24Style}"
+                   Text="{Binding NomeRegional, Mode=TwoWay}"/>
+        </Border>
+
+        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+               VerticalOptions="Center"
+               Text="Presidente"/>
+
+        <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderEntry}">
+               <Entry Placeholder="Presidente" Style="{StaticResource Entry24Style}"
+                      Text="{Binding PresidenteRegional, Mode=TwoWay}"/>
+        </Border>
+
+        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+               VerticalOptions="Center"
+               Text="Telefone"/>
+
+        <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource BorderEntry}">
+               <Entry Placeholder="Telefone do Regional" Style="{StaticResource Entry24Style}"
+                      Text="{Binding TelefoneRegional, Mode=TwoWay}">
+                      <Entry.Behaviors>
+                             <behaviors:EntryMaskTelefoneBehavior Mascara="(##) #####-####" />
+                      </Entry.Behaviors>
+               </Entry>
+        </Border>
+
+        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+               VerticalOptions="Center"
+               Text="Email"/>
+
+        <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource BorderEntry}">
+               <Entry Placeholder="E-mail da Regional" Style="{StaticResource Entry24Style}"
+                      Text="{Binding EmailRegional, Mode=TwoWay}"/>
+        </Border>
+
+        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+               VerticalOptions="Center"
+               Text="Data de Início"/>
+
+        <Border Grid.Row="4" Grid.Column="1" Style="{StaticResource BorderEntry}">
+               <Entry Placeholder="Início Mandato" Style="{StaticResource Entry24Style}"
+                      Text="{Binding DataInicioRegional, Mode=TwoWay}"/>
+        </Border>
+
+        <Label Grid.Row="5" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+               VerticalOptions="Center"
+               Text="Data de Fim"/>
+
+        <Border Grid.Row="5" Grid.Column="1" Style="{StaticResource BorderEntry}">
+               <Entry Placeholder="Fim Mandato" Style="{StaticResource Entry24Style}"
+                      Text="{Binding DataFimRegional, Mode=TwoWay}"/>
+        </Border>
+            
+        <Button Grid.Row="7" Grid.Column="1" Style="{StaticResource Button24_Vermelho}"
+                Text="Salvar" VerticalOptions="Start"
+                Command="{Binding AdicionarRegionalCommand, Mode=TwoWay}"/>
+    </Grid>
+</ContentView>

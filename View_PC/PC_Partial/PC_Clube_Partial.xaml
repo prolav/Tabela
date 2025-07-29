@@ -2,15 +2,22 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tabela.View_PC.PC_Partial.PC_Clube_Partial">
-    
-        <Grid  RowDefinitions="Auto, *">
-            
+             x:Class="Tabela.View_PC.PC_Partial.PC_Clube_Partial"
+             xmlns:cards="clr-namespace:Tabela.View_PC.Cards_List">
+
+        <Grid  RowDefinitions="Auto, *" RowSpacing="20">
             <Button Grid.Row="0" Style="{StaticResource Button24_Vermelho}"
                     Text="Cadastrar" Command="{Binding CadastrarClubeCommand}" HorizontalOptions="End"/>
 
-            <ListView Grid.Row="1" >
-
+            <ListView Grid.Row="1" ItemsSource="{Binding ListaClube}" HasUnevenRows="True" BackgroundColor="Transparent"
+                      SelectionMode="Single" SeparatorVisibility="None" SelectedItem="{Binding ClubeSelecionado, Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <cards:ClubeCard/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </Grid>
 </ContentView>

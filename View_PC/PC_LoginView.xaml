@@ -13,7 +13,11 @@
                 HorizontalOptions="Center" 
                 VerticalOptions="Center" 
                 Source="logo_kyoyu.jpeg" 
-                Aspect="AspectFit" />
+                Aspect="AspectFit" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding DroparBancoCommand}" NumberOfTapsRequired="10"/>
+                </Image.GestureRecognizers>
+            </Image>
 
             <Grid Grid.Row="1" Margin="10"
                   HorizontalOptions="Fill"

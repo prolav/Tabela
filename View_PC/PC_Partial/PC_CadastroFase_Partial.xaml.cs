@@ -8,11 +8,11 @@ using Tabela.ViewModel_PC;
 
 namespace Tabela.View_PC.PC_Partial;
 
-public partial class PC_CadastroClube_Partial : ContentView
+public partial class PC_CadastroFase_Partial : ContentView
 {
-    public PC_CadastroClube_Partial(PC_DashBoardViewModel pc_DashBoardVM, ClubeModel clube= null)
+    public PC_CadastroFase_Partial(PC_DashBoardViewModel pc_DashBoardVM, FaseModel fase = null)
     {
         InitializeComponent();
-        BindingContext = new PC_CadastroClube_PartialViewModel(pc_DashBoardVM, clube);
+        BindingContext = new PC_CadastroFase_PartialViewModel(pc_DashBoardVM, fase);
     }
 }

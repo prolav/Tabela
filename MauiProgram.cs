@@ -1,5 +1,10 @@
 ﻿using Microsoft.Maui.LifecycleEvents;
 using System.Linq;
+using Tabela.Data;
+using Tabela.Repositories;
+using Tabela.View_PC;
+using Tabela.View_PC.PC_Partial;
+using Tabela.ViewModel_PC;
 
 #if WINDOWS
 using Microsoft.UI;
@@ -20,7 +25,6 @@ namespace Tabela
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
@@ -29,54 +33,63 @@ namespace Tabela
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.ConfigureLifecycleEvents(events =>
-            {
-#if WINDOWS
-                events.AddWindows(w =>
-                {
-                    w.OnWindowCreated(window =>
-                    {
-                        var nativeWindow = window.Handler.PlatformView as Microsoft.UI.Xaml.Window;
+            // PARTIAL DE PC 
+            builder.Services.AddSingleton<PC_CadastroClube_Partial>();
+            builder.Services.AddSingleton<PC_CadastroJogador_Partial>();
+            builder.Services.AddSingleton<PC_ClassificacaoGeral_Partial>();
+            builder.Services.AddSingleton<PC_Clube_Partial>();
+            builder.Services.AddSingleton<PC_DashBoard_Partial>();
+            builder.Services.AddSingleton<PC_HistoricoJogos_Partial>();
+            builder.Services.AddSingleton<PC_Jogador_Partial>();
+            builder.Services.AddSingleton<PC_NovoCampeonato_Partial>();
+            builder.Services.AddSingleton<PC_PlayOff_Partial>();
+            builder.Services.AddSingleton<PC_Tabela_Partial>();
 
-                        IntPtr hwnd = WinRT.Interop.WindowNative.GetWindowHandle(nativeWindow);
-                        WindowId wndId = Win32Interop.GetWindowIdFromWindow(hwnd);
-                        AppWindow appWindow = AppWindow.GetFromWindowId(wndId);
+            // PAGES DE PC
+            builder.Services.AddSingleton<PC_CadastroGeralView>();
+            builder.Services.AddSingleton<PC_DashBoardView>();
+            builder.Services.AddSingleton<PC_LoginView>();
+            builder.Services.AddSingleton<PC_MenuInicialView>();
+            // builder.Services.AddSingleton<ClientPage>();
 
-                        appWindow.TryMaximize(); // Maximiza no Windows
-                    });
-                });
-#endif
+            // DBCONTEXT
+            builder.Services.AddSingleton<DbContext>();
 
-#if MACCATALYST
-                events.AddiOS(w =>
-                {
-                    w.FinishedLaunching((app, options) =>
-                    {
-                        var windowScene = UIApplication.SharedApplication
-                            .ConnectedScenes
-                            .OfType<UIWindowScene>()
-                            .FirstOrDefault();
+            // INTERFACES E REPOSITORIES
+             // builder.Services.AddSingleton<ICampeonatoRepository, CampeonatoRepository>();
+             // builder.Services.AddSingleton<IClubeRepository, ClubeRepository>();
+             // builder.Services.AddSingleton<IFaseRepository, FasesRepository>();
+             // builder.Services.AddSingleton<IGrupoRepository, GrupoRepository>();
+             // builder.Services.AddSingleton<IJogadorRepository, JogadorRepository>();
+             // builder.Services.AddSingleton<IPartidaRepository, PartidaRepository>();
+             // builder.Services.AddSingleton<ITimeRepository, TimeRepository>();
+             // builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
 
-                        var window = windowScene?
-                            .Windows
-                            .FirstOrDefault();
+            // builder.Services.AddSingleton<INavigationService, MauiNavigationService>();
 
-                        if (window?.WindowScene?.SizeRestrictions != null)
-                        {
-                            window.WindowScene.SizeRestrictions.MaximumSize = new CGSize(1500, 1500);
-                            window.WindowScene.SizeRestrictions.MinimumSize = new CGSize(2000, 800);
-    
-                            // Emula clique no botão de maximizar (apenas para macOS Catalyst)
-                            window.RootViewController?.View?.Window?.PerformSelector(new Selector("zoom:"), null, 0);
-                        }
-
-                        return true;
-                    });
-                });
-#endif
-            });
+            // PAGES E VIEWMODELS
+            //builder.Services.AddViewToViewModel<PC_CadastroClube_PartialViewModel, PC_CadastroClube_Partial>();
+            // builder.Services.AddViewModel<ClientListViewModel, ClientListPage>();
+            // builder.Services.AddViewModel<ClientListViewModel, ClientListPage>();
+            // builder.Services.AddViewModel<ClientListViewModel, ClientListPage>();
+            // builder.Services.AddViewModel<ClientListViewModel, ClientListPage>();
+            // builder.Services.AddViewModel<ClientListViewModel, ClientListPage>();
+            // builder.Services.AddViewModel<ClientListViewModel, ClientListPage>();
+            // builder.Services.AddViewModel<ClientListViewModel, ClientListPage>();
+            //builder.Services.AddPageToViewModel<PC_LoginViewModel, PC_LoginView>();
+            // builder.Services.AddViewModel<ClientViewModel, ClientPage>();
 
             return builder.Build();
         }
+
+        private static void AddPageToViewModel<TViewModel, TView>(this IServiceCollection services)
+            where TView : ContentPage, new()
+            where TViewModel : class
+        {
+            services.AddTransient<TViewModel>();
+            services.AddTransient<TView>(s => new TView() { BindingContext = s.GetRequiredService<TViewModel>() });
+        }
+
+     
     }
 }

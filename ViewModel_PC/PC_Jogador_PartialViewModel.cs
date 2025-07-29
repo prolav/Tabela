@@ -31,7 +31,7 @@ public class PC_Jogador_PartialViewModel : BaseViewModel
     #region Methods
     private void CadastrarJogadorExecute()
     {
-        _pc_DashBoardVM.MudancaPage(PC_DashBoardViewModel.TipoPage.CadastroJogador);
+        _pc_DashBoardVM.AtualizarPage("Cadastro de Jogadores");
 
     }
     #endregion

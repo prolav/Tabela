@@ -10,6 +10,9 @@ public class CampeonatoModel : BaseModel, INotifyPropertyChanged
     public string Campeonato_Nome { get; set; }
     [Column("Campeonato_Data")]
     public DateTime Campeonato_Data { get; set; }
+    public int TotalTimes { get; set; }
+    public int TotalCampos { get; set; }
+
 
     [Ignore]
     public virtual List<FaseModel> Campeonato_Fases { get; set; } = new();

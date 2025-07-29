@@ -1,8 +1,10 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
 namespace Tabela.ViewModel_PC;
 
-public class PC_CadastroJogador_PartialViewModel : BaseViewModel
+public class PC_CadastroJogador_PartialViewModel : BaseViewModel,INotifyPropertyChanged
 {
     #region Fields
     private PC_DashBoardViewModel _pc_DashBoardVM;
@@ -43,5 +45,9 @@ public class PC_CadastroJogador_PartialViewModel : BaseViewModel
         //var match = listaClubes.; 
 
     }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected void OnPropertyChanged([CallerMemberName] string name = null) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     #endregion
 }

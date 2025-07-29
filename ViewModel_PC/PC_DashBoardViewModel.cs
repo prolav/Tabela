@@ -1,4 +1,6 @@
 using System.Windows.Input;
+using Tabela.Models;
+using Tabela.View_PC;
 using Tabela.View_PC.PC_Partial;
 
 namespace Tabela.ViewModel_PC;
@@ -21,7 +23,8 @@ public class PC_DashBoardViewModel: BaseViewModel
         Clube,
         Jogador,
         CadastroClube,
-        NovoCampeonato
+        NovoCampeonato,
+        CadastroGeral
     }
 
     #endregion
@@ -52,36 +55,105 @@ public class PC_DashBoardViewModel: BaseViewModel
     #endregion
     
     #region Commands
-
-    public ICommand MostrarDashboardCommand => new Command(() => MudancaPage(TipoPage.Dashboard));
-    public ICommand MostrarTabelaCommand => new Command(() => MudancaPage(TipoPage.Tabela));
-    public ICommand MostrarPlayOffCommand => new Command(() => MudancaPage(TipoPage.PlayOff));
-    public ICommand MostrarClassificacaoGeralCommand => new Command(() => MudancaPage(TipoPage.ClassificacaoGeral));
-    public ICommand MostrarHistoricoJogosCommand => new Command(() => MudancaPage(TipoPage.HistoricoJogos));
-    public ICommand MostrarNovoCampeonatoCommand => new Command(() => MudancaPage(TipoPage.NovoCampeonato));
-    public ICommand MostrarCadastroJogadorCommand => new Command(() => MudancaPage(TipoPage.CadastroJogador));
-    public ICommand MostrarCadastroClubeCommand => new Command(() => MudancaPage(TipoPage.CadastroClube));
-    public ICommand MostrarClubeCommand => new Command(() => MudancaPage(TipoPage.Clube));
-    public ICommand MostrarJogadorCommand => new Command(() => MudancaPage(TipoPage.Jogador));
     
-    public ICommand SairCommand { get; }
+    public ICommand AtualizarPageCommand => new Command<string>(nomePage => AtualizarPage(nomePage));
+
     #endregion
     
     #region Constructor
     public PC_DashBoardViewModel()
     {
-        SairCommand = new Command(SairCommandExecute);
         SecaoAtual = TipoPage.Dashboard.ToString();
         PC_DashBoardVM = this;
-        MudancaPage(TipoPage.Dashboard);
+        AtualizarPage("DashBoard");
     }
     #endregion
 
     #region Methods
 
-    public void AtualizarPage()
+    public void AtualizarPage(string nomePage, object model = null)
     {
-
+        TituloCard = nomePage;
+        
+        if (nomePage == "DashBoard")
+        {
+            SecaoAtual = nomePage;
+            CurrentView = new PC_DashBoard_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Tabela de Grupos")
+        {
+            SecaoAtual = nomePage;
+            CurrentView = new PC_Tabela_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Mata-Mata")
+        {
+            SecaoAtual = nomePage;
+            CurrentView = new PC_PlayOff_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Classificação Geral")
+        {
+            SecaoAtual = nomePage;
+            CurrentView = new PC_ClassificacaoGeral_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Histórico de Jogos")
+        {
+            SecaoAtual = nomePage;
+            CurrentView = new PC_HistoricoJogos_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Cadastro de Clubes")
+        {
+            var clubeModel = new ClubeModel();
+            clubeModel = model as ClubeModel;
+            if (clubeModel != null)
+                TituloCard = "Editar Clube";
+            CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel);
+        }
+        else if (nomePage == "Cadastro de Jogadores")
+        {
+            CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Lista de Clubes")
+        {
+            CurrentView = new PC_Clube_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Lista de Jogadores")
+        {
+            CurrentView = new PC_Jogador_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Novo Campeonato")
+        {
+            SecaoAtual = nomePage;
+            CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Cadastro Geral")
+        {
+            SecaoAtual = nomePage;
+            CurrentView = new PC_CadastroGeral_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Lista de Regionais")
+        {
+            CurrentView = new PC_Regional_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Cadastro de Regionais")
+        {
+            var regionalModel = new RegionalModel();
+            regionalModel = model as RegionalModel;
+            if (regionalModel != null)
+                TituloCard = "Editar Regional";
+            CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel);
+        }
+        else if (nomePage == "Lista de Fases")
+        {
+            CurrentView = new PC_Fase_Partial(PC_DashBoardVM);
+        }
+        else if (nomePage == "Cadastro de Fases")
+        {
+            var faseModel = new FaseModel();
+            faseModel = model as FaseModel;
+            if (faseModel != null)
+                TituloCard = "Editar Fase";
+            CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel);
+        }
     }
     private void SairCommandExecute()
     {
@@ -89,61 +161,6 @@ public class PC_DashBoardViewModel: BaseViewModel
 
     }
 
-    public void MudancaPage(TipoPage tipoPage)
-    {
-        SecaoAtual = tipoPage.ToString();
-        if (tipoPage == TipoPage.Dashboard)
-        {
-            TituloCard = "DashBoard";
-            CurrentView = new PC_DashBoard_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.Tabela)
-        {
-            TituloCard = "Tabela";
-            CurrentView = new PC_Tabela_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.PlayOff)
-        {
-            TituloCard = "Mata-Mata";
-            CurrentView = new PC_PlayOff_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.ClassificacaoGeral)
-        {
-            TituloCard = "Classificação Geral";
-            CurrentView = new PC_ClassificacaoGeral_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.HistoricoJogos)
-        {
-            TituloCard = "Histórico de Jogos";
-            CurrentView = new PC_HistoricoJogos_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.CadastroClube)
-        {
-            TituloCard = "Cadastro de Clubes";
-            SecaoAtual = TipoPage.Clube.ToString();
-            CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.CadastroJogador)
-        {
-            TituloCard = "Cadastro de Jogadores";
-            SecaoAtual = TipoPage.Clube.ToString();
-            CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.Clube)
-        {
-            TituloCard = "Lista de Clubes";
-            CurrentView = new PC_Clube_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.Jogador)
-        {
-            TituloCard = "Lista de Jogadores";
-            CurrentView = new PC_Jogador_Partial(PC_DashBoardVM);
-        }
-        else if (tipoPage == TipoPage.NovoCampeonato)
-        {
-            TituloCard = "Novo Campeonato";
-            CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM);
-        }
-    }
+    
     #endregion
 }

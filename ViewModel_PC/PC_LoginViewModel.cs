@@ -19,13 +19,14 @@ public class PC_LoginViewModel : BaseViewModel
     #endregion
     
     #region Commands
-    public ICommand EntrarCommand { get; }
+    public ICommand EntrarCommand => new Command(() => EntrarCommandExecute());
+    public ICommand DroparBancoCommand => new Command(() => DroparBancoExecute());
     #endregion
     
     #region Constructor
     public PC_LoginViewModel()
     {
-        EntrarCommand = new Command(EntrarCommandExecute);
+
     }
     #endregion
 
@@ -34,6 +35,30 @@ public class PC_LoginViewModel : BaseViewModel
     {
         Application.Current.MainPage = new NavigationPage(new PC_DashBoardView());
 
+    }
+
+    private async void DroparBancoExecute()
+    {
+        bool resposta = await Application.Current.MainPage.DisplayAlert("Atenção", "Deletar Banco?", "Sim", "Não");
+        if (resposta)
+        {
+            try
+            {
+                var dbPath = Path.Combine(FileSystem.AppDataDirectory, "GateScore.db3");
+
+                if (File.Exists(dbPath))
+                    File.Delete(dbPath); // 🔥 Deleta o banco inteiro
+                else
+                {
+                    Console.WriteLine();  
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
     }
     #endregion
 }

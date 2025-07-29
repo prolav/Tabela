@@ -32,7 +32,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
     #region Methods
     private void CadastrarJogadorExecute()
     {
-        _pc_DashBoardVM.MudancaPage(PC_DashBoardViewModel.TipoPage.CadastroJogador);
+        //_pc_DashBoardVM.MudancaPage(PC_DashBoardViewModel.TipoPage.CadastroJogador);
 
     }
     #endregion

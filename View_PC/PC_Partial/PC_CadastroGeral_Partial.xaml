@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tabela.View_PC.PC_Partial.PC_CadastroGeral_Partial">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*" RowSpacing="10" ColumnSpacing="30">
+        <Frame Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameDashBoard}">
+            <Label  Style="{StaticResource Label32BoldStyle}"
+                    Text="Regional">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Lista de Regionais" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Frame>
+
+        <Frame Grid.Row="1" Grid.Column="0" Style="{StaticResource FrameDashBoard}">
+            <Label  Style="{StaticResource Label32BoldStyle}"
+                    Text="Clube" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Lista de Clubes" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Frame>
+
+        <Frame Grid.Row="2" Grid.Column="0" Style="{StaticResource FrameDashBoard}">
+            <Label  Style="{StaticResource Label32BoldStyle}"
+                    Text="Fase" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Lista de Fases" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Frame>
+
+        <Frame Grid.Row="3" Grid.Column="0" Style="{StaticResource FrameDashBoard}">
+            <Label  Style="{StaticResource Label32BoldStyle}"
+                    Text="Jogador" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Lista de Jogadores" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Frame>
+
+    </Grid>
+</ContentView>

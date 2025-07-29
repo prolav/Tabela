@@ -7,7 +7,7 @@ namespace Tabela.Models;
 public class JogadorModel : BaseModel, INotifyPropertyChanged
 {
     [Column("Jogador_imagem")]
-    public Image Jogador_Imagem { get; set; }
+    public string Jogador_Imagem { get; set; }
     [MaxLength(100)][Column("Jogador_Nome")]
     public string Jogador_Nome { get; set; }
     [MaxLength(1)][Column("Jogador_Numero")]

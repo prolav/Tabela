@@ -19,7 +19,7 @@
             </Grid>
 
             <Grid Row="1" 
-                  RowDefinitions=" Auto,Auto,Auto,Auto,Auto,*,Auto,Auto,Auto">
+                  RowDefinitions=" Auto,Auto,Auto,Auto,Auto,Auto,*,Auto,Auto">
                 <Label Grid.Row="0"
                         Text="DashBoard"
                         Padding="40,20,0,20"
@@ -27,13 +27,13 @@
                     <Label.Triggers>
                     <DataTrigger TargetType="Label"
                                  Binding="{Binding SecaoAtual}"
-                                 Value="Dashboard">
+                                 Value="DashBoard">
                         <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                         <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                     </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarDashboardCommand}" />
+                        <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="DashBoard" />
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -44,13 +44,13 @@
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="Tabela">
+                                     Value="Tabela de Grupos">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarTabelaCommand}" />
+                        <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Tabela de Grupos" />
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -61,13 +61,13 @@
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="PlayOff">
+                                     Value="Mata-Mata">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarPlayOffCommand}" />
+                        <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Mata-Mata" />
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -78,13 +78,13 @@
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="ClassificacaoGeral">
+                                     Value="Classificação Geral">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarClassificacaoGeralCommand}" />
+                        <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Classificação Geral" />
                     </Label.GestureRecognizers>
                 </Label>
                   
@@ -95,49 +95,33 @@
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="HistoricoJogos">
+                                     Value="Histórico de Jogos">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarHistoricoJogosCommand}" />
+                        <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Histórico de Jogos" />
                     </Label.GestureRecognizers>
                 </Label>
 
-                <!-- LINHA 5 -->
-
-                <Label Grid.Row="6"
-                       Text="Clubes"
-                       Padding="40,20,0,20"
-                       Style="{StaticResource MenuButtonDashBoardStyle}">
-                    <Label.Triggers>
-                        <DataTrigger TargetType="Label"
-                                     Binding="{Binding SecaoAtual}"
-                                     Value="Clube">
-                            <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
-                            <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
-                        </DataTrigger>
-                    </Label.Triggers>
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarClubeCommand}" />
-                    </Label.GestureRecognizers>
-                </Label>
+                <!-- LINHA6 -->
+                <!-- LINHA 7 -->
 
                 <Label Grid.Row="7"
-                       Text="Jogadores"
+                       Text="Cadastro Geral"
                        Padding="40,20,0,20"
                        Style="{StaticResource MenuButtonDashBoardStyle}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="Jogador">
+                                     Value="Cadastro Geral">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarJogadorCommand}" />
+                        <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Cadastro Geral" />
                     </Label.GestureRecognizers>
                 </Label>
 
@@ -149,13 +133,13 @@
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
-                                     Value="NovoCampeonato">
+                                     Value="Novo Campeonato">
                             <Setter Property="BackgroundColor" Value="{StaticResource GateVermelho}" />
                             <Setter Property="TextColor" Value="{StaticResource GateCreme}" />
                         </DataTrigger>
                     </Label.Triggers>
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding MostrarNovoCampeonatoCommand}" />
+                        <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Novo Campeonato" />
                     </Label.GestureRecognizers>
                 </Label>
             </Grid>

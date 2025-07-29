@@ -7,12 +7,11 @@ using Tabela.ViewModel_PC;
 
 namespace Tabela.View_PC.PC_Partial;
 
-public partial class PC_Clube_Partial : ContentView
+public partial class PC_Fase_Partial : ContentView
 {
-    public PC_Clube_Partial(PC_DashBoardViewModel pc_DashBoardVM)
+    public PC_Fase_Partial(PC_DashBoardViewModel pc_DashBoardVM)
     {
         InitializeComponent();
-        BindingContext = new PC_Clube_PartialViewModel(pc_DashBoardVM);
+        BindingContext = new PC_Fase_PartialViewModel(pc_DashBoardVM);
     }
-
 }

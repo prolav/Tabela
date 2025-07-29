@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tabela.View_PC.PC_Partial.PC_Regional_Partial"
+             xmlns:cards="clr-namespace:Tabela.View_PC.Cards_List">
+    
+    <Grid  RowDefinitions="Auto, *"  RowSpacing="20">
+        <Button Grid.Row="0" Style="{StaticResource Button24_Vermelho}"
+                Text="Cadastrar" Command="{Binding CadastrarRegionalCommand}" HorizontalOptions="End"/>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding ListaRegional}" HasUnevenRows="True" BackgroundColor="Transparent"
+                  SelectionMode="Single" SeparatorVisibility="None" SelectedItem="{Binding RegionalSelecionado, Mode=TwoWay}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <cards:RegionalCard/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentView>
