@@ -28,7 +28,7 @@ public class PC_Fase_PartialViewModel : BaseViewModel
                 OnPropertyChanged();
 
                 if (_faseSelecionado != null)
-                    EditarFaseExecute(FaseSelecionado);
+                    VisualizarFaseExecute(FaseSelecionado);
             }
         }
     }
@@ -38,6 +38,10 @@ public class PC_Fase_PartialViewModel : BaseViewModel
          
     #region Commands
     public ICommand CadastrarFaseCommand => new Command(() => CadastrarFaseExecute());
+    public ICommand EditarFaseCommand => new Command<object>(
+        obj => EditarFaseExecute(obj as FaseModel));
+    public ICommand ExcluirFaseCommand => new Command<object>(
+        obj => ExcluirFaseExecute(obj as FaseModel));
     #endregion
          
     #region Constructor
@@ -74,7 +78,31 @@ public class PC_Fase_PartialViewModel : BaseViewModel
 
     private void EditarFaseExecute(FaseModel fase)
     {
-        _pc_DashBoardVM.AtualizarPage("Cadastro de Fases", fase);
+        _pc_DashBoardVM.AtualizarPage("Cadastro de Fases", fase, true);
+    }
+
+    private void VisualizarFaseExecute(FaseModel fase)
+    {
+        _pc_DashBoardVM.AtualizarPage("Cadastro de Fases", fase, false);
+    }
+
+    private async void ExcluirFaseExecute(FaseModel fase)
+    {
+        try
+        {
+            var resposta = await Application.Current.MainPage.DisplayAlert("Atenção", $"Deseja realmente excluir a fase \"{fase.Fase_Nome}\" ?", "OK", "Cancelar");
+            if (resposta == true)
+            {
+                var faseRepository = new FasesRepository();
+                faseRepository.Delete(fase);
+                CarregarDados();
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
     #endregion
     public event PropertyChangedEventHandler PropertyChanged;

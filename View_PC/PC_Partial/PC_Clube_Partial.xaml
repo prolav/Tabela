@@ -14,7 +14,8 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <cards:ClubeCard/>
+                            <cards:ClubeCard EditarClubeCommand="{Binding BindingContext.EditarClubeCommand, Source={RelativeSource AncestorType={x:Type ContentView}}}" 
+                                             ExcluirClubeCommand="{Binding BindingContext.ExcluirClubeCommand, Source={RelativeSource AncestorType={x:Type ContentView}}}"/>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

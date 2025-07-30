@@ -10,9 +10,9 @@ namespace Tabela.View_PC.PC_Partial;
 
 public partial class PC_CadastroFase_Partial : ContentView
 {
-    public PC_CadastroFase_Partial(PC_DashBoardViewModel pc_DashBoardVM, FaseModel fase = null)
+    public PC_CadastroFase_Partial(PC_DashBoardViewModel pc_DashBoardVM, FaseModel fase = null, bool modoEdicao = false)
     {
         InitializeComponent();
-        BindingContext = new PC_CadastroFase_PartialViewModel(pc_DashBoardVM, fase);
+        BindingContext = new PC_CadastroFase_PartialViewModel(pc_DashBoardVM, fase, modoEdicao);
     }
 }

@@ -12,19 +12,23 @@ public class PC_CadastroFase_PartialViewModel: BaseViewModel,INotifyPropertyChan
     private PC_DashBoardViewModel _pc_DashBoardVM;
     private FaseModel _fase;
     private string _nomeFase;
+    private bool _modoEdicao;
     #endregion
 
     #region Properties
     public string NomeFase { get => _nomeFase; set => SetProperty(ref _nomeFase, value); }
     public FaseModel Fase { get => _fase; set => SetProperty(ref _fase, value); }
+    public bool ModoEdicao { get => _modoEdicao; set => SetProperty(ref _modoEdicao, value); }
     #endregion
     
     #region Commands
     public ICommand AdicionarFaseCommand => new Command(() => AdicionarFaseExecute());
+    public ICommand VoltarFaseCommand => new Command(() => VoltarFaseExecute());
+    
     #endregion
     
     #region Constructor
-    public PC_CadastroFase_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM, FaseModel fase)
+    public PC_CadastroFase_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM, FaseModel fase, bool modoEdicao = false)
     {
         _pc_DashBoardVM = pc_DashBoardVM;
         CarregarDados(fase);
@@ -33,10 +37,11 @@ public class PC_CadastroFase_PartialViewModel: BaseViewModel,INotifyPropertyChan
 
     #region Methods
 
-    private void CarregarDados(FaseModel fase)
+    private void CarregarDados(FaseModel fase, bool modoEdicao = false)
     {
         try
         {
+            ModoEdicao = modoEdicao;
             if (fase == null)
                 Fase = new FaseModel();
             else
@@ -74,6 +79,10 @@ public class PC_CadastroFase_PartialViewModel: BaseViewModel,INotifyPropertyChan
         }
     }
 
+    private void VoltarFaseExecute()
+    {
+        _pc_DashBoardVM.AtualizarPage("Lista de Fases");
+    }
     #endregion
 
     public event PropertyChangedEventHandler PropertyChanged;

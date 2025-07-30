@@ -24,9 +24,11 @@ public class PC_CadastroClube_PartialViewModel: BaseViewModel,INotifyPropertyCha
     private string _cidadeClube;
     private string _bairroClube;
     private string _logradouroClube;
+    private bool   _modoEdicao;
     #endregion
 
     #region Properties
+    public bool ModoEdicao { get => _modoEdicao; set => SetProperty(ref _modoEdicao, value); }
     public string ImagemClube
     {
         get => _imagemClube;
@@ -79,22 +81,24 @@ public class PC_CadastroClube_PartialViewModel: BaseViewModel,INotifyPropertyCha
     #region Commands
     public ICommand AdicionarImagemClubeCommand => new Command(() => AdicionarImagemClubeExecute());
     public ICommand AdicionarClubeCommand => new Command(() => AdicionarClubeExecute());
+    public ICommand VoltarClubeCommand => new Command(() => VoltarClubeExecute());
     #endregion
     
     #region Constructor
-    public PC_CadastroClube_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM, ClubeModel clubeModel = null)
+    public PC_CadastroClube_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM, ClubeModel clubeModel = null,  bool modoEdicao = false)
     {
         _pc_DashBoardVM = pc_DashBoardVM;
-        CarregarDados(clubeModel);
+        CarregarDados(clubeModel, modoEdicao);
     }
     #endregion
 
     #region Methods
 
-    private void CarregarDados(ClubeModel clube)
+    private void CarregarDados(ClubeModel clube, bool modoEdicao = false)
     {
         try
         {
+            ModoEdicao = modoEdicao;
             RegionalList = new List<RegionalModel>();
             var regionalRepository = new RegionalRepository();
             RegionalList = regionalRepository.GetAll();
@@ -183,6 +187,11 @@ public class PC_CadastroClube_PartialViewModel: BaseViewModel,INotifyPropertyCha
             Console.WriteLine($"Imagem salva em: {destino}");
         }
 
+    }
+
+    private void VoltarClubeExecute()
+    {
+        _pc_DashBoardVM.AtualizarPage("Lista de Clubes");
     }
     #endregion
 

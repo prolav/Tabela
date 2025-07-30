@@ -25,9 +25,9 @@ public class PC_Clube_PartialViewModel : BaseViewModel
              {
                  _clubeSelecionado = value;
                  OnPropertyChanged();
-
+     
                  if (_clubeSelecionado != null)
-                     EditarClubeExecute(_clubeSelecionado);
+                     VisualizarClubeExecute(_clubeSelecionado);
              }
          }
      }
@@ -36,6 +36,12 @@ public class PC_Clube_PartialViewModel : BaseViewModel
          
      #region Commands
      public ICommand CadastrarClubeCommand => new Command(() => CadastrarClubeExecute());
+     public ICommand EditarClubeCommand => new Command<object>(
+         obj => EditarClubeExecute(obj as ClubeModel));
+
+     public ICommand ExcluirClubeCommand => new Command<object>(
+         obj => ExcluirClubeExecute(obj as ClubeModel));
+
      #endregion
          
      #region Constructor
@@ -55,8 +61,45 @@ public class PC_Clube_PartialViewModel : BaseViewModel
              ListaClube = new List<ClubeModel>();
              var clubeRepository = new ClubeRepository();
              ListaClube = clubeRepository.GetAll();
+             foreach (var regiao in ListaClube)
+             {
+                 var regiaoRepository = new RegionalRepository();
+                 regiao.Regional = regiaoRepository.GetById(regiao.FK_Regional_Id);
+             }
              for (int i = 0; i < ListaClube.Count; i++)
                  ListaClube[i].IsEven = (i % 2 == 0);
+         }
+         catch (Exception e)
+         {
+             Console.WriteLine(e);
+             throw;
+         }
+     }
+     private void VisualizarClubeExecute(ClubeModel clube)
+     {
+         if (clube != null)
+         {
+             _pc_DashBoardVM.AtualizarPage("Cadastro de Clubes", clube, false);
+         }
+     }
+     private void EditarClubeExecute(ClubeModel clube)
+     {
+         if (clube != null)
+         {
+             _pc_DashBoardVM.AtualizarPage("Cadastro de Clubes", clube, true);
+         }
+     }
+     private async void ExcluirClubeExecute(ClubeModel clube)
+     {
+         try
+         {
+             var resposta = await Application.Current.MainPage.DisplayAlert("Atenção", $"Deseja realmente excluir o clube \"{clube.Clube_Nome}\" ?", "OK", "Cancelar");
+             if (resposta == true)
+             {
+                 var clubeRepository = new ClubeRepository();
+                 clubeRepository.Delete(clube);
+                 CarregarDados();
+             }
          }
          catch (Exception e)
          {
@@ -67,15 +110,9 @@ public class PC_Clube_PartialViewModel : BaseViewModel
      
      private void CadastrarClubeExecute()
      {
-         _pc_DashBoardVM.AtualizarPage("Cadastro de Clubes");
+         _pc_DashBoardVM.AtualizarPage("Cadastro de Clubes",null, false);
      }
 
-     private void EditarClubeExecute(ClubeModel clubeModel)
-     {
-         _pc_DashBoardVM.AtualizarPage("Cadastro de Clubes", clubeModel);
-     }
-
-    
      #endregion
      public event PropertyChangedEventHandler PropertyChanged;
      protected void OnPropertyChanged([CallerMemberName] string name = null) =>

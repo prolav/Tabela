@@ -71,7 +71,7 @@ public class PC_DashBoardViewModel: BaseViewModel
 
     #region Methods
 
-    public void AtualizarPage(string nomePage, object model = null)
+    public void AtualizarPage(string nomePage, object model = null, bool modoEdicao = false)
     {
         TituloCard = nomePage;
         
@@ -105,8 +105,22 @@ public class PC_DashBoardViewModel: BaseViewModel
             var clubeModel = new ClubeModel();
             clubeModel = model as ClubeModel;
             if (clubeModel != null)
-                TituloCard = "Editar Clube";
-            CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel);
+            {
+                if (modoEdicao == false)
+                {
+                    TituloCard = "Visualizar Clube";
+                    CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel, false);
+                }
+                else
+                {
+                    TituloCard = "Editar Clube";
+                    CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel, true);
+                }
+            }
+            else
+            {
+                CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel, true);
+            }
         }
         else if (nomePage == "Cadastro de Jogadores")
         {
@@ -139,8 +153,22 @@ public class PC_DashBoardViewModel: BaseViewModel
             var regionalModel = new RegionalModel();
             regionalModel = model as RegionalModel;
             if (regionalModel != null)
-                TituloCard = "Editar Regional";
-            CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel);
+            {
+                if (modoEdicao == false)
+                {
+                    TituloCard = "Visualizar Regional";
+                    CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel, false);
+                }
+                else
+                {
+                    TituloCard = "Editar Regional";
+                    CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel, true);
+                }
+            }
+            else
+            {
+                CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel, true);
+            }
         }
         else if (nomePage == "Lista de Fases")
         {
@@ -151,8 +179,22 @@ public class PC_DashBoardViewModel: BaseViewModel
             var faseModel = new FaseModel();
             faseModel = model as FaseModel;
             if (faseModel != null)
-                TituloCard = "Editar Fase";
-            CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel);
+            {
+                if (modoEdicao == false)
+                {
+                    TituloCard = "Visualizar Fase";
+                    CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel, false);
+                }
+                else
+                {
+                    TituloCard = "Editar Fase";
+                    CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel, true);
+                }
+            }
+            else
+            {
+                CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel, true);
+            }
         }
     }
     private void SairCommandExecute()

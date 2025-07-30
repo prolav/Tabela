@@ -17,7 +17,7 @@ public class PC_CadastroRegional_PartialViewModel: BaseViewModel,INotifyProperty
     private string _emailRegional;
     private DateTime _dataInicioRegional;
     private DateTime _dataFimRegional;
-
+    private bool _modoEdicao;
 
     #endregion
 
@@ -29,26 +29,29 @@ public class PC_CadastroRegional_PartialViewModel: BaseViewModel,INotifyProperty
     public DateTime DataInicioRegional   { get => _dataInicioRegional; set => SetProperty(ref _dataInicioRegional, value); }
     public DateTime DataFimRegional   { get => _dataFimRegional; set => SetProperty(ref _dataFimRegional, value); }
     public RegionalModel Regional { get => _regional; set => SetProperty(ref _regional, value); }
+    public bool ModoEdicao  { get => _modoEdicao; set => SetProperty(ref _modoEdicao, value); }
     #endregion
     
     #region Commands
     public ICommand AdicionarRegionalCommand => new Command(() => AdicionarRegionalExecute());
+    public ICommand VoltarRegionalCommand => new Command(() => VoltarRegionalExecute());
     #endregion
     
     #region Constructor
-    public PC_CadastroRegional_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM, RegionalModel regional)
+    public PC_CadastroRegional_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM, RegionalModel regional, bool modoEdicao = false)
     {
         _pc_DashBoardVM = pc_DashBoardVM;
-        CarregarDados(regional);
+        CarregarDados(regional, modoEdicao);
     }
     #endregion
 
     #region Methods
 
-    private void CarregarDados(RegionalModel regional)
+    private void CarregarDados(RegionalModel regional, bool modoEdicao = false)
     {
         try
         {
+            ModoEdicao = modoEdicao;
             if (regional == null)
                 Regional = new RegionalModel();
             else
@@ -94,6 +97,11 @@ public class PC_CadastroRegional_PartialViewModel: BaseViewModel,INotifyProperty
             Console.WriteLine(e);
             throw;
         }
+    }
+
+    private void VoltarRegionalExecute()
+    {
+        _pc_DashBoardVM.AtualizarPage("Lista de Regionais");
     }
 
     #endregion

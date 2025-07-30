@@ -3,7 +3,8 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tabela.View_PC.Cards_List.FaseCard"
-             xmlns:local="clr-namespace:Tabela.Controls">
+             xmlns:local="clr-namespace:Tabela.Controls"
+             xmlns:cardsList="clr-namespace:Tabela.View_PC.Cards_List">
 
     <ContentPage.Resources>
         <local:AlternationIndexToColorConverter x:Key="AlternationIndexToColorConverter"
@@ -14,9 +15,17 @@
     <Frame CornerRadius="15" HasShadow="False" HeightRequest="100" BorderColor="{StaticResource GateVermelho}"
            BackgroundColor="{Binding IsEven, Converter={StaticResource AlternationIndexToColorConverter}}"
            Padding="10" >
-        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*"  VerticalOptions="Center" ColumnSpacing="20">
+        <Grid RowDefinitions="Auto" ColumnDefinitions="*,Auto,Auto"  VerticalOptions="Center" ColumnSpacing="20">
             <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
                    Text="{Binding Fase_Nome}"/>
+            <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
+                    Text="Excluir"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type cardsList:FaseCard}}, Path=ExcluirFaseCommand}"
+                    CommandParameter="{Binding .}" />
+            <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
+                    Text="Editar"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type cardsList:FaseCard}}, Path=EditarFaseCommand}"
+                    CommandParameter="{Binding .}" />        
         </Grid>
     </Frame>
 </ContentView>

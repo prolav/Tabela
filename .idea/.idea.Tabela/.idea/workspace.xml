@@ -15,58 +15,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd0aee71-e14d-4067-a502-2f820f23b813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controls/AlternationIndexToColorConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controls/EntryMaskTelefoneBehavior.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/RegionalModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/Interface/IRegionalRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/RegionalRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroFase_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroGeralViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroGeral_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroRegional_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Fase_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Regional_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/ClubeCard.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/ClubeCard.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/FaseCard.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/FaseCard.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/RegionalCard.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/RegionalCard.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroFase_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroFase_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroGeral_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroGeral_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroRegional_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroRegional_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Fase_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Fase_Partial.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Regional_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Regional_Partial.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/DbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/CampeonatoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CampeonatoModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ClubeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ClubeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/FaseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/FaseModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/JogadorModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/JogadorModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/iOS/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/iOS/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/Repositories/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Repositories/BaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tabela.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Tabela.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroClube_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroClube_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroFase_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroFase_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroRegional_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroRegional_PartialViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_Clube_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Clube_PartialViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_LoginViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_LoginViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_CadastroGeralView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_CadastroGeralView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_CadastroGeralView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_CadastroGeralView.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_LoginView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_Fase_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Fase_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_Regional_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Regional_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/ClubeCard.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/ClubeCard.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/ClubeCard.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/ClubeCard.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/FaseCard.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/FaseCard.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/FaseCard.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/FaseCard.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/RegionalCard.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/RegionalCard.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/RegionalCard.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/RegionalCard.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroClube_Partial.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroFase_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroFase_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroFase_Partial.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroFase_Partial.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroRegional_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroRegional_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroRegional_Partial.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroRegional_Partial.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Clube_Partial.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Fase_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Fase_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Regional_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Regional_Partial.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,12 +82,12 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.dotnet/packs/Microsoft.Android.Sdk.Darwin/34.0.154/tools/Xamarin.Android.Tooling.targets" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.dotnet/packs/Microsoft.MacCatalyst.Sdk.net8.0_18.0/18.0.8324/tools/msbuild/iOS/Xamarin.Shared.targets" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2871d8abe6fc4dd1ae00b32dfcea0c711e428/47/70d0b163/ApplyPropertiesVisitor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2e7e7e632d20584c425172331c9bc3d26782ebd22675ce2b46341387b91aaaf/ConstructorInvoker.Mono.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/487df95234d628de9d727a1471b5f6ba2751195/View_PC_PC_LoginView.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce2f9886c9ffc282e430e4f2fb46ca68dc4a25e66f911942a6c12a49ab81585f/ListViewRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomEntry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Android/MainApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Windows/App.xaml.cs" root0="SKIP_HIGHLIGHTING" />
@@ -154,6 +126,7 @@
     "DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider": "Simulator",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "XThreadsFramesViewSplitterKey": "0.3962963",
     "git-widget-placeholder": "main",
     "iOS.Tabela.executor": "Run",
     "macOS.Tabela.executor": "Run",
@@ -250,7 +223,7 @@
       <workItem from="1753486613683" duration="194000" />
       <workItem from="1753486812294" duration="16000" />
       <workItem from="1753487368191" duration="17411000" />
-      <workItem from="1753719619540" duration="35199000" />
+      <workItem from="1753719619540" duration="47874000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial">
       <option name="closed" value="true" />
@@ -332,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753488208932</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Inicio model caompeonato">
+      <option name="closed" value="true" />
+      <created>1753822100444</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1753822100445</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +344,8 @@
     <MESSAGE value="Inicio dash" />
     <MESSAGE value="Inicio sql de novo" />
     <MESSAGE value="Repository pronto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repository pronto" />
+    <MESSAGE value="Inicio model caompeonato" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio model caompeonato" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -460,39 +442,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ViewModel_PC/PC_CadastroRegional_PartialViewModel.cs</url>
-          <line>93</line>
+          <line>96</line>
           <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroRegional_PartialViewModel.cs" containingFunctionPresentation="Method 'AdicionarRegionalExecute'">
             <startOffsets>
-              <option value="3523" />
+              <option value="3836" />
             </startOffsets>
             <endOffsets>
-              <option value="3544" />
+              <option value="3857" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ViewModel_PC/PC_CadastroRegional_PartialViewModel.cs</url>
-          <line>67</line>
+          <line>70</line>
           <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroRegional_PartialViewModel.cs" containingFunctionPresentation="Method 'CarregarDados'">
             <startOffsets>
-              <option value="2552" />
+              <option value="2865" />
             </startOffsets>
             <endOffsets>
-              <option value="2558" />
+              <option value="2871" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ViewModel_PC/PC_CadastroClube_PartialViewModel.cs</url>
-          <line>131</line>
+          <line>135</line>
           <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroClube_PartialViewModel.cs" containingFunctionPresentation="Method 'CarregarDados'">
             <startOffsets>
-              <option value="4860" />
+              <option value="5170" />
             </startOffsets>
             <endOffsets>
-              <option value="4866" />
+              <option value="5176" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="50" />

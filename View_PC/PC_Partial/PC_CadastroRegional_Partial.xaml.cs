@@ -10,9 +10,9 @@ namespace Tabela.View_PC.PC_Partial;
 
 public partial class PC_CadastroRegional_Partial : ContentView
 {
-    public PC_CadastroRegional_Partial(PC_DashBoardViewModel pc_DashBoardVM, RegionalModel regional = null)
+    public PC_CadastroRegional_Partial(PC_DashBoardViewModel pc_DashBoardVM, RegionalModel regional = null, bool modoEdicao = false)
     {
         InitializeComponent();
-        BindingContext = new PC_CadastroRegional_PartialViewModel(pc_DashBoardVM, regional);
+        BindingContext = new PC_CadastroRegional_PartialViewModel(pc_DashBoardVM, regional, modoEdicao);
     }
 }

@@ -28,7 +28,7 @@ public class PC_Regional_PartialViewModel : BaseViewModel
                 OnPropertyChanged();
 
                 if (_regionalSelecionado != null)
-                    EditarRegionalExecute(_regionalSelecionado);
+                    VisualizarRegionalExecute(_regionalSelecionado);
             }
         }
     }
@@ -38,6 +38,11 @@ public class PC_Regional_PartialViewModel : BaseViewModel
          
     #region Commands
     public ICommand CadastrarRegionalCommand => new Command(() => CadastrarRegionalExecute());
+    public ICommand EditarRegionalCommand => new Command<object>(
+        obj => EditarRegionalExecute(obj as RegionalModel));
+
+    public ICommand ExcluirRegionalCommand => new Command<object>(
+        obj => ExcluirRegionalExecute(obj as RegionalModel));
     #endregion
          
     #region Constructor
@@ -74,8 +79,33 @@ public class PC_Regional_PartialViewModel : BaseViewModel
 
     private void EditarRegionalExecute(RegionalModel regional)
     {
-        _pc_DashBoardVM.AtualizarPage("Cadastro de Regionais", regional);
+        _pc_DashBoardVM.AtualizarPage("Cadastro de Regionais", regional, true);
     }
+
+    private void VisualizarRegionalExecute(RegionalModel regional)
+    {
+        _pc_DashBoardVM.AtualizarPage("Cadastro de Regionais", regional, false);
+    }
+
+    private async void ExcluirRegionalExecute(RegionalModel regional)
+    {
+        try
+        {
+            var resposta = await Application.Current.MainPage.DisplayAlert("Atenção", $"Deseja realmente excluir a regional \"{regional.Regional_Nome}\" ?", "OK", "Cancelar");
+            if (resposta == true)
+            {
+                var regionalRepository = new RegionalRepository();
+                regionalRepository.Delete(regional);
+                CarregarDados();
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
     #endregion
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string name = null) =>

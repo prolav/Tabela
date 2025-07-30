@@ -10,9 +10,9 @@ namespace Tabela.View_PC.PC_Partial;
 
 public partial class PC_CadastroClube_Partial : ContentView
 {
-    public PC_CadastroClube_Partial(PC_DashBoardViewModel pc_DashBoardVM, ClubeModel clube= null)
+    public PC_CadastroClube_Partial(PC_DashBoardViewModel pc_DashBoardVM, ClubeModel clube= null, bool modoEdicao = false)
     {
         InitializeComponent();
-        BindingContext = new PC_CadastroClube_PartialViewModel(pc_DashBoardVM, clube);
+        BindingContext = new PC_CadastroClube_PartialViewModel(pc_DashBoardVM, clube, modoEdicao);
     }
 }

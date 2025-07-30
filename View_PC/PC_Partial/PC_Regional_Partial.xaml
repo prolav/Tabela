@@ -4,20 +4,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tabela.View_PC.PC_Partial.PC_Regional_Partial"
              xmlns:cards="clr-namespace:Tabela.View_PC.Cards_List">
-    
-    <Grid  RowDefinitions="Auto, *"  RowSpacing="20">
-        <Button Grid.Row="0" Style="{StaticResource Button24_Vermelho}"
-                Text="Cadastrar" Command="{Binding CadastrarRegionalCommand}" HorizontalOptions="End"/>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding ListaRegional}" HasUnevenRows="True" BackgroundColor="Transparent"
-                  SelectionMode="Single" SeparatorVisibility="None" SelectedItem="{Binding RegionalSelecionado, Mode=TwoWay}" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <cards:RegionalCard/>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </Grid>
+    <Grid  RowDefinitions="Auto, *"  RowSpacing="20">
+            <Button Grid.Row="0" Style="{StaticResource Button24_Vermelho}"
+                    Text="Cadastrar" Command="{Binding CadastrarRegionalCommand}" HorizontalOptions="End"/>
+
+            <ListView Grid.Row="1" ItemsSource="{Binding ListaRegional}" HasUnevenRows="True" BackgroundColor="Transparent"
+                      SelectionMode="Single" SeparatorVisibility="None" SelectedItem="{Binding RegionalSelecionado, Mode=TwoWay}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <cards:RegionalCard EditarRegionalCommand="{Binding BindingContext.EditarRegionalCommand, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                                ExcluirRegionalCommand="{Binding BindingContext.ExcluirRegionalCommand, Source={RelativeSource AncestorType={x:Type ContentView}}}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
 </ContentView>

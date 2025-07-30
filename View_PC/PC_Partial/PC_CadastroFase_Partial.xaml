@@ -4,20 +4,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tabela.View_PC.PC_Partial.PC_CadastroFase_Partial">
     
-    <Grid  RowSpacing="10" ColumnSpacing="10" BackgroundColor="{StaticResource GateCremeFundoDashBoard}"
-           ColumnDefinitions="Auto,*" RowDefinitions="Auto, *">
+    <Grid RowDefinitions="*,Auto">
+        <Grid Row="0" RowSpacing="10" ColumnSpacing="10" BackgroundColor="{StaticResource GateCremeFundoDashBoard}"
+               ColumnDefinitions="Auto,*" RowDefinitions="Auto, *">
 
-        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
-               VerticalOptions="Center"
-               Text="Nome"/>
+            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+                   VerticalOptions="Center"
+                   Text="Nome" />
+            <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderEntry}">
+                <Entry Placeholder="Nome" Style="{StaticResource Entry24Style}"
+                       Text="{Binding NomeFase, Mode=TwoWay}" IsEnabled="{Binding ModoEdicao}"/>
+            </Border>
+        </Grid>
 
-        <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderEntry}">
-            <Entry Placeholder="Nome" Style="{StaticResource Entry24Style}"
-                   Text="{Binding NomeFase, Mode=TwoWay}"/>
-        </Border>
-
-        <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource Button24_Vermelho}"
-                Text="Salvar" VerticalOptions="Start"
-                Command="{Binding AdicionarFaseCommand, Mode=TwoWay}"/>
+        <Grid Row="1" ColumnDefinitions="*,*">
+            <Button Grid.Column="0" Style="{StaticResource Button24_Vermelho}"
+                    Text="Voltar" VerticalOptions="Start"
+                    Command="{Binding VoltarFaseCommand, Mode=TwoWay}"/>
+            <Button Grid.Column="1" Style="{StaticResource Button24_Vermelho}"
+                    Text="Salvar" VerticalOptions="Start"
+                    Command="{Binding AdicionarFaseCommand, Mode=TwoWay}" IsEnabled="{Binding ModoEdicao}"/>
+        </Grid>
     </Grid>
 </ContentView>

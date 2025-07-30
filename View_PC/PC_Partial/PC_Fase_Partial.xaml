@@ -14,7 +14,8 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <cards:FaseCard/>
+                        <cards:FaseCard EditarFaseCommand="{Binding BindingContext.EditarFaseCommand, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                        ExcluirFaseCommand="{Binding BindingContext.ExcluirFaseCommand, Source={RelativeSource AncestorType={x:Type ContentView}}}"/>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
