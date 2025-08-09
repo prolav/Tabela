@@ -2,6 +2,144 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tabela.View_PC.PC_Partial.PC_NovoCampeonato_Partial">
-    
+             xmlns:cardsList="clr-namespace:Tabela.View_PC.Cards_List"
+             x:Class="Tabela.View_PC.PC_Partial.PC_NovoCampeonato_Partial"
+             xmlns:local="Tabela.Controls"
+             xmlns:controls="clr-namespace:Tabela.Controls">
+
+    <Grid RowDefinitions="Auto,*,*,Auto" ColumnDefinitions="*,*,*" RowSpacing="5" ColumnSpacing="10">
+         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" ColumnDefinitions="*,*,Auto" RowDefinitions="Auto,Auto">
+             <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label16BoldStyle}"
+                    Text="{Binding  CampeonatoModel.Campeonato_Nome}"/>
+             <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label16BoldStyle}"
+                    Text="{Binding CampeonatoModel.Campeonato_Data}"/>
+             <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label16BoldStyle}"
+                    Text="{Binding CampeonatoModel.Campeonato_Local}"/>
+             <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource Label16BoldStyle}"
+                    Text="{Binding CampeonatoModel.Campeonato_NumerosRodadas, StringFormat='N.º de rodadas {0}'}"/>
+             <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
+                     Text="Salvar" Command="{Binding AdicionarNovoCampeonatoCommand, Mode=TwoWay}" IsEnabled="{Binding ModoEdicao}"/>
+         </Grid>
+
+        <Frame Grid.Row="1" Grid.Column="0" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
+               Padding="5,2,5,2" IsVisible="{Binding ListmontagemCampeonatoModel1[0].CampoHabilitado, FallbackValue=false}">
+              <Grid RowDefinitions="Auto,*">
+                     <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
+                            Text="{Binding ListmontagemCampeonatoModel1[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+
+                     <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel1}" HasUnevenRows="True" BackgroundColor="Transparent"
+                                SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+                             <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                           <ViewCell>
+                                                  <cardsList:NovoCampeonatoCard/>
+                                           </ViewCell>
+                                    </DataTemplate>
+                             </ListView.ItemTemplate>
+                     </ListView>
+              </Grid>
+        </Frame>
+
+           <Frame Grid.Row="1" Grid.Column="1" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
+                  IsVisible="{Binding ListmontagemCampeonatoModel2[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
+                  <Grid RowDefinitions="Auto,*">
+                         <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
+                                Text="{Binding ListmontagemCampeonatoModel2[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+
+                         <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel2}" HasUnevenRows="True" BackgroundColor="Transparent"
+                                   SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+                                <ListView.ItemTemplate>
+                                       <DataTemplate>
+                                              <ViewCell>
+                                                     <cardsList:NovoCampeonatoCard/>
+                                              </ViewCell>
+                                       </DataTemplate>
+                                </ListView.ItemTemplate>
+                         </ListView>
+                  </Grid>
+           </Frame>
+
+           <Frame Grid.Row="1" Grid.Column="2" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
+                  IsVisible="{Binding ListmontagemCampeonatoModel3[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
+                  <Grid RowDefinitions="Auto,*">
+                         <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
+                                Text="{Binding ListmontagemCampeonatoModel3[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+
+                         <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel3}" HasUnevenRows="True" BackgroundColor="Transparent"
+                                   SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+                                <ListView.ItemTemplate>
+                                       <DataTemplate>
+                                              <ViewCell>
+                                                     <cardsList:NovoCampeonatoCard/>
+                                              </ViewCell>
+                                       </DataTemplate>
+                                </ListView.ItemTemplate>
+                         </ListView>
+                  </Grid>
+           </Frame>
+
+        <Frame Grid.Row="2" Grid.Column="0" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
+               IsVisible="{Binding ListmontagemCampeonatoModel4[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
+               <Grid RowDefinitions="Auto,*">
+                    <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
+                           Text="{Binding ListmontagemCampeonatoModel4[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel4}" HasUnevenRows="True" BackgroundColor="Transparent"
+                          SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+                           <ListView.ItemTemplate>
+                                       <DataTemplate>
+                                              <ViewCell>
+                                                     <cardsList:NovoCampeonatoCard/>
+                                              </ViewCell>
+                                       </DataTemplate>
+                          </ListView.ItemTemplate>
+                    </ListView>
+               </Grid>
+        </Frame>
+
+           <Frame Grid.Row="2" Grid.Column="1" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
+                  IsVisible="{Binding ListmontagemCampeonatoModel5[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
+                  <Grid RowDefinitions="Auto,*">
+                         <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
+                                Text="{Binding ListmontagemCampeonatoModel5[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+
+                         <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel5}" HasUnevenRows="True" BackgroundColor="Transparent"
+                                   SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+                                <ListView.ItemTemplate>
+                                       <DataTemplate>
+                                              <ViewCell>
+                                                     <cardsList:NovoCampeonatoCard/>
+                                              </ViewCell>
+                                       </DataTemplate>
+                                </ListView.ItemTemplate>
+                         </ListView>
+                  </Grid>
+           </Frame>
+    </Grid>
 </ContentView>
+
+
+
+
+
+<!-- <Frame Grid.Row="1" Grid.Column="0" CornerRadius="15" HasShadow="False" BorderColor="{StaticResource GateVermelho}"  -->
+<!--        Padding="10" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" > -->
+<!--        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto, *, Auto" IsVisible="{Binding ListmontagemCampeonatoModel1.CampoHabilitado}"> -->
+<!--               <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Label40BoldStyle}" HorizontalOptions="Center" -->
+<!--                      Text="{Binding ListmontagemCampeonatoModel1.MontagemCampeonatoModel_NumeroCampo}" Padding="0,0,0,20"/> -->
+<!-- -->
+<!--               <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" -->
+<!--                      Text="Clube"/> -->
+<!--               <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderEntry}"> -->
+<!--                      <Picker Style="{StaticResource Label24BoldStyle}" -->
+<!--                              ItemsSource="{Binding ListaClube, Mode=TwoWay}" -->
+<!--                              ItemDisplayBinding="{Binding Clube_Nome, Mode=TwoWay}" -->
+<!--                              SelectedItem="{Binding ListmontagemCampeonatoModel1.Clube, Mode=TwoWay}"/> -->
+<!--               </Border> -->
+<!--               <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource BorderEntry}"> -->
+<!--                      <Entry Placeholder="Nome do Capitão" Style="{StaticResource Entry24Style}" -->
+<!--                             Text="{Binding ListmontagemCampeonatoModel1.Apelido_Time, Mode=TwoWay}"/> -->
+<!--               </Border> -->
+<!--        </Grid> -->
+<!-- -->
+<!-- </Frame> -->

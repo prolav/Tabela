@@ -12,6 +12,9 @@ public class PC_DashBoardViewModel: BaseViewModel
     public PC_DashBoardViewModel _pc_DashBoardViewModel;
     private View? _currentView;
     private string _tituloCard;
+    private int _rowContentView;
+    private int _rowSpanContentView;
+
     public enum TipoPage
     {
         Dashboard,
@@ -51,7 +54,16 @@ public class PC_DashBoardViewModel: BaseViewModel
         get => _pc_DashBoardViewModel;
         set => SetProperty(ref _pc_DashBoardViewModel, value); // Se usar BaseViewModel com SetProperty
     }
-
+    public int RowContentView 
+    {
+        get => _rowContentView;
+        set => SetProperty(ref _rowContentView, value); // Se usar BaseViewModel com SetProperty
+    }
+    public int RowSpanContentView 
+    {
+        get => _rowSpanContentView;
+        set => SetProperty(ref _rowSpanContentView, value); // Se usar BaseViewModel com SetProperty
+    }
     #endregion
     
     #region Commands
@@ -74,6 +86,8 @@ public class PC_DashBoardViewModel: BaseViewModel
     public void AtualizarPage(string nomePage, object model = null, bool modoEdicao = false)
     {
         TituloCard = nomePage;
+        RowContentView = 1;
+        RowSpanContentView = 1;
         
         if (nomePage == "DashBoard")
         {
@@ -136,8 +150,22 @@ public class PC_DashBoardViewModel: BaseViewModel
         }
         else if (nomePage == "Novo Campeonato")
         {
-            SecaoAtual = nomePage;
-            CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM);
+            var campeonatoModel = new CampeonatoModel();
+            campeonatoModel = model as CampeonatoModel;
+            if (campeonatoModel != null)
+            {
+                TituloCard = "";
+                RowContentView = 0;
+                RowSpanContentView = 2;
+                CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM, campeonatoModel);
+            }
+            else
+            {
+                TituloCard = "Configuração Inicial do Campeonato";
+                CurrentView = new PC_ConfiguracaoInicial_NovoCampeonato_Partial(PC_DashBoardVM);
+            }
+
+            
         }
         else if (nomePage == "Cadastro Geral")
         {

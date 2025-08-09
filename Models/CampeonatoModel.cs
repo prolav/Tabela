@@ -10,8 +10,13 @@ public class CampeonatoModel : BaseModel, INotifyPropertyChanged
     public string Campeonato_Nome { get; set; }
     [Column("Campeonato_Data")]
     public DateTime Campeonato_Data { get; set; }
-    public int TotalTimes { get; set; }
-    public int TotalCampos { get; set; }
+    [Column("Campeonato_NumerosCampos")]
+    public int Campeonato_NumerosCampos { get; set; }
+    [Column("Campeonato_NumerosRodadas")]
+    public int Campeonato_NumerosRodadas { get; set; }
+    [Column("Campeonato_Local")]
+    public string Campeonato_Local { get; set; }
+
 
 
     [Ignore]

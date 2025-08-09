@@ -31,6 +31,9 @@ public class DbContext
         _sqlConnection.CreateTable<TimeModel>();
         _sqlConnection.CreateTable<UsuarioModel>();
         _sqlConnection.CreateTable<RegionalModel>();
+        _sqlConnection.CreateTable<MontagemCampeonatoModel>();
+        _sqlConnection.CreateTable<CampoModel>();
+        
     }
 
     public SQLiteConnection Connection

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tabela.Controls"
+             x:Class="Tabela.View_PC.Cards_List.NovoCampeonatoCard">
+
+    <ContentPage.Resources>
+        <local:AlternationIndexToColorConverter x:Key="AlternationIndexToColorConverter"
+                                                TrueColor="{StaticResource GateCremeFundoDashBoard}"
+                                                FalseColor="{StaticResource GateCreme}"/>
+    </ContentPage.Resources>
+
+    <Frame CornerRadius="15" HasShadow="False" BorderColor="{StaticResource GateVermelho}" Padding="5" 
+           BackgroundColor="{Binding IsEven, Converter={StaticResource AlternationIndexToColorConverter}}" >
+
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label16BoldStyle}" HorizontalOptions="Center"
+                       Text="{Binding NumeroClube, StringFormat='Clube {0}'}"/>
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderEntry16}">
+                    <Picker Style="{StaticResource Label16BoldStyle}"
+                            ItemsSource="{Binding ListaClube, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding Clube_Nome, Mode=TwoWay}"
+                            SelectedItem="{Binding Clube, Mode=TwoWay}"/>
+                </Border>
+                <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource BorderEntry16}">
+                    <Entry Placeholder="Nome do Capitão" Style="{StaticResource Entry16Style}"
+                           Text="{Binding Apelido_Time, Mode=TwoWay}"/>
+                </Border>
+            </Grid>
+        </Frame>
+</ContentView>

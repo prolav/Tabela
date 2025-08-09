@@ -155,7 +155,7 @@ public class PC_CadastroClube_PartialViewModel: BaseViewModel,INotifyPropertyCha
                 Clube.Clube_Bairro = BairroClube;
                 Clube.Clube_Logradouro = LogradouroClube;
                 clubeRepository.InsertOrReplace(Clube);
-                await Application.Current.MainPage.DisplayAlert("Atenção", "Cadastro efetuado com sucesso!", "Sim");
+                await Application.Current.MainPage.DisplayAlert("Atenção", "Cadastro efetuado com sucesso!", "OK");
                 _pc_DashBoardVM.AtualizarPage("Lista de Clubes");
             }
         }

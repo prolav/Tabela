@@ -91,13 +91,28 @@ public class PC_Regional_PartialViewModel : BaseViewModel
     {
         try
         {
-            var resposta = await Application.Current.MainPage.DisplayAlert("Atenção", $"Deseja realmente excluir a regional \"{regional.Regional_Nome}\" ?", "OK", "Cancelar");
-            if (resposta == true)
+            var listClubes = new List<ClubeModel>();
+            var clubRepository = new ClubeRepository();
+            listClubes = clubRepository.GetAll();
+            bool regionalRelacionado = false;
+            foreach (var clubes in listClubes)
             {
-                var regionalRepository = new RegionalRepository();
-                regionalRepository.Delete(regional);
-                CarregarDados();
+                if (clubes.Id == regional.Id)
+                    regionalRelacionado = true;
             }
+
+            if (regionalRelacionado == false)
+            {
+                var resposta = await Application.Current.MainPage.DisplayAlert("Atenção", $"Deseja realmente excluir a regional \"{regional.Regional_Nome}\" ?", "OK", "Cancelar");
+                if (resposta == true)
+                {
+                    var regionalRepository = new RegionalRepository();
+                    regionalRepository.Delete(regional);
+                    CarregarDados();
+                }
+            }
+            else
+                await Application.Current.MainPage.DisplayAlert("Atenção", $"Não é possível deletar uma regional com clube relacionado", "OK");
         }
         catch (Exception e)
         {

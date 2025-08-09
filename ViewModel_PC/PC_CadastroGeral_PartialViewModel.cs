@@ -1,36 +1,235 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using Tabela.Models;
+using Tabela.Repositories;
 
 namespace Tabela.ViewModel_PC;
 
 public class PC_CadastroGeral_PartialViewModel: BaseViewModel
 {
     #region Fields
-    // private string _nomeUsuario;
     private PC_DashBoardViewModel _pc_DashBoardVM;
-
-    // private string _imagemJogador;
+    private bool _cadastroBaseAtivo;
+    private bool _cadastroCampeonatoAtivo;
+    private CampeonatoModel _campeonato;
     #endregion
 
     #region Properties
-    // public string NomeUsuario { get => _nomeUsuario; set => SetProperty(ref _nomeUsuario, value); }
-    //
-    // public string Senha { get => _senha; set => SetProperty(ref _senha, value); }
+     public bool CadastroBaseAtivo { get => _cadastroBaseAtivo; set => SetProperty(ref _cadastroBaseAtivo, value); }
+     public bool CadastroCampeonatoAtivo { get => _cadastroCampeonatoAtivo; set => SetProperty(ref _cadastroCampeonatoAtivo, value); }
     #endregion
     
     #region Commands
     public ICommand AtualizarPageCommand => new Command<string>(
-        nomePage => _pc_DashBoardVM.AtualizarPage(nomePage)
-    );
+        nomePage => _pc_DashBoardVM.AtualizarPage(nomePage));
 
+    public ICommand CadastroBaseCommand => new Command(() => CadastroBaseExecute());
+    public ICommand CadastroCampeonatoCommand => new Command(() => CadastroCampeonatoExecute());
+    
     #endregion
     
     #region Constructor
     public PC_CadastroGeral_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM)
     {
         _pc_DashBoardVM = pc_DashBoardVM;
+        CarregarDados();
         //ImagemClube = ImageSource.FromFile("sem_imagem.jpeg");
+    }
+
+    private void CarregarDados()
+    {
+        try
+        {
+            var campoRepository = new CampoRepository();
+            var campo = campoRepository.GetAll().Count;
+            if (campo == 0)
+                CadastroBaseAtivo = true;
+            else
+                CadastroBaseAtivo = false;
+
+            var campeonatoRepository = new CampeonatoRepository();
+            _campeonato = campeonatoRepository.GetAll().LastOrDefault();
+            if (_campeonato != null)
+                CadastroCampeonatoAtivo = true;
+            else
+                CadastroCampeonatoAtivo = false;
+
+            OnPropertyChanged();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private void CadastroCampeonatoExecute()
+    {
+        try
+        {
+            _pc_DashBoardVM.AtualizarPage("Novo Campeonato", _campeonato);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    private async void CadastroBaseExecute()
+    {
+        try
+        {
+            var regionalRepository = new RegionalRepository();
+            var clubeRepository = new ClubeRepository();
+            var campoRepository = new CampoRepository();
+            var faseRepository = new FasesRepository();
+
+            var regional = new RegionalModel()
+            {
+                Id = Guid.NewGuid(),
+                Regional_Nome = "Seitô",
+                Dt_Alteracao = DateTime.Now,
+                Dt_Inclusao = DateTime.MinValue,
+                Regional_Dt_Fim = DateTime.MinValue
+            };
+            regionalRepository.InsertOrReplace(regional);
+
+            regional = new RegionalModel()
+            {
+                Id = Guid.NewGuid(),
+                Regional_Nome = "ABC",
+                Dt_Alteracao = DateTime.Now,
+                Dt_Inclusao = DateTime.MinValue,
+                Regional_Dt_Fim = DateTime.MinValue
+            };
+            regionalRepository.InsertOrReplace(regional);
+
+            regional = new RegionalModel()
+            {
+                Id = Guid.NewGuid(),
+                Regional_Nome = "Capital",
+                Dt_Alteracao = DateTime.Now,
+                Dt_Inclusao = DateTime.MinValue,
+                Regional_Dt_Fim = DateTime.MinValue
+            };
+            regionalRepository.InsertOrReplace(regional);
+
+            var clube = new ClubeModel()
+            {
+                Id = Guid.NewGuid(),
+                FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Seitô").FirstOrDefault().Id,
+                Clube_Nome = "Kyoyu",
+                Clube_Logo = "sem_imagem.jpeg",
+                Clube_Presidente = "Nobuo",
+                Dt_Alteracao = DateTime.Now,
+                Dt_Inclusao = DateTime.MinValue,
+            };
+            clubeRepository.InsertOrReplace(clube);
+
+            clube = new ClubeModel()
+            {
+                Id = Guid.NewGuid(),
+                FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Seitô").FirstOrDefault().Id,
+                Clube_Nome = "Matilde",
+                Clube_Logo = "sem_imagem.jpeg",
+                Clube_Presidente = "Hatiro Honda",
+                Dt_Alteracao = DateTime.Now,
+                Dt_Inclusao = DateTime.MinValue,
+            };
+            clubeRepository.InsertOrReplace(clube);
+
+            clube = new ClubeModel()
+            {
+                Id = Guid.NewGuid(),
+                FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Capital").FirstOrDefault().Id,
+                Clube_Nome = "Casa Verde",
+                Clube_Logo = "sem_imagem.jpeg",
+                Clube_Presidente = "Hatiro Honda",
+                Dt_Alteracao = DateTime.Now,
+                Dt_Inclusao = DateTime.MinValue,
+            };
+            clubeRepository.InsertOrReplace(clube);
+
+            var faseModel = new FaseModel()
+            {
+                Id = Guid.NewGuid(),
+                Fase_Nome = "Grupos"
+            };
+            faseRepository.InsertOrReplace(faseModel);
+
+            faseModel = new FaseModel()
+            {
+                Id = Guid.NewGuid(),
+                Fase_Nome = "Oitavas"
+            };
+            faseRepository.InsertOrReplace(faseModel);
+
+            faseModel = new FaseModel()
+            {
+                Id = Guid.NewGuid(),
+                Fase_Nome = "Quartas"
+            };
+            faseRepository.InsertOrReplace(faseModel);
+
+            faseModel = new FaseModel()
+            {
+                Id = Guid.NewGuid(),
+                Fase_Nome = "Semi"
+            };
+            faseRepository.InsertOrReplace(faseModel);
+
+            faseModel = new FaseModel()
+            {
+                Id = Guid.NewGuid(),
+                Fase_Nome = "Final"
+            };
+            faseRepository.InsertOrReplace(faseModel);
+
+            var campoModel = new CampoModel()
+            {
+                Id = Guid.NewGuid(),
+                NomeCampo = "Campo 1"
+            };
+            campoRepository.InsertOrReplace(campoModel);
+
+            campoModel = new CampoModel()
+            {
+                Id = Guid.NewGuid(),
+                NomeCampo = "Campo 2"
+            };
+            campoRepository.InsertOrReplace(campoModel);
+
+            campoModel = new CampoModel()
+            {
+                Id = Guid.NewGuid(),
+                NomeCampo = "Campo 3"
+            };
+            campoRepository.InsertOrReplace(campoModel);
+
+            campoModel = new CampoModel()
+            {
+                Id = Guid.NewGuid(),
+                NomeCampo = "Campo 4"
+            };
+            campoRepository.InsertOrReplace(campoModel);
+
+            campoModel = new CampoModel()
+            {
+                Id = Guid.NewGuid(),
+                NomeCampo = "Campo 5"
+            };
+            campoRepository.InsertOrReplace(campoModel);
+
+            await Application.Current.MainPage.DisplayAlert("Atenção", "Cadastro efetuado com sucesso!", "OK");
+            CarregarDados();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
     #endregion
 

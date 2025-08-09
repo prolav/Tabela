@@ -147,10 +147,10 @@
         </Grid>
 
         <!-- DASHBOARD -->
-        <Grid Column="1"  Padding="40,20,40,20" RowDefinitions="2*,8*" BackgroundColor="{StaticResource GateCremeFundoDashBoard}"> 
-            <Label Grid.Column="0" Style="{StaticResource Label48BoldStyle}" VerticalOptions="Center"
+        <Grid Column="1"  Padding="40,20,40,20" RowDefinitions="2*,8*" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" > 
+            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label48BoldStyle}" VerticalOptions="Center"
                    Text="{Binding TituloCard}"/>
-            <ContentView Grid.Row="1" Content="{Binding CurrentView}"/>
+            <ContentView Grid.Row="{Binding RowContentView}" Grid.RowSpan="{Binding RowSpanContentView}" Content="{Binding CurrentView}"/>
         </Grid>
 
         </Grid>
