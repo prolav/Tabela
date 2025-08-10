@@ -8,17 +8,22 @@
              xmlns:controls="clr-namespace:Tabela.Controls">
 
     <Grid RowDefinitions="Auto,*,*,Auto" ColumnDefinitions="*,*,*" RowSpacing="5" ColumnSpacing="10">
-         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" ColumnDefinitions="*,*,Auto" RowDefinitions="Auto,Auto">
+         <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" ColumnDefinitions="*,*,Auto,Auto,Auto,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="10">
              <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label16BoldStyle}"
-                    Text="{Binding  CampeonatoModel.Campeonato_Nome}"/>
+                    Text="{Binding  Campeonato.Campeonato_Nome}"/>
              <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label16BoldStyle}"
-                    Text="{Binding CampeonatoModel.Campeonato_Data}"/>
+                    Text="{Binding Campeonato.Campeonato_Data}"/>
              <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label16BoldStyle}"
-                    Text="{Binding CampeonatoModel.Campeonato_Local}"/>
+                    Text="{Binding Campeonato.Campeonato_Local}"/>
              <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource Label16BoldStyle}"
-                    Text="{Binding CampeonatoModel.Campeonato_NumerosRodadas, StringFormat='N.º de rodadas {0}'}"/>
-             <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
-                     Text="Salvar" Command="{Binding AdicionarNovoCampeonatoCommand, Mode=TwoWay}" IsEnabled="{Binding ModoEdicao}"/>
+                    Text="{Binding Campeonato.Campeonato_NumerosRodadas, StringFormat='N.º de rodadas {0}'}"/>
+
+             <Button Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
+                     Text="Limpar Tudo" Command="{Binding LimparTudoCommand, Mode=TwoWay}"/>
+             <Button Grid.Row="0" Grid.Column="4" Grid.RowSpan="2" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
+                     Text="Gerar Nomes" Command="{Binding GerarNomesCommand, Mode=TwoWay}"/>
+             <Button Grid.Row="0" Grid.Column="5" Grid.RowSpan="2" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
+                     Text="Salvar" Command="{Binding AdicionarNovoCampeonatoCommand, Mode=TwoWay}"/>
          </Grid>
 
         <Frame Grid.Row="1" Grid.Column="0" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
@@ -28,7 +33,7 @@
                             Text="{Binding ListmontagemCampeonatoModel1[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
 
                      <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel1}" HasUnevenRows="True" BackgroundColor="Transparent"
-                                SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+                                SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand" CachingStrategy="RecycleElementAndDataTemplate">
                              <ListView.ItemTemplate>
                                     <DataTemplate>
                                            <ViewCell>

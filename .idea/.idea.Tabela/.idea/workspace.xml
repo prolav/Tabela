@@ -15,31 +15,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd0aee71-e14d-4067-a502-2f820f23b813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controls/IgualdadeConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/CampoModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/MontagemCampeonatoModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/Interface/ICampoRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/Interface/IMontagemCampeonatoRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/CampoRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Repositories/Repositories/MontagemCampeonatoRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ViewModel_PC/PC_ConfiguracaoInicial_NovoCampeonato_PartialViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/NovoCampeonatoCard.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/NovoCampeonatoCard.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ConfiguracaoInicial_NovoCampeonato_Partial.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ConfiguracaoInicial_NovoCampeonato_Partial.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/DbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/CampeonatoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CampeonatoModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroClube_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroClube_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroGeral_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroGeral_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/MontagemCampeonatoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MontagemCampeonatoModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_Regional_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Regional_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroGeral_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroGeral_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/NovoCampeonatoCard.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/NovoCampeonatoCard.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +112,7 @@
     "XThreadsFramesViewSplitterKey": "0.3962963",
     "git-widget-placeholder": "main",
     "iOS.Tabela.executor": "Run",
-    "macOS.Tabela.executor": "Run",
+    "macOS.Tabela.executor": "Debug",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -224,7 +206,8 @@
       <workItem from="1753486613683" duration="194000" />
       <workItem from="1753486812294" duration="16000" />
       <workItem from="1753487368191" duration="17411000" />
-      <workItem from="1753719619540" duration="85339000" />
+      <workItem from="1753719619540" duration="104129000" />
+      <workItem from="1754857844684" duration="1898000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial">
       <option name="closed" value="true" />
@@ -322,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753910291297</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fim de tela novo campeonato">
+      <option name="closed" value="true" />
+      <created>1754701758497</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1754701758497</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +346,8 @@
     <MESSAGE value="Repository pronto" />
     <MESSAGE value="Inicio model caompeonato" />
     <MESSAGE value="Fim do cadastro de Clube, Regional e Fase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fim do cadastro de Clube, Regional e Fase" />
+    <MESSAGE value="Fim de tela novo campeonato" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fim de tela novo campeonato" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -494,10 +486,10 @@
           <line>167</line>
           <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" containingFunctionPresentation="Method 'AtualizarPage'">
             <startOffsets>
-              <option value="5115" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="5115" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="73" />
@@ -514,32 +506,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="75" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ConfiguracaoInicial_NovoCampeonato_PartialViewModel.cs</url>
-          <line>85</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ConfiguracaoInicial_NovoCampeonato_PartialViewModel.cs" containingFunctionPresentation="Method 'ConfigurarCampeonatoExecute'">
-            <startOffsets>
-              <option value="3226" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3265" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs</url>
-          <line>82</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" containingFunctionPresentation="Method 'AdicionarNovoCampeonatoExecute'">
-            <startOffsets>
-              <option value="3183" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3193" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="80" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
