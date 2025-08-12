@@ -1,22 +1,73 @@
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 using SQLite;
 
 namespace Tabela.Models;
 
-public class TimeModel : BaseModel, INotifyPropertyChanged
+public class TimeModel: BaseModel, INotifyPropertyChanged
 {
-    [MaxLength(100)][Column("Time_Nome")]
-    public string Time_Nome { get; set; }
-    [Column("Time_GrupoId")]
-    public Guid? Time_GrupoId { get; set; } // Pode ser null em fases mata-mata
-    [Ignore]
-    public virtual GrupoModel? GrupoModel { get; set; }
-    [Ignore]
-    public virtual List<JogadorModel> Lista_Jogadores { get; set; } = new();
+    [ForeignKey ("FK_Campeonato_Id")][SQLite.Column("FK_Campeonato_Id")]
+    public Guid FK_Campeonato_Id { get; set; }
+    [ForeignKey ("FK_Clube_Id")][SQLite.Column("FK_Clube_Id")]
+    public Guid FK_Clube_Id { get; set; }
+    [SQLite.Column("MontagemCampeonatoModel_NumeroCampo")]
+    public int MontagemCampeonatoModel_NumeroCampo { get; set; }
+    [ForeignKey ("FK_Fase_Id")][SQLite.Column("FK_Fase_Id")]
+    public Guid FK_Fase_Id { get; set; }
 
+    [SQLite.Column("Apelido_Time")] 
+    public string Apelido_Time
+    {
+        get => _apelido_Time;
+        set
+        {
+            if (_apelido_Time == value) return;
+                _apelido_Time = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Apelido_Time)));
+        }
+    }
+    private string _apelido_Time;
+    [Ignore]
+    public virtual int NumeroClubeNaqueleCampo { get; set; }
+    [Ignore] 
+    public virtual bool CampoHabilitado { get; set; } = false;
+    [Ignore]
+    public virtual List<ClubeModel> ListaClube { get; set; }
+    //[Ignore]
+    //public virtual ClubeModel Clube { get; set; }
+    private ClubeModel _clubeSelecionado;
+    [Ignore]
+    public virtual ClubeModel Clube
+    {
+        get => _clubeSelecionado;
+        set
+        {
+            if (_clubeSelecionado != value)
+            {
+                _clubeSelecionado = value;
+                OnPropertyChanged(nameof(Clube));
+
+                // Atualiza o Apelido_Time quando o item selecionado mudar
+                Apelido_Time = string.Empty;
+            }
+        }
+    }
+
+
+
+
+
+    public virtual bool IsEven { get; set; } = false;
     #region Notify
     public event PropertyChangedEventHandler PropertyChanged;
     public void OnPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    #endregion
+
+    #region 
+    [Ignore]
+    public virtual int Jogos { get; set; }
+    [Ignore]
+    public virtual int Juiz { get; set; }
     #endregion
 }

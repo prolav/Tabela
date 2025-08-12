@@ -10,7 +10,7 @@ public class MontagemCampeonatoModel: BaseModel, INotifyPropertyChanged
     [ForeignKey ("FK_Campeonato_Id")][SQLite.Column("FK_Campeonato_Id")]
     public Guid FK_Campeonato_Id { get; set; }
     [ForeignKey ("FK_Clube_Id")][SQLite.Column("FK_Clube_Id")]
-    public int FK_Clube_Id { get; set; }
+    public Guid FK_Clube_Id { get; set; }
     [SQLite.Column("MontagemCampeonatoModel_NumeroCampo")]
     public int MontagemCampeonatoModel_NumeroCampo { get; set; }
     [ForeignKey ("FK_Fase_Id")][SQLite.Column("FK_Fase_Id")]
@@ -64,5 +64,10 @@ public class MontagemCampeonatoModel: BaseModel, INotifyPropertyChanged
     public void OnPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     #endregion
 
-    
+    #region 
+    [Ignore]
+    public virtual int Jogos { get; set; }
+    [Ignore]
+    public virtual int Juiz { get; set; }
+    #endregion
 }

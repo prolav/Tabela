@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tabela.View_PC.Cards_List.HistoricoJogosCard"
+             xmlns:local="clr-namespace:Tabela.Controls"
+             xmlns:cardsList="clr-namespace:Tabela.View_PC.Cards_List">
+
+       <ContentPage.Resources>
+              <local:AlternationIndexToColorConverter x:Key="AlternationIndexToColorConverter"
+                                                TrueColor="{StaticResource GateCremeFundoDashBoard}"
+                                                FalseColor="{StaticResource GateCreme}"/>
+       </ContentPage.Resources>
+
+    <Frame CornerRadius="15" HasShadow="False" HeightRequest="100" BorderColor="{StaticResource GateVermelho}"
+           BackgroundColor="{Binding IsEven, Converter={StaticResource AlternationIndexToColorConverter}}"
+           Padding="10" >
+        <Grid RowDefinitions="Auto" ColumnDefinitions="Auto,*,Auto,Auto,Auto,*,Auto,*"  VerticalOptions="Center" ColumnSpacing="20">
+            <!-- <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" HeightRequest="80" WidthRequest="60" Aspect="AspectFill" VerticalOptions="Center" -->
+            <!--        Source="{Binding Clube_Logo}"/> -->
+            <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
+                   Text="{Binding TimeCasa.Apelido_Time}"/>
+            <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource BorderEntry}">
+                   <Entry  Style="{StaticResource Entry24Style}"
+                          Text="{Binding Partida_PontosCasa, Mode=TwoWay}"/>
+            </Border>
+            <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource Label16Style}"  Padding="10,0,10,0"
+                   Text=" X "/>
+            <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderEntry}">
+                   <Entry  Style="{StaticResource Entry24Style}"
+                           Text="{Binding Partida_PontosFora, Mode=TwoWay}"/>
+            </Border>
+            <Label Grid.Row="0" Grid.Column="5" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
+                   Text="{Binding TimeFora.Apelido_Time}"/>
+            <!-- <Image Grid.Row="0" Grid.Column="6" Grid.RowSpan="3" HeightRequest="80" WidthRequest="60" Aspect="AspectFill" VerticalOptions="Center" -->
+            <!--        Source="{Binding Clube_Logo}"/> -->
+
+            <Label Grid.Row="0" Grid.Column="7" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="End"
+                   Text="{Binding TimeJuiz.Apelido_Time, StringFormat='Juiz {0}'}"/>
+
+        </Grid>
+    </Frame>
+</ContentView>

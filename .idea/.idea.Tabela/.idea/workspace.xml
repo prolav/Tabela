@@ -15,13 +15,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd0aee71-e14d-4067-a502-2f820f23b813" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/HistoricoJogosCard.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/HistoricoJogosCard.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/CampeonatoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CampeonatoModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/MontagemCampeonatoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MontagemCampeonatoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/PartidaModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/PartidaModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/TimeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/TimeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tabela.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Tabela.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroGeral_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroGeral_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoard_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoard_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/NovoCampeonatoCard.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/NovoCampeonatoCard.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_NovoCampeonato_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroGeral_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroGeral_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_DashBoard_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_HistoricoJogos_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_HistoricoJogos_Partial.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +77,7 @@
     <setting file="file://$USER_HOME$/.dotnet/packs/Microsoft.MacCatalyst.Sdk.net8.0_18.0/18.0.8324/tools/msbuild/iOS/Xamarin.Shared.targets" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2871d8abe6fc4dd1ae00b32dfcea0c711e428/47/70d0b163/ApplyPropertiesVisitor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2e7e7e632d20584c425172331c9bc3d26782ebd22675ce2b46341387b91aaaf/ConstructorInvoker.Mono.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/45edcafe314ec2a52027f333baefe0564a21af2a2933eac97174699eb79a5f34/OrderedEnumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/487df95234d628de9d727a1471b5f6ba2751195/View_PC_PC_LoginView.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce2f9886c9ffc282e430e4f2fb46ca68dc4a25e66f911942a6c12a49ab81585f/ListViewRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomEntry.cs" root0="FORCE_HIGHLIGHTING" />
@@ -112,7 +121,7 @@
     "XThreadsFramesViewSplitterKey": "0.3962963",
     "git-widget-placeholder": "main",
     "iOS.Tabela.executor": "Run",
-    "macOS.Tabela.executor": "Debug",
+    "macOS.Tabela.executor": "Run",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -207,7 +216,8 @@
       <workItem from="1753486812294" duration="16000" />
       <workItem from="1753487368191" duration="17411000" />
       <workItem from="1753719619540" duration="104129000" />
-      <workItem from="1754857844684" duration="1898000" />
+      <workItem from="1754857844684" duration="2878000" />
+      <workItem from="1754913883006" duration="28385000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial">
       <option name="closed" value="true" />
@@ -313,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754701758497</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="pensar sobre a partidaview">
+      <option name="closed" value="true" />
+      <created>1754860705196</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1754860705196</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,7 +365,8 @@
     <MESSAGE value="Inicio model caompeonato" />
     <MESSAGE value="Fim do cadastro de Clube, Regional e Fase" />
     <MESSAGE value="Fim de tela novo campeonato" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fim de tela novo campeonato" />
+    <MESSAGE value="pensar sobre a partidaview" />
+    <option name="LAST_COMMIT_MESSAGE" value="pensar sobre a partidaview" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -506,6 +525,97 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs</url>
+          <line>707</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" containingFunctionPresentation="Method 'MontarJogos1'">
+            <startOffsets>
+              <option value="27429" />
+            </startOffsets>
+            <endOffsets>
+              <option value="27442" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs</url>
+          <line>704</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" containingFunctionPresentation="Method 'MontarJogos1'">
+            <startOffsets>
+              <option value="27313" />
+            </startOffsets>
+            <endOffsets>
+              <option value="27325" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs</url>
+          <line>702</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" containingFunctionPresentation="Method 'MontarJogos1'">
+            <startOffsets>
+              <option value="27157" />
+            </startOffsets>
+            <endOffsets>
+              <option value="27303" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs</url>
+          <line>618</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" containingFunctionPresentation="Method 'MontarJogos1'">
+            <startOffsets>
+              <option value="23438" />
+            </startOffsets>
+            <endOffsets>
+              <option value="23480" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs</url>
+          <line>158</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" containingFunctionPresentation="Constructor 'GeradorPartidas'">
+            <startOffsets>
+              <option value="6134" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6182" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs</url>
+          <line>57</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" containingFunctionPresentation="Method 'CarregarDados'">
+            <startOffsets>
+              <option value="2347" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2348" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs</url>
+          <line>88</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" containingFunctionPresentation="Method 'CarregarCamposPartidas'">
+            <startOffsets>
+              <option value="3423" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3454" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="109" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

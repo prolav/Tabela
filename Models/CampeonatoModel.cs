@@ -17,6 +17,8 @@ public class CampeonatoModel : BaseModel, INotifyPropertyChanged
     [Column("Campeonato_Local")]
     public string Campeonato_Local { get; set; }
 
+    [Column("Campeonato_Cadastrado")] 
+    public bool Campeonato_Cadastrado { get; set; } = false;
 
 
     [Ignore]

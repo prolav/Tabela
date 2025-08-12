@@ -8,9 +8,11 @@
         <Frame Grid.Row="0" Style="{StaticResource FrameDashBoard}">
             <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
                  <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label32BoldStyle}"
-                       Text="Nome Campeonato -> Binding"/>
+                    Text="{Binding Campeonato.Campeonato_Nome, StringFormat='{0}'}"/>
+
                  <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24Style}"
-                       Text="Fase de Grupos -> Binding"/>
+                        Text="{Binding Campeonato.Campeonato_Local, StringFormat='{0}'}"/>
+
                  <Button Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
                        Text="Ver Detalhes" Command="{Binding DetalhesCommand}"/>
             </Grid>
@@ -25,7 +27,7 @@
                             <Label Grid.Row="0" Style="{StaticResource Label24Style}" 
                                    Text="Total de Jogos"/>
                             <Label Grid.Row="1" Style="{StaticResource Label32BoldStyle}" 
-                                   Text="66 -> Binding"/>
+                                   Text="{Binding QtdePartidas}"/>
                         </Grid>
                   </Frame>
                 

@@ -50,7 +50,7 @@ public class PC_CadastroGeral_PartialViewModel: BaseViewModel
 
             var campeonatoRepository = new CampeonatoRepository();
             _campeonato = campeonatoRepository.GetAll().LastOrDefault();
-            if (_campeonato != null)
+            if (_campeonato != null && _campeonato.Campeonato_Cadastrado == false)
                 CadastroCampeonatoAtivo = true;
             else
                 CadastroCampeonatoAtivo = false;
