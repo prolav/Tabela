@@ -27,12 +27,12 @@
          </Grid>
 
         <Frame Grid.Row="1" Grid.Column="0" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
-               Padding="5,2,5,2" IsVisible="{Binding ListmontagemCampeonatoModel1[0].CampoHabilitado, FallbackValue=false}">
+               Padding="5,2,5,2" IsVisible="{Binding ListaTime1[0].CampoHabilitado, FallbackValue=false}">
               <Grid RowDefinitions="Auto,*">
                      <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
-                            Text="{Binding ListmontagemCampeonatoModel1[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+                            Text="{Binding ListaTime1[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
 
-                     <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel1}" HasUnevenRows="True" BackgroundColor="Transparent"
+                     <ListView Grid.Row="1" ItemsSource="{Binding ListaTime1}" HasUnevenRows="True" BackgroundColor="Transparent"
                                 SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand" CachingStrategy="RecycleElementAndDataTemplate">
                              <ListView.ItemTemplate>
                                     <DataTemplate>
@@ -46,12 +46,12 @@
         </Frame>
 
            <Frame Grid.Row="1" Grid.Column="1" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
-                  IsVisible="{Binding ListmontagemCampeonatoModel2[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
+                  IsVisible="{Binding ListaTime2[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
                   <Grid RowDefinitions="Auto,*">
                          <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
-                                Text="{Binding ListmontagemCampeonatoModel2[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+                                Text="{Binding ListaTime2[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
 
-                         <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel2}" HasUnevenRows="True" BackgroundColor="Transparent"
+                         <ListView Grid.Row="1" ItemsSource="{Binding ListaTime2}" HasUnevenRows="True" BackgroundColor="Transparent"
                                    SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
                                 <ListView.ItemTemplate>
                                        <DataTemplate>
@@ -65,12 +65,12 @@
            </Frame>
 
            <Frame Grid.Row="1" Grid.Column="2" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
-                  IsVisible="{Binding ListmontagemCampeonatoModel3[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
+                  IsVisible="{Binding ListaTime3[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
                   <Grid RowDefinitions="Auto,*">
                          <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
-                                Text="{Binding ListmontagemCampeonatoModel3[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+                                Text="{Binding ListaTime3[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
 
-                         <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel3}" HasUnevenRows="True" BackgroundColor="Transparent"
+                         <ListView Grid.Row="1" ItemsSource="{Binding ListaTime3}" HasUnevenRows="True" BackgroundColor="Transparent"
                                    SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
                                 <ListView.ItemTemplate>
                                        <DataTemplate>
@@ -84,12 +84,12 @@
            </Frame>
 
         <Frame Grid.Row="2" Grid.Column="0" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
-               IsVisible="{Binding ListmontagemCampeonatoModel4[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
+               IsVisible="{Binding ListaTime4[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
                <Grid RowDefinitions="Auto,*">
                     <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
-                           Text="{Binding ListmontagemCampeonatoModel4[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+                           Text="{Binding ListaTime4[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
 
-                    <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel4}" HasUnevenRows="True" BackgroundColor="Transparent"
+                    <ListView Grid.Row="1" ItemsSource="{Binding ListaTime4}" HasUnevenRows="True" BackgroundColor="Transparent"
                           SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
                            <ListView.ItemTemplate>
                                        <DataTemplate>
@@ -103,12 +103,12 @@
         </Frame>
 
            <Frame Grid.Row="2" Grid.Column="1" BorderColor="{StaticResource GateVermelho}" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" 
-                  IsVisible="{Binding ListmontagemCampeonatoModel5[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
+                  IsVisible="{Binding ListaTime5[0].CampoHabilitado, FallbackValue=false}" Padding="5,2,5,2">
                   <Grid RowDefinitions="Auto,*">
                          <Label Grid.Row="0" Style="{StaticResource Label24BoldStyle}"
-                                Text="{Binding ListmontagemCampeonatoModel5[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
+                                Text="{Binding ListaTime5[0].MontagemCampeonatoModel_NumeroCampo, StringFormat='Campo {0}'}"/>
 
-                         <ListView Grid.Row="1" ItemsSource="{Binding ListmontagemCampeonatoModel5}" HasUnevenRows="True" BackgroundColor="Transparent"
+                         <ListView Grid.Row="1" ItemsSource="{Binding ListaTime5}" HasUnevenRows="True" BackgroundColor="Transparent"
                                    SelectionMode="None" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
                                 <ListView.ItemTemplate>
                                        <DataTemplate>
@@ -122,29 +122,3 @@
            </Frame>
     </Grid>
 </ContentView>
-
-
-
-
-
-<!-- <Frame Grid.Row="1" Grid.Column="0" CornerRadius="15" HasShadow="False" BorderColor="{StaticResource GateVermelho}"  -->
-<!--        Padding="10" BackgroundColor="{StaticResource GateCremeFundoDashBoard}" > -->
-<!--        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto, *, Auto" IsVisible="{Binding ListmontagemCampeonatoModel1.CampoHabilitado}"> -->
-<!--               <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Label40BoldStyle}" HorizontalOptions="Center" -->
-<!--                      Text="{Binding ListmontagemCampeonatoModel1.MontagemCampeonatoModel_NumeroCampo}" Padding="0,0,0,20"/> -->
-<!-- -->
-<!--               <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" -->
-<!--                      Text="Clube"/> -->
-<!--               <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderEntry}"> -->
-<!--                      <Picker Style="{StaticResource Label24BoldStyle}" -->
-<!--                              ItemsSource="{Binding ListaClube, Mode=TwoWay}" -->
-<!--                              ItemDisplayBinding="{Binding Clube_Nome, Mode=TwoWay}" -->
-<!--                              SelectedItem="{Binding ListmontagemCampeonatoModel1.Clube, Mode=TwoWay}"/> -->
-<!--               </Border> -->
-<!--               <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource BorderEntry}"> -->
-<!--                      <Entry Placeholder="Nome do Capitão" Style="{StaticResource Entry24Style}" -->
-<!--                             Text="{Binding ListmontagemCampeonatoModel1.Apelido_Time, Mode=TwoWay}"/> -->
-<!--               </Border> -->
-<!--        </Grid> -->
-<!-- -->
-<!-- </Frame> -->

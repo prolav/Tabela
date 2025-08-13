@@ -26,12 +26,12 @@
                        Text="{Binding LocalCampeonato, Mode=TwoWay}"/>
             </Border>
 
-            <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
-                   Text="Número de Rodadas"/>
-            <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource BorderEntry}">
-                <Picker  Style="{StaticResource Entry24Style}"
-                       SelectedItem="{Binding NumeroRodadasSelecionada}" ItemsSource="{Binding ListaRodadas}"/>
-            </Border>
+            <!-- <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" -->
+            <!--        Text="Número de Rodadas"/> -->
+            <!-- <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource BorderEntry}"> -->
+            <!--     <Picker  Style="{StaticResource Entry24Style}" -->
+            <!--            SelectedItem="{Binding NumeroRodadasSelecionada}" ItemsSource="{Binding ListaRodadas}"/> -->
+            <!-- </Border> -->
 
             <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
                    Text="Número de Campos"/>

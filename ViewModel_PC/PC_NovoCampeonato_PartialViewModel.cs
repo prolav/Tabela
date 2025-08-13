@@ -7,9 +7,10 @@ using Tabela.Repositories;
 
 namespace Tabela.ViewModel_PC;
 
-public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
+public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
 {
     #region Model Auxiliar
+
     public class GeradorNomeTime
     {
         public string NomeClube { get; set; }
@@ -20,34 +21,72 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
     {
         public string NomeTime { get; set; }
     }
-    
+
     #endregion
 
     #region Fields
-    private List<GeradorNomeTime>  _listGeradorNomeTime  = new List<GeradorNomeTime>();
+
+    private List<GeradorNomeTime> _listGeradorNomeTime = new List<GeradorNomeTime>();
 
     private List<VerificadorNomeTimeIgual> _listVerificadorNomeTimeIgual;
+
     //private List<JogadorModel> _listaJogador;
     private PC_DashBoardViewModel _pc_DashBoardVM;
-    private List<ClubeModel>  _listaClube;
+    private List<ClubeModel> _listaClube;
     private int _numeroCampos;
-    private List<MontagemCampeonatoModel> _listmontagemCampeonatoModel1;
-    private List<MontagemCampeonatoModel> _listmontagemCampeonatoModel2;
-    private List<MontagemCampeonatoModel> _listmontagemCampeonatoModel3;
-    private List<MontagemCampeonatoModel> _listmontagemCampeonatoModel4;
-    private List<MontagemCampeonatoModel> _listmontagemCampeonatoModel5;
+    private List<TimeModel> _listaTime1;
+    private List<TimeModel> _listaTime2;
+    private List<TimeModel> _listaTime3;
+    private List<TimeModel> _listaTime4;
+    private List<TimeModel> _listaTime5;
     private CampeonatoModel _campeonato;
+
     #endregion
 
     #region Properties
-    public List<MontagemCampeonatoModel> ListmontagemCampeonatoModel1 { get => _listmontagemCampeonatoModel1; set => SetProperty(ref _listmontagemCampeonatoModel1, value); }
-    public List<MontagemCampeonatoModel> ListmontagemCampeonatoModel2 { get => _listmontagemCampeonatoModel2; set => SetProperty(ref _listmontagemCampeonatoModel2, value); }
-    public List<MontagemCampeonatoModel> ListmontagemCampeonatoModel3 { get => _listmontagemCampeonatoModel3; set => SetProperty(ref _listmontagemCampeonatoModel3, value); }
-    public List<MontagemCampeonatoModel> ListmontagemCampeonatoModel4 { get => _listmontagemCampeonatoModel4; set => SetProperty(ref _listmontagemCampeonatoModel4, value); }
-    public List<MontagemCampeonatoModel> ListmontagemCampeonatoModel5 { get => _listmontagemCampeonatoModel5; set => SetProperty(ref _listmontagemCampeonatoModel5, value); }
-    public List<ClubeModel> ListaClube { get => _listaClube; set => SetProperty(ref _listaClube, value); }
-    public CampeonatoModel Campeonato { get => _campeonato; set => SetProperty(ref _campeonato, value); }
-    
+
+    public List<TimeModel> ListaTime1
+    {
+        get => _listaTime1;
+        set => SetProperty(ref _listaTime1, value);
+    }
+
+    public List<TimeModel> ListaTime2
+    {
+        get => _listaTime2;
+        set => SetProperty(ref _listaTime2, value);
+    }
+
+    public List<TimeModel> ListaTime3
+    {
+        get => _listaTime3;
+        set => SetProperty(ref _listaTime3, value);
+    }
+
+    public List<TimeModel> ListaTime4
+    {
+        get => _listaTime4;
+        set => SetProperty(ref _listaTime4, value);
+    }
+
+    public List<TimeModel> ListaTime5
+    {
+        get => _listaTime5;
+        set => SetProperty(ref _listaTime5, value);
+    }
+
+    public List<ClubeModel> ListaClube
+    {
+        get => _listaClube;
+        set => SetProperty(ref _listaClube, value);
+    }
+
+    public CampeonatoModel Campeonato
+    {
+        get => _campeonato;
+        set => SetProperty(ref _campeonato, value);
+    }
+
     public int NumeroCampos
     {
         get => _numeroCampos;
@@ -58,20 +97,25 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             OnPropertyChanged(nameof(_campeonato.Campeonato_NumerosCampos));
         }
     }
+
     #endregion
-            
+
     #region Commands
+
     public ICommand LimparTudoCommand => new Command(() => LimparTudoExecute());
     public ICommand GerarNomesCommand => new Command(() => CarregarGeradorNomesTimesExecute());
     public ICommand AdicionarNovoCampeonatoCommand => new Command(() => AdicionarNovoCampeonatoExecute());
+
     #endregion
-            
+
     #region Constructor
+
     public PC_NovoCampeonato_PartialViewModel(PC_DashBoardViewModel pc_DashBoardVM, CampeonatoModel campeonatoModel)
     {
         _pc_DashBoardVM = pc_DashBoardVM;
         CarregarDados(campeonatoModel);
     }
+
     #endregion
 
     #region Methods
@@ -86,8 +130,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            Application.Current.MainPage.DisplayAlert("Erro", e.Message, "OK");
         }
     }
 
@@ -97,7 +140,9 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         {
             CarregarVerificadorQtdeTimesPorCampo();
             CarregarVerificadorNomesIguais();
-            var resposta = await Application.Current.MainPage.DisplayAlert("Atenção", $"Confirma todos as informações?", "OK", "Cancelar");
+            var resposta =
+                await Application.Current.MainPage.DisplayAlert("Atenção", $"Confirma todos as informações?", "OK",
+                    "Cancelar");
             if (resposta)
             {
                 CarregarRemoverMontagemCampeonatoNulos();
@@ -106,7 +151,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                 var campeonatoRepository = new CampeonatoRepository();
                 Campeonato.Campeonato_Cadastrado = true;
                 campeonatoRepository.InsertOrReplace(Campeonato);
-                _pc_DashBoardVM.AtualizarPage("DashBoard");
+                _pc_DashBoardVM.AtualizarPage("Histórico de Jogos");
             }
         }
         catch (Exception ex)
@@ -120,15 +165,15 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         try
         {
             if (_campeonato.Campeonato_NumerosCampos >= 1)
-                CadastrarTodosMontagemCampeonatoEmUso(ListmontagemCampeonatoModel1);
+                CadastrarTodosMontagemCampeonatoEmUso(ListaTime1);
             if (_campeonato.Campeonato_NumerosCampos >= 2)
-                CadastrarTodosMontagemCampeonatoEmUso(ListmontagemCampeonatoModel2);
+                CadastrarTodosMontagemCampeonatoEmUso(ListaTime2);
             if (_campeonato.Campeonato_NumerosCampos >= 3)
-                CadastrarTodosMontagemCampeonatoEmUso(ListmontagemCampeonatoModel3);
+                CadastrarTodosMontagemCampeonatoEmUso(ListaTime3);
             if (_campeonato.Campeonato_NumerosCampos >= 4)
-                CadastrarTodosMontagemCampeonatoEmUso(ListmontagemCampeonatoModel4);
+                CadastrarTodosMontagemCampeonatoEmUso(ListaTime4);
             if (_campeonato.Campeonato_NumerosCampos >= 5)
-                CadastrarTodosMontagemCampeonatoEmUso(ListmontagemCampeonatoModel5);
+                CadastrarTodosMontagemCampeonatoEmUso(ListaTime5);
         }
         catch (Exception e)
         {
@@ -136,14 +181,15 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         }
     }
 
-    private void CadastrarTodosMontagemCampeonatoEmUso(List<MontagemCampeonatoModel> listaMontagemCampeonato)
+    private void CadastrarTodosMontagemCampeonatoEmUso(List<TimeModel> listaTime)
     {
         try
         {
-            var montagemCampeonatoRepository = new MontagemCampeonatoRepository();
-            foreach (var montagemCampeonato in listaMontagemCampeonato)
+            var timeRepository = new TimeRepository();
+            foreach (var time in listaTime)
             {
-                montagemCampeonatoRepository.InsertOrReplace(montagemCampeonato);        
+                time.FK_Clube_Id = time.Clube.Id;
+                timeRepository.InsertOrReplace(time);
             }
         }
         catch (Exception e)
@@ -157,18 +203,32 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         try
         {
             var partidaRepository = new PartidaRepository();
+            var listAuxPartida = new List<PartidaModel>();
             foreach (var partida in listaPartidas)
             {
-                partida.FK_Campeonato_Id = Campeonato.Id;
-                partida.Partida_DataHora = Campeonato.Campeonato_Data;
-                partida.FaseId = partida.TimeCasa.FK_Fase_Id;
-                partida.TimeCasaId = partida.TimeCasa.Id;
-                partida.TimeForaId = partida.TimeFora.Id;
-                partida.TimeJuizId = partida.TimeJuiz.Id;
-                partida.Partida_NumeroCampo = partida.TimeCasa.MontagemCampeonatoModel_NumeroCampo;
+               // partida.FK_Campeonato_Id = Campeonato.Id;
+                //partida.Partida_DataHora = Campeonato.Campeonato_Data;
+                //partida.FaseId = partida.TimeCasa.FK_Fase_Id;
+                //partida.TimeCasaId = partida.TimeCasa.Id;
+                //partida.TimeForaId = partida.TimeFora.Id;
+                //partida.TimeJuizId = partida.TimeJuiz.Id;
+                //partida.Partida_NumeroCampo = partida.TimeCasa.MontagemCampeonatoModel_NumeroCampo;
                 partida.Partida_ComJogo = true;
+                //listAuxPartida.Add(partida);
                 partidaRepository.InsertOrReplace(partida);
             }
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+    }
+
+    private void OrdenadorRodadasPartidas()
+    {
+        try
+        {
+
         }
         catch (Exception e)
         {
@@ -182,15 +242,15 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         {
             var listapartidas = new List<PartidaModel>();
             if (_campeonato.Campeonato_NumerosCampos >= 1)
-                listapartidas.AddRange(MontarJogos(ListmontagemCampeonatoModel1));
+                listapartidas.AddRange(MontarJogos(ListaTime1));
             if (_campeonato.Campeonato_NumerosCampos >= 2)
-                listapartidas.AddRange(MontarJogos(ListmontagemCampeonatoModel2));
+                listapartidas.AddRange(MontarJogos(ListaTime2));
             if (_campeonato.Campeonato_NumerosCampos >= 3)
-                listapartidas.AddRange(MontarJogos(ListmontagemCampeonatoModel3));
+                listapartidas.AddRange(MontarJogos(ListaTime3));
             if (_campeonato.Campeonato_NumerosCampos >= 4)
-                listapartidas.AddRange(MontarJogos(ListmontagemCampeonatoModel4));
+                listapartidas.AddRange(MontarJogos(ListaTime4));
             if (_campeonato.Campeonato_NumerosCampos >= 5)
-                listapartidas.AddRange(MontarJogos(ListmontagemCampeonatoModel5));
+                listapartidas.AddRange(MontarJogos(ListaTime5));
 
             GeradorPartidas(listapartidas);
         }
@@ -199,20 +259,21 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             throw new Exception(e.Message);
         }
     }
+
     private void CarregarRemoverMontagemCampeonatoNulos()
     {
         try
         {
             if (_campeonato.Campeonato_NumerosCampos >= 1)
-                RemoverMontagemCampeonatoNulos(ListmontagemCampeonatoModel1);
+                RemoverMontagemCampeonatoNulos(ListaTime1);
             if (_campeonato.Campeonato_NumerosCampos >= 2)
-                RemoverMontagemCampeonatoNulos(ListmontagemCampeonatoModel2);
+                RemoverMontagemCampeonatoNulos(ListaTime2);
             if (_campeonato.Campeonato_NumerosCampos >= 3)
-                RemoverMontagemCampeonatoNulos(ListmontagemCampeonatoModel3);
+                RemoverMontagemCampeonatoNulos(ListaTime3);
             if (_campeonato.Campeonato_NumerosCampos >= 4)
-                RemoverMontagemCampeonatoNulos(ListmontagemCampeonatoModel4);
+                RemoverMontagemCampeonatoNulos(ListaTime4);
             if (_campeonato.Campeonato_NumerosCampos >= 5)
-                RemoverMontagemCampeonatoNulos(ListmontagemCampeonatoModel5);
+                RemoverMontagemCampeonatoNulos(ListaTime5);
         }
         catch (Exception e)
         {
@@ -220,11 +281,11 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         }
     }
 
-    private void RemoverMontagemCampeonatoNulos(List<MontagemCampeonatoModel> listaMontagemCampeonato)
+    private void RemoverMontagemCampeonatoNulos(List<TimeModel> listaTime)
     {
         try
         {
-            listaMontagemCampeonato.RemoveAll(item => item.Clube == null);
+            listaTime.RemoveAll(item => item.Clube == null);
         }
         catch (Exception e)
         {
@@ -238,15 +299,15 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         {
             _listVerificadorNomeTimeIgual = new List<VerificadorNomeTimeIgual>();
             if (_campeonato.Campeonato_NumerosCampos >= 1)
-                VerificadorNomesIguais(ListmontagemCampeonatoModel1);
+                VerificadorNomesIguais(ListaTime1);
             if (_campeonato.Campeonato_NumerosCampos >= 2)
-                VerificadorNomesIguais(ListmontagemCampeonatoModel2);
+                VerificadorNomesIguais(ListaTime2);
             if (_campeonato.Campeonato_NumerosCampos >= 3)
-                VerificadorNomesIguais(ListmontagemCampeonatoModel3);
+                VerificadorNomesIguais(ListaTime3);
             if (_campeonato.Campeonato_NumerosCampos >= 4)
-                VerificadorNomesIguais(ListmontagemCampeonatoModel4);
+                VerificadorNomesIguais(ListaTime4);
             if (_campeonato.Campeonato_NumerosCampos >= 5)
-                VerificadorNomesIguais(ListmontagemCampeonatoModel5);
+                VerificadorNomesIguais(ListaTime5);
 
             var nomesDuplicados = _listVerificadorNomeTimeIgual
                 .GroupBy(x => x.NomeTime.Trim().ToLower())
@@ -260,8 +321,10 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                 {
                     nomesDuplicados[0] = "{sem nome}";
                 }
-                    throw new Exception($"O nome do Time {nomesDuplicados[0]} está repetido");
+
+                throw new Exception($"O nome do Time {nomesDuplicados[0]} está repetido");
             }
+
             OnPropertyChanged();
         }
         catch (Exception e)
@@ -270,18 +333,18 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         }
     }
 
-    private void VerificadorNomesIguais(List<MontagemCampeonatoModel> listaMontagemCampeonato)
+    private void VerificadorNomesIguais(List<TimeModel> listaTime)
     {
         try
         {
-            foreach (var montagemCampeonato in listaMontagemCampeonato)
+            foreach (var time in listaTime)
             {
-                if (montagemCampeonato.Clube != null)
+                if (time.Clube != null)
                 {
                     var geradorTime = new VerificadorNomeTimeIgual()
                     {
-                        NomeTime = montagemCampeonato.Apelido_Time,
-                    };  
+                        NomeTime = time.Apelido_Time,
+                    };
                     _listVerificadorNomeTimeIgual.Add(geradorTime);
                 }
             }
@@ -291,21 +354,22 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             throw new Exception(e.Message);
         }
     }
+
     private void CarregarGeradorNomesTimesExecute()
     {
         try
         {
             _listGeradorNomeTime = new List<GeradorNomeTime>();
             if (_campeonato.Campeonato_NumerosCampos >= 1)
-                GeradorNomesTimes(ListmontagemCampeonatoModel1);
+                GeradorNomesTimes(ListaTime1);
             if (_campeonato.Campeonato_NumerosCampos >= 2)
-                GeradorNomesTimes(ListmontagemCampeonatoModel2);
+                GeradorNomesTimes(ListaTime2);
             if (_campeonato.Campeonato_NumerosCampos >= 3)
-                GeradorNomesTimes(ListmontagemCampeonatoModel3);
+                GeradorNomesTimes(ListaTime3);
             if (_campeonato.Campeonato_NumerosCampos >= 4)
-                GeradorNomesTimes(ListmontagemCampeonatoModel4);
+                GeradorNomesTimes(ListaTime4);
             if (_campeonato.Campeonato_NumerosCampos >= 5)
-                GeradorNomesTimes(ListmontagemCampeonatoModel5);
+                GeradorNomesTimes(ListaTime5);
             OnPropertyChanged();
         }
         catch (Exception e)
@@ -313,11 +377,12 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             throw new Exception(e.Message);
         }
     }
-    private void GeradorNomesTimes(List<MontagemCampeonatoModel> listaMontagemCampeonato)
+
+    private void GeradorNomesTimes(List<TimeModel> listaTime)
     {
         try
         {
-            foreach (var lista1 in listaMontagemCampeonato)
+            foreach (var lista1 in listaTime)
             {
                 if (string.IsNullOrEmpty(lista1.Apelido_Time) && lista1.Clube != null)
                 {
@@ -325,7 +390,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                     {
                         NomeClube = lista1.Clube.Clube_Nome,
                         NumeroClube = BuscarUltimoNumeroClube(lista1.Clube.Clube_Nome) + 1
-                    };  
+                    };
                     _listGeradorNomeTime.Add(geradorTime);
 
                     lista1.Apelido_Time = lista1.Clube.Clube_Nome + " " + geradorTime.NumeroClube.ToString();
@@ -351,6 +416,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                         retorno = lista.NumeroClube;
                 }
             }
+
             return retorno;
         }
         catch (Exception e)
@@ -359,15 +425,16 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         }
     }
 
-    private void VerificadorQtdeTimesPorCampo(List<MontagemCampeonatoModel> listaMontagemCampeonato)
+    private void VerificadorQtdeTimesPorCampo(List<TimeModel> listaTime)
     {
         try
         {
-            var contadorTimesCampo1 = listaMontagemCampeonato
+            var contadorTimesCampo1 = listaTime
                 .Where(a => a.Clube != null).Count();
 
-            if (contadorTimesCampo1 <= Campeonato.Campeonato_NumerosRodadas && listaMontagemCampeonato[0].CampoHabilitado == true)
-                throw new Exception($"Número clubes no campo {listaMontagemCampeonato[0].MontagemCampeonatoModel_NumeroCampo} tem que ser superior ao número de rodadas {Campeonato.Campeonato_NumerosRodadas}");
+            if (contadorTimesCampo1 <= Campeonato.Campeonato_NumerosRodadas && listaTime[0].CampoHabilitado == true)
+                throw new Exception(
+                    $"Número clubes no campo {listaTime[0].MontagemCampeonatoModel_NumeroCampo} tem que ser superior ao número de rodadas {Campeonato.Campeonato_NumerosRodadas}");
         }
         catch (Exception e)
         {
@@ -380,20 +447,19 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         try
         {
             if (_campeonato.Campeonato_NumerosCampos >= 1)
-                VerificadorQtdeTimesPorCampo(ListmontagemCampeonatoModel1);
+                VerificadorQtdeTimesPorCampo(ListaTime1);
             if (_campeonato.Campeonato_NumerosCampos >= 2)
-                VerificadorQtdeTimesPorCampo(ListmontagemCampeonatoModel2);
+                VerificadorQtdeTimesPorCampo(ListaTime2);
             if (_campeonato.Campeonato_NumerosCampos >= 3)
-                VerificadorQtdeTimesPorCampo(ListmontagemCampeonatoModel3);
+                VerificadorQtdeTimesPorCampo(ListaTime3);
             if (_campeonato.Campeonato_NumerosCampos >= 4)
-                VerificadorQtdeTimesPorCampo(ListmontagemCampeonatoModel4);
+                VerificadorQtdeTimesPorCampo(ListaTime4);
             if (_campeonato.Campeonato_NumerosCampos >= 5)
-                VerificadorQtdeTimesPorCampo(ListmontagemCampeonatoModel5);
+                VerificadorQtdeTimesPorCampo(ListaTime5);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            throw new Exception(e.Message);
         }
     }
 
@@ -402,33 +468,32 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         try
         {
             if (_campeonato.Campeonato_NumerosCampos >= 1)
-                CarregarCorCard(ListmontagemCampeonatoModel1);
+                CarregarCorCard(ListaTime1);
             if (_campeonato.Campeonato_NumerosCampos >= 2)
-                CarregarCorCard(ListmontagemCampeonatoModel2);
+                CarregarCorCard(ListaTime2);
             if (_campeonato.Campeonato_NumerosCampos >= 3)
-                CarregarCorCard(ListmontagemCampeonatoModel3);
+                CarregarCorCard(ListaTime3);
             if (_campeonato.Campeonato_NumerosCampos >= 4)
-                CarregarCorCard(ListmontagemCampeonatoModel4);
+                CarregarCorCard(ListaTime4);
             if (_campeonato.Campeonato_NumerosCampos >= 5)
-                CarregarCorCard(ListmontagemCampeonatoModel5);
+                CarregarCorCard(ListaTime5);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            throw new Exception(e.Message);
         }
     }
-    private void CarregarCorCard(List<MontagemCampeonatoModel> listaMontagemCampeonato)
+
+    private void CarregarCorCard(List<TimeModel> listaTime)
     {
         try
         {
-            for (int i = 0; i < listaMontagemCampeonato.Count; i++)
-                listaMontagemCampeonato[i].IsEven = (i % 2 == 0);
+            for (int i = 0; i < listaTime.Count; i++)
+                listaTime[i].IsEven = (i % 2 == 0);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            throw new Exception(e.Message);
         }
     }
 
@@ -442,18 +507,18 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             var fase = faseRepository.GetAll().Where(a => a.Fase_Nome == "Grupos").ToList();
             var faseId = fase[0].Id;
             ListaClube = clubeRepository.GetAll();
-            var montagemCampeonatoRepository = new MontagemCampeonatoRepository();
-            ListmontagemCampeonatoModel1 = new List<MontagemCampeonatoModel>();
-            ListmontagemCampeonatoModel2 = new List<MontagemCampeonatoModel>();
-            ListmontagemCampeonatoModel3 = new List<MontagemCampeonatoModel>();
-            ListmontagemCampeonatoModel4 = new List<MontagemCampeonatoModel>();
-            ListmontagemCampeonatoModel5 = new List<MontagemCampeonatoModel>();
+            var timeRepository = new TimeRepository();
+            ListaTime1 = new List<TimeModel>();
+            ListaTime2 = new List<TimeModel>();
+            ListaTime3 = new List<TimeModel>();
+            ListaTime4 = new List<TimeModel>();
+            ListaTime5 = new List<TimeModel>();
 
             if (_campeonato.Campeonato_NumerosCampos >= 1)
             {
                 for (int i = 1; i <= 6; i++)
                 {
-                    var montagemCampeonato = new MontagemCampeonatoModel()
+                    var time = new TimeModel()
                     {
                         FK_Campeonato_Id = _campeonato.Id,
                         MontagemCampeonatoModel_NumeroCampo = 1,
@@ -462,7 +527,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                         NumeroClubeNaqueleCampo = i,
                         ListaClube = _listaClube
                     };
-                    ListmontagemCampeonatoModel1.Add(montagemCampeonato);
+                    ListaTime1.Add(time);
                 }
             }
 
@@ -470,7 +535,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             {
                 for (int i = 1; i <= 6; i++)
                 {
-                    var montagemCampeonato = new MontagemCampeonatoModel()
+                    var time = new TimeModel()
                     {
                         FK_Campeonato_Id = _campeonato.Id,
                         MontagemCampeonatoModel_NumeroCampo = 2,
@@ -479,7 +544,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                         NumeroClubeNaqueleCampo = i,
                         ListaClube = _listaClube
                     };
-                    ListmontagemCampeonatoModel2.Add(montagemCampeonato);
+                    ListaTime2.Add(time);
                 }
             }
 
@@ -487,7 +552,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             {
                 for (int i = 1; i <= 6; i++)
                 {
-                    var montagemCampeonato = new MontagemCampeonatoModel()
+                    var time = new TimeModel()
                     {
                         FK_Campeonato_Id = _campeonato.Id,
                         MontagemCampeonatoModel_NumeroCampo = 3,
@@ -496,7 +561,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                         NumeroClubeNaqueleCampo = i,
                         ListaClube = _listaClube
                     };
-                    ListmontagemCampeonatoModel3.Add(montagemCampeonato);
+                    ListaTime3.Add(time);
                 }
             }
 
@@ -504,7 +569,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             {
                 for (int i = 1; i <= 6; i++)
                 {
-                    var montagemCampeonato = new MontagemCampeonatoModel()
+                    var time = new TimeModel()
                     {
                         FK_Campeonato_Id = _campeonato.Id,
                         MontagemCampeonatoModel_NumeroCampo = 4,
@@ -513,7 +578,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                         NumeroClubeNaqueleCampo = i,
                         ListaClube = _listaClube
                     };
-                    ListmontagemCampeonatoModel4.Add(montagemCampeonato);
+                    ListaTime4.Add(time);
                 }
             }
 
@@ -521,7 +586,7 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
             {
                 for (int i = 1; i <= 6; i++)
                 {
-                    var montagemCampeonato = new MontagemCampeonatoModel()
+                    var time = new TimeModel()
                     {
                         FK_Campeonato_Id = _campeonato.Id,
                         MontagemCampeonatoModel_NumeroCampo = 5,
@@ -530,14 +595,13 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
                         NumeroClubeNaqueleCampo = i,
                         ListaClube = _listaClube
                     };
-                    ListmontagemCampeonatoModel5.Add(montagemCampeonato);
+                    ListaTime5.Add(time);
                 }
             }
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            throw new Exception(e.Message);
         }
     }
 
@@ -546,186 +610,67 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         try
         {
             if (_campeonato.Campeonato_NumerosCampos >= 1)
-                LimparCampos(ListmontagemCampeonatoModel1);
+                LimparCampos(ListaTime1);
             if (_campeonato.Campeonato_NumerosCampos >= 2)
-                LimparCampos(ListmontagemCampeonatoModel2);
+                LimparCampos(ListaTime2);
             if (_campeonato.Campeonato_NumerosCampos >= 3)
-                LimparCampos(ListmontagemCampeonatoModel3);
+                LimparCampos(ListaTime3);
             if (_campeonato.Campeonato_NumerosCampos >= 4)
-                LimparCampos(ListmontagemCampeonatoModel4);
+                LimparCampos(ListaTime4);
             if (_campeonato.Campeonato_NumerosCampos >= 5)
-                LimparCampos(ListmontagemCampeonatoModel5);
+                LimparCampos(ListaTime5);
             OnPropertyChanged();
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            throw new Exception(e.Message);
         }
     }
 
-    private void LimparCampos(List<MontagemCampeonatoModel> listaMontagemCampeonato)
+    private void LimparCampos(List<TimeModel> listaTime)
     {
         try
         {
-            foreach (var listMontagemCampeonato in listaMontagemCampeonato)
+            foreach (var time in listaTime)
             {
-                listMontagemCampeonato.Clube = null;
-                string.IsNullOrEmpty(listMontagemCampeonato.Apelido_Time);
+                time.Clube = null;
+                string.IsNullOrEmpty(time.Apelido_Time);
             }
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            throw new Exception(e.Message);
         }
     }
+
     #endregion
 
     #region Helpers
+
     public event PropertyChangedEventHandler PropertyChanged;
+
     protected void OnPropertyChanged([CallerMemberName] string name = null) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-    #endregion
-
-    #region teste 1
-    public List<PartidaModel> MontarJogos1(List<MontagemCampeonatoModel> listaMontagemCampeonato)
-    {
-        if (listaMontagemCampeonato.Count < 4 || listaMontagemCampeonato.Count > 6)
-            throw new ArgumentException("Número de times deve ser entre 4 e 6.");
-
-        if (Campeonato.Campeonato_NumerosRodadas < 3 || Campeonato.Campeonato_NumerosRodadas > 5)
-            throw new ArgumentException("Jogos por time deve ser entre 3 e 5.");
-
-        // Resetar contadores para o caso de reuso
-        foreach (var time in listaMontagemCampeonato)
-        {
-            time.Jogos = 0;
-            time.Juiz = 0;
-        }
-
-        var jogos = new List<PartidaModel>();
-
-        // Gerar todos os pares possíveis (sem repetidos e inversos)
-        var paresPossiveis = new List<(MontagemCampeonatoModel, MontagemCampeonatoModel)>();
-        for (int i = 0; i < listaMontagemCampeonato.Count; i++)
-        {
-            for (int j = i + 1; j < listaMontagemCampeonato.Count; j++)
-            {
-                paresPossiveis.Add((listaMontagemCampeonato[i], listaMontagemCampeonato[j]));
-            }
-        }
-
-        MontagemCampeonatoModel ultimoJuiz = null;
-
-        int maxRodadas = Campeonato.Campeonato_NumerosRodadas;
-
-        for (int rodada = 0; rodada < maxRodadas; rodada++)
-        {
-            // Filtrar pares válidos (pares em que ambos times não ultrapassam jogos e ainda não jogaram entre si)
-            var paresValidos = paresPossiveis
-                .Where(p => p.Item1.Jogos < Campeonato.Campeonato_NumerosRodadas
-                            && p.Item2.Jogos < Campeonato.Campeonato_NumerosRodadas
-                            && !jogos.Any(j => (j.TimeCasaId == p.Item1.Id && j.TimeForaId == p.Item2.Id) || (j.TimeCasaId == p.Item2.Id && j.TimeForaId == p.Item1.Id)))
-                .ToList();
-
-            if (!paresValidos.Any())
-            {
-                // Não tem mais pares possíveis para formar jogo
-                break;
-            }
-
-            // Escolher par que ajuda balancear os jogos
-            (MontagemCampeonatoModel casa, MontagemCampeonatoModel fora) jogoEscolhido = (null, null);
-
-            foreach (var par in paresValidos.OrderBy(p => p.Item1.Jogos + p.Item2.Jogos))
-            {
-                // Tentativa de juiz conforme regra do último juiz
-                MontagemCampeonatoModel juizTentativo = ultimoJuiz ?? par.Item1;
-
-                // Se juizTentativo ultrapassa limite, tentar o outro time
-                if (juizTentativo.Juiz >= Campeonato.Campeonato_NumerosRodadas)
-                {
-                    var juizAlternativo = (juizTentativo == par.Item1) ? par.Item2 : par.Item1;
-                    if (juizAlternativo.Juiz < Campeonato.Campeonato_NumerosRodadas)
-                        juizTentativo = juizAlternativo;
-                    else
-                        continue; // Nenhum dos dois pode ser juiz, pular par
-                }
-
-                jogoEscolhido = par;
-                break;
-            }
-
-            if (jogoEscolhido.casa == null)
-            {
-                // Nenhum par válido com juiz disponível, encerrar
-                break;
-            }
-
-            // Definir juiz do jogo conforme regra
-            MontagemCampeonatoModel juizJogo;
-            if (ultimoJuiz == null)
-                juizJogo = jogoEscolhido.casa;
-            else if (jogoEscolhido.casa == ultimoJuiz || jogoEscolhido.fora == ultimoJuiz)
-                juizJogo = ultimoJuiz;
-            else
-                juizJogo = (jogoEscolhido.casa.Juiz <= jogoEscolhido.fora.Juiz) ? jogoEscolhido.casa : jogoEscolhido.fora;
-
-            // Criar e adicionar o jogo
-            var jogo = new PartidaModel()
-            {
-                TimeCasaId = jogoEscolhido.casa.Id,
-                TimeForaId = jogoEscolhido.fora.Id,
-                TimeJuizId = juizJogo.Id
-            };
-            jogos.Add(jogo);
-
-            var montagemCampeonatoRepository = new MontagemCampeonatoRepository();
-            // Preencher as models times
-            jogo.TimeCasa = listaMontagemCampeonato.Where(a => a.Id == jogo.TimeCasaId).Single();
-            jogo.TimeFora = listaMontagemCampeonato.Where(a => a.Id == jogo.TimeForaId).Single();
-            jogo.TimeJuiz = listaMontagemCampeonato.Where(a => a.Id == jogo.TimeJuizId).Single();
-
-            // Atualizar contadores
-            jogo.TimeCasa.Jogos++;
-            jogo.TimeFora.Jogos++;
-            jogo.TimeJuiz.Juiz++;
-
-            // Atualizar último juiz para próxima rodada
-            ultimoJuiz = jogo.TimeCasa;
-
-            // Remover o par usado
-            paresPossiveis.RemoveAll(p => (p.Item1 == jogo.TimeCasa && p.Item2 == jogo.TimeFora) || (p.Item1 == jogo.TimeFora && p.Item2 == jogo.TimeCasa));
-        }
-
-        // Validar se todos os times têm o mesmo número de jogos e juiz
-        bool valido = listaMontagemCampeonato.All(t => t.Jogos == Campeonato.Campeonato_NumerosRodadas && t.Juiz == Campeonato.Campeonato_NumerosRodadas);
-
-        if (!valido)
-            throw new Exception("Não foi possível montar o campeonato com as regras dadas.");
-
-        return jogos;
-    }
-    
 
     #endregion
 
-    #region teste2
-    public List<PartidaModel> MontarJogos(List<MontagemCampeonatoModel> listaMontagemCampeonato)
+
+    #region MontarJogos
+
+    public List<PartidaModel> MontarJogos1(List<TimeModel> listaTime)
     {
         var random = new Random();
         var partidas = new List<PartidaModel>();
         var tentativas = 0;
 
-        var numeroPartidas = (listaMontagemCampeonato.Count() * Campeonato.Campeonato_NumerosRodadas) / 2;
+        var numeroPartidas = (listaTime.Count() * Campeonato.Campeonato_NumerosRodadas) / 2;
 
         while (partidas.Count < numeroPartidas && tentativas < 5000)
         {
             tentativas++;
 
             // Embaralhar times
-            var times = listaMontagemCampeonato.OrderBy(x => random.Next()).ToList();
+            var times = listaTime.OrderBy(x => random.Next()).ToList();
 
             var timeCasa = times[0];
             var timeFora = times[1];
@@ -754,25 +699,85 @@ public class PC_NovoCampeonato_PartialViewModel:BaseViewModel
         return partidas;
     }
 
-// rodada 1 = time2 x time1  juiz=time5
-// rodada 2 = time4 x time3  juiz=time2
-// rodada 3 = time1 x time5  juiz=time4
-// rodada 4 = time3 x time2  juiz=time1
-// rodada 5 = time5 x time4  juiz=time3
-// rodada 6 = time1 x time3  juiz=time5
-// rodada 7 = time2 x time4  juiz=time1
-// rodada 8 = time3 x time5  juiz=time2
-// rodada 9 = time4 x time1  juiz=time3
-// rodada 10 = time5 x time2  juiz=time4
-
-
-
-
-
-
-
-
-    
-
     #endregion
+
+    #region MyRegion
+
+    public List<PartidaModel> MontarJogos(List<TimeModel> times)
+    {
+        var campeonatoId = Campeonato.Id;
+        var faseId = times[0].FK_Fase_Id;
+        var partidas = new List<PartidaModel>();
+        var totalTimes = times.Count;
+
+        if (totalTimes != 5 && totalTimes != 6)
+            throw new InvalidOperationException("Este gerador só funciona para campeonatos com 5 ou 6 times.");
+
+        // Garantir ordem fixa para previsibilidade
+        times = times.OrderBy(t => t.Clube.Clube_Nome).ToList();
+
+        if (totalTimes == 5)
+        {
+            // ======= Lógica para 5 times =======
+            // Rodada 1
+            partidas.Add(CriarPartida(1, times[1], times[0], times[4], campeonatoId, faseId));
+            partidas.Add(CriarPartida(2, times[3], times[2], times[1], campeonatoId, faseId));
+            // Rodada 2
+            partidas.Add(CriarPartida(3, times[1], times[4], times[3], campeonatoId, faseId));
+            partidas.Add(CriarPartida(4, times[2], times[0], times[1], campeonatoId, faseId));
+            // Rodada 3
+            partidas.Add(CriarPartida(5, times[4], times[3], times[2], campeonatoId, faseId));
+            partidas.Add(CriarPartida(6, times[0], times[2], times[4], campeonatoId, faseId));
+            // Rodada 4
+            partidas.Add(CriarPartida(7, times[2], times[4], times[1], campeonatoId, faseId));
+            partidas.Add(CriarPartida(8, times[3], times[0], times[2], campeonatoId, faseId));
+            // Rodada 5
+            partidas.Add(CriarPartida(9, times[0], times[3], times[4], campeonatoId, faseId));
+            partidas.Add(CriarPartida(10, times[4], times[1], times[0], campeonatoId, faseId));
+        }
+        else if (totalTimes == 6)
+        {
+            // ======= Lógica para 6 times =======
+            // Rodada 1
+            partidas.Add(CriarPartida(1, times[1], times[0], times[5], campeonatoId, faseId));
+            partidas.Add(CriarPartida(2, times[3], times[2], times[1], campeonatoId, faseId));
+            partidas.Add(CriarPartida(3, times[5], times[4], times[3], campeonatoId, faseId));
+            // Rodada 2
+            partidas.Add(CriarPartida(4, times[1], times[4], times[5], campeonatoId, faseId));
+            partidas.Add(CriarPartida(5, times[2], times[0], times[1], campeonatoId, faseId));
+            partidas.Add(CriarPartida(6, times[5], times[3], times[2], campeonatoId, faseId));
+            // Rodada 3
+            partidas.Add(CriarPartida(7, times[4], times[3], times[2], campeonatoId, faseId));
+            partidas.Add(CriarPartida(8, times[0], times[2], times[4], campeonatoId, faseId));
+            partidas.Add(CriarPartida(9, times[3], times[5], times[0], campeonatoId, faseId));
+            // Rodada 4
+            partidas.Add(CriarPartida(10, times[2], times[4], times[1], campeonatoId, faseId));
+            partidas.Add(CriarPartida(11, times[3], times[0], times[2], campeonatoId, faseId));
+            partidas.Add(CriarPartida(12, times[5], times[1], times[3], campeonatoId, faseId));
+        }
+
+        // Retornar ordenado por rodada
+        return partidas.OrderBy(p => p.Partida_Rodada).ToList();
+    }
+
+    private PartidaModel CriarPartida(int rodada, TimeModel casa, TimeModel fora, TimeModel juiz, Guid campeonatoId,
+        Guid faseId)
+    {
+        return new PartidaModel
+        {
+            FK_Campeonato_Id = campeonatoId,
+            FaseId = faseId,
+            Partida_Rodada = rodada,
+            Partida_NumeroCampo = casa.MontagemCampeonatoModel_NumeroCampo, // Ajuste se quiser mais campos
+            Partida_DataHora = DateTime.Now, // Ajustar data real
+            TimeCasaId = casa.Id,
+            TimeForaId = fora.Id,
+            TimeJuizId = juiz.Id,
+            Partida_ComJogo = false
+        };
+    }
 }
+
+
+
+#endregion

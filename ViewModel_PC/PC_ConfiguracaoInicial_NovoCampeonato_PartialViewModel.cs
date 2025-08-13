@@ -52,8 +52,9 @@ public class PC_ConfiguracaoInicial_NovoCampeonato_PartialViewModel : BaseViewMo
         {
             _pc_DashBoardVM = pc_DashBoardVM;
             DataSelecionada = DateTime.Now;
-            ListaCampos = new List<int>() { 0, 1, 2, 3, 4, 5 };
-            ListaRodadas = new List<int>() { 0, 1, 2, 3, 4, 5 };
+            NumeroRodadasSelecionada = 4;
+            ListaCampos = new List<int>() { 1, 2, 3, 4, 5 };
+            ListaRodadas = new List<int>() {4, 5 };
 
         }
         catch (Exception e)

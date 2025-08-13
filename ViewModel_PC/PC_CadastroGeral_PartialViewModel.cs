@@ -120,6 +120,18 @@ public class PC_CadastroGeral_PartialViewModel: BaseViewModel
             {
                 Id = Guid.NewGuid(),
                 FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Seitô").FirstOrDefault().Id,
+                Clube_Nome = "Time",
+                Clube_Logo = "sem_imagem.jpeg",
+                Clube_Presidente = "Nobuo",
+                Dt_Alteracao = DateTime.Now,
+                Dt_Inclusao = DateTime.MinValue,
+            };
+            clubeRepository.InsertOrReplace(clube);
+
+            clube = new ClubeModel()
+            {
+                Id = Guid.NewGuid(),
+                FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Seitô").FirstOrDefault().Id,
                 Clube_Nome = "Kyoyu",
                 Clube_Logo = "sem_imagem.jpeg",
                 Clube_Presidente = "Nobuo",

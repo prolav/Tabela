@@ -22,22 +22,25 @@ public class PartidaModel : BaseModel, INotifyPropertyChanged
     [ForeignKey ("TimeCasaId")][SQLite.Column("TimeCasaId")]
     public Guid TimeCasaId { get; set; }
     [Ignore]
-    public virtual MontagemCampeonatoModel TimeCasa { get; set; }
+    public virtual TimeModel TimeCasa { get; set; }
     [ForeignKey ("TimeForaId")][SQLite.Column("TimeForaId")]
     public Guid TimeForaId { get; set; }
     [ForeignKey ("TimeJuizId")][SQLite.Column("TimeJuizId")]
     public Guid TimeJuizId { get; set; }
     [Ignore]
-    public virtual MontagemCampeonatoModel TimeJuiz { get; set; }
+    public virtual TimeModel TimeJuiz { get; set; }
     [Ignore]
-    public virtual MontagemCampeonatoModel TimeFora { get; set; }
+    public virtual TimeModel TimeFora { get; set; }
     [SQLite.Column("Partida_PontosCasa")]
-    public int PontosCasa { get; set; }
+    public int Partida_PontosCasa { get; set; }
     [SQLite.Column("Partida_PontosFora")]
-    public int PontosFora { get; set; }
+    public int Partida_PontosFora { get; set; }
     [SQLite.Column("Partida_ComJogo")] 
     public bool Partida_ComJogo { get; set; } = false;
-    
+
+    public virtual bool IsTimeCasaVencedor => Partida_PontosCasa > Partida_PontosFora;
+    public virtual bool IsTimeForaVencedor => Partida_PontosFora > Partida_PontosCasa;
+
     public virtual bool IsEven { get; set; } = false;
     #region Notify
     public event PropertyChangedEventHandler PropertyChanged;

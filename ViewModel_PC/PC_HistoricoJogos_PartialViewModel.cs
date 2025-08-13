@@ -9,26 +9,31 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
     
     #region Fields
     // private string _nomeUsuario;
-    private List<PartidaModel> _listaPartidaCampo1;
-    private List<PartidaModel> _listaPartidaCampo2;
-    private List<PartidaModel> _listaPartidaCampo3;
-    private List<PartidaModel> _listaPartidaCampo4;
-    private List<PartidaModel> _listaPartidaCampo5;
+    private List<PartidaModel> _listaPartidas;
+
     private PC_DashBoardViewModel _pc_DashBoardVM;
     private CampeonatoModel _campeonato;
+    private bool _buttonCampo2_IsVisible;
+    private bool _buttonCampo3_IsVisible;
+    private bool _buttonCampo4_IsVisible;
+    private bool _buttonCampo5_IsVisible;
+    private PartidaRepository _partidaRepository;
     #endregion
 
     #region Properties
-    public List<PartidaModel> ListaPartidasCampo1 { get => _listaPartidaCampo1; set => SetProperty(ref _listaPartidaCampo1, value); }
-    public List<PartidaModel> ListaPartidasCampo2 { get => _listaPartidaCampo2; set => SetProperty(ref _listaPartidaCampo2, value); }
-    public List<PartidaModel> ListaPartidasCampo3 { get => _listaPartidaCampo3; set => SetProperty(ref _listaPartidaCampo3, value); }
-    public List<PartidaModel> ListaPartidasCampo4 { get => _listaPartidaCampo4; set => SetProperty(ref _listaPartidaCampo4, value); }
-    public List<PartidaModel> ListaPartidasCampo5 { get => _listaPartidaCampo5; set => SetProperty(ref _listaPartidaCampo5, value); }
+    public List<PartidaModel> ListaPartidas { get => _listaPartidas; set => SetProperty(ref _listaPartidas, value); }
     public CampeonatoModel Campeonato { get => _campeonato; set => SetProperty(ref _campeonato, value); }
+    public bool ButtonCampo2_IsVisible { get => _buttonCampo2_IsVisible; set => SetProperty(ref _buttonCampo2_IsVisible, value); }
+    public bool ButtonCampo3_IsVisible { get => _buttonCampo3_IsVisible; set => SetProperty(ref _buttonCampo3_IsVisible, value); }
+    public bool ButtonCampo4_IsVisible { get => _buttonCampo4_IsVisible; set => SetProperty(ref _buttonCampo4_IsVisible, value); }
+    public bool ButtonCampo5_IsVisible { get => _buttonCampo5_IsVisible; set => SetProperty(ref _buttonCampo5_IsVisible, value); }
     #endregion
     
     #region Commands
-    public ICommand AdicionarImagemClubeCommand => new Command(() => AdicionarImagemClubeExecute());
+    public ICommand SalvarResultadosCommand => new Command(() => SalvarResultadosExecute(ListaPartidas[0].Partida_NumeroCampo));
+    //public ICommand MostrarCampoCommand => new Command<int>(campo => MostrarCampoExecute(campo));
+    public ICommand MostrarCampoCommand => new Command<string>(
+        obj => MostrarCampoExecute(obj));
     #endregion
     
     #region Constructor
@@ -47,14 +52,12 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
         {
             var campeonatoRepository = new CampeonatoRepository();
             Campeonato = campeonatoRepository.GetAll().LastOrDefault();
-            ListaPartidasCampo1 = new List<PartidaModel>();
-            ListaPartidasCampo2 = new List<PartidaModel>();
-            ListaPartidasCampo3 = new List<PartidaModel>();
-            ListaPartidasCampo4 = new List<PartidaModel>();
-            ListaPartidasCampo5 = new List<PartidaModel>();
+            _partidaRepository = new PartidaRepository();
+            ListaPartidas = new List<PartidaModel>();
+            ListaPartidas = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id && a.Partida_NumeroCampo == 1).ToList();
+            //ListaPartidas =  ListaPartidas.Where(a => a.Partida_NumeroCampo == 1).ToList();
+            CarregarButtonsIsVisible();
             CarregarCamposPartidas();
-            
-
         }
         catch (Exception e)
         {
@@ -62,16 +65,16 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
         }
     }
 
-    private void CarregarObjetosNulos(List<PartidaModel> listaPartida)
+    private void CarregarObjetosNulos()
     {
         try
         {
-            var montagemTimeRepository = new MontagemCampeonatoRepository();
-            foreach (var partida in listaPartida)
+            var timeRepository = new TimeRepository();
+            foreach (var partida in ListaPartidas)
             {
-                partida.TimeCasa = montagemTimeRepository.GetById(partida.TimeCasaId);
-                partida.TimeFora =  montagemTimeRepository.GetById(partida.TimeForaId);
-                partida.TimeJuiz =  montagemTimeRepository.GetById(partida.TimeJuizId);
+                partida.TimeCasa = timeRepository.GetById(partida.TimeCasaId);
+                partida.TimeFora =  timeRepository.GetById(partida.TimeForaId);
+                partida.TimeJuiz =  timeRepository.GetById(partida.TimeJuizId);
             }
         }
         catch (Exception e)
@@ -83,22 +86,8 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
     {
         try
         {
-            var partidaRepository = new PartidaRepository();
-            var listaPartidas = new List<PartidaModel>();
-            listaPartidas = partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id).ToList();
-            CarregaCorLista(listaPartidas);
-            CarregarObjetosNulos(listaPartidas);
-            if (Campeonato.Campeonato_NumerosCampos >= 1)
-                ListaPartidasCampo1 = listaPartidas.Where(a => a.Partida_NumeroCampo == 1).ToList(); 
-            if (_campeonato.Campeonato_NumerosCampos >= 2)
-                ListaPartidasCampo2 = listaPartidas.Where(a => a.Partida_NumeroCampo == 2).ToList(); 
-            if (_campeonato.Campeonato_NumerosCampos >= 3)
-                ListaPartidasCampo3 = listaPartidas.Where(a => a.Partida_NumeroCampo == 3).ToList(); 
-            if (_campeonato.Campeonato_NumerosCampos >= 4)
-                ListaPartidasCampo4 = listaPartidas.Where(a => a.Partida_NumeroCampo == 4).ToList(); 
-            if (_campeonato.Campeonato_NumerosCampos >= 5)
-                ListaPartidasCampo5 = listaPartidas.Where(a => a.Partida_NumeroCampo == 5).ToList(); 
-
+            CarregaCorLista();
+            CarregarObjetosNulos();
         }
         catch (Exception e)
         {
@@ -106,21 +95,82 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
         }
     }
 
-    private void CarregaCorLista(List<PartidaModel> listaPartida)
+    private void CarregarButtonsIsVisible()
     {
         try
         {
-            for (int i = 0; i < listaPartida.Count; i++)
-                listaPartida[i].IsEven = (i % 2 == 0);
+            var x = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id).ToList(); 
+            var maxCampos  = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id)
+                .Max(i => i.Partida_NumeroCampo);
+            if (maxCampos == 5)
+            {
+                ButtonCampo2_IsVisible = true;
+                ButtonCampo3_IsVisible = true;
+                ButtonCampo4_IsVisible = true;
+                ButtonCampo5_IsVisible = true;
+            }
+            else if (maxCampos == 4)
+            {
+                ButtonCampo2_IsVisible = true;
+                ButtonCampo3_IsVisible = true;
+                ButtonCampo4_IsVisible = true;
+            }
+            else if (maxCampos == 3)
+            {
+                ButtonCampo2_IsVisible = true;
+                ButtonCampo3_IsVisible = true;
+            }
+            else if (maxCampos == 2)
+            {
+                ButtonCampo2_IsVisible = true;
+            }
+        }
+        catch (Exception e)
+        {
+            throw new Exception(e.Message);
+        }
+    } 
+    private void CarregaCorLista()
+    {
+        try
+        {
+            for (int i = 0; i < ListaPartidas.Count; i++)
+                ListaPartidas[i].IsEven = (i % 2 == 0);
         }
         catch (Exception e)
         {
             throw new Exception(e.Message);
         }
     }
-    private void AdicionarImagemClubeExecute()
+    private void MostrarCampoExecute(string obj)
     {
+        try
+        {
+            var campo = int.Parse(obj);
+            SalvarResultadosExecute(campo);
+        }
+        catch (Exception e)
+        {
+            Application.Current.MainPage.DisplayAlert("Erro", e.Message, "OK");
+        }
+    }
 
+    private void SalvarResultadosExecute(int campo)
+    {
+        try
+        {
+            foreach (var partida in ListaPartidas)
+            {
+                _partidaRepository.Update(partida);    
+            }
+            ListaPartidas = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id && a.Partida_NumeroCampo == campo).ToList();
+            CarregarCamposPartidas();
+            OnPropertyChanged();
+        }
+        catch (Exception e)
+        {
+            Application.Current.MainPage.DisplayAlert("Erro", e.Message, "OK");
+        }
     }
     #endregion
 

@@ -15,28 +15,43 @@
     <Frame CornerRadius="15" HasShadow="False" HeightRequest="100" BorderColor="{StaticResource GateVermelho}"
            BackgroundColor="{Binding IsEven, Converter={StaticResource AlternationIndexToColorConverter}}"
            Padding="10" >
-        <Grid RowDefinitions="Auto" ColumnDefinitions="Auto,*,Auto,Auto,Auto,*,Auto,*"  VerticalOptions="Center" ColumnSpacing="20">
-            <!-- <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" HeightRequest="80" WidthRequest="60" Aspect="AspectFill" VerticalOptions="Center" -->
+        <Grid RowDefinitions="Auto" ColumnDefinitions="30,*,*,*,Auto"  VerticalOptions="Center" ColumnSpacing="20">
+               <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
+                      Text="{Binding Partida_Rodada}"/>
+               <!-- <Image Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" HeightRequest="80" WidthRequest="60" Aspect="AspectFill" VerticalOptions="Center" -->
             <!--        Source="{Binding Clube_Logo}"/> -->
-            <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
-                   Text="{Binding TimeCasa.Apelido_Time}"/>
-            <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource BorderEntry}">
-                   <Entry  Style="{StaticResource Entry24Style}"
-                          Text="{Binding Partida_PontosCasa, Mode=TwoWay}"/>
-            </Border>
-            <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource Label16Style}"  Padding="10,0,10,0"
-                   Text=" X "/>
-            <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource BorderEntry}">
-                   <Entry  Style="{StaticResource Entry24Style}"
-                           Text="{Binding Partida_PontosFora, Mode=TwoWay}"/>
-            </Border>
-            <Label Grid.Row="0" Grid.Column="5" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
-                   Text="{Binding TimeFora.Apelido_Time}"/>
-            <!-- <Image Grid.Row="0" Grid.Column="6" Grid.RowSpan="3" HeightRequest="80" WidthRequest="60" Aspect="AspectFill" VerticalOptions="Center" -->
-            <!--        Source="{Binding Clube_Logo}"/> -->
+               <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnDefinitions="Auto,Auto" HorizontalOptions="End">
+                      <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center" HorizontalOptions="End"
+                             Text="&#x1F3C6;  " IsVisible="{Binding IsTimeCasaVencedor}" />
+                      <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center" HorizontalOptions="End"
+                             Text="{Binding TimeCasa.Apelido_Time}"/>
+               </Grid>
 
-            <Label Grid.Row="0" Grid.Column="7" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="End"
-                   Text="{Binding TimeJuiz.Apelido_Time, StringFormat='Juiz {0}'}"/>
+               <Grid Grid.Row="0" Grid.Column="2" ColumnDefinitions="Auto,Auto,Auto" HorizontalOptions="Center">
+                      <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource BorderEntry}">
+                             <Entry  Style="{StaticResource Entry24Style}" MaxLength="2"
+                                     Text="{Binding Partida_PontosCasa, Mode=TwoWay}"/>
+                      </Border>
+
+                      <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label16Style}"  Padding="10,0,10,0"
+                             Text=" X "/>
+                      <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource BorderEntry}">
+                             <Entry  Style="{StaticResource Entry24Style}" MaxLength="2"
+                                     Text="{Binding Partida_PontosFora, Mode=TwoWay}"/>
+                      </Border>
+              </Grid>
+            
+               <Grid Grid.Row="0" Grid.Column="3" ColumnDefinitions="Auto,Auto">
+                      <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
+                             Text="{Binding TimeFora.Apelido_Time}"/>
+                      <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center" HorizontalOptions="End"
+                             Text="  &#x1F3C6;" IsVisible="{Binding IsTimeForaVencedor}"/>
+                      <!-- <Image Grid.Row="0" Grid.Column="7" Grid.RowSpan="3" HeightRequest="80" WidthRequest="60" Aspect="AspectFill" VerticalOptions="Center" -->
+                      <!--        Source="{Binding Clube_Logo}"/> -->
+               </Grid>
+
+            <Label Grid.Row="0" Grid.Column="4" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="End"
+                   Text="{Binding TimeJuiz.Apelido_Time, StringFormat='Juiz {0}'}" Padding="0,0,10,0"/>
 
         </Grid>
     </Frame>
