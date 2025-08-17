@@ -1,4 +1,11 @@
 ﻿using Microsoft.UI.Xaml;
+using Microsoft.Maui;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Hosting;
+using Microsoft.Maui.LifecycleEvents;
+using Microsoft.Maui.Platform;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
