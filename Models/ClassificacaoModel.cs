@@ -12,24 +12,27 @@ namespace Tabela.Models
         public Guid Classificacao_CampeonatoId { get; set; }
         [ForeignKey("Classificacao_TimeId")]
         [SQLite.Column("Classificacao_TimeId")]
+        public Guid Classificacao_PartidaId { get; set; }
+        [ForeignKey("Classificacao_PartidaId")]
+        [SQLite.Column("Classificacao_PartidaId")]
         public Guid Classificacao_TimeId { get; set; }
         [SQLite.Column("Classificacao_Vitoria")]
-        public int Classificacao_Vitoria { get; set; }
+        public int Classificacao_Vitoria { get; set; } = 0;
+
         [SQLite.Column("Classificacao_Derrota")]
-        public int Classificacao_Derrota { get; set; }
+        public int Classificacao_Derrota { get; set; } = 0;
+
         [SQLite.Column("Classificacao_PontosPro")]
-        public int Classificacao_PontosPro { get; set; }
+        public int Classificacao_PontosPro { get; set; } = 0;
+
         [SQLite.Column("Classificacao_PontosContra")]
-        public int Classificacao_PontosContra { get; set; }
-        [SQLite.Column("Classificacao_QtdeJogos")]
-        public int Classificacao_QtdeJogos { get; set; }
+        public int Classificacao_PontosContra { get; set; } = 0;
+        public virtual int Classificacao_QtdeJogos { get; set; } = 0;
         [Ignore]
         public virtual TimeModel Time { get; set; }
         [Ignore]
         public virtual int Classificacao_SaldoPontos => Classificacao_PontosPro - Classificacao_PontosContra;
-
-        [Ignore]
-        public virtual int Classificacao_Campo { get; set; } = 0;
+        public int Classificacao_Campo { get; set; } = 0;
         [Ignore]
         public virtual int Classificacao_Posicao { get; set; } = 0;
         public virtual bool IsEven { get; set; } = false;

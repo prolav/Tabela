@@ -15,7 +15,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd0aee71-e14d-4067-a502-2f820f23b813" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Tabela.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Tabela.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ClassificacaoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ClassificacaoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Repositories/Repositories/ClassificacaoRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Repositories/ClassificacaoRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/ClassificacaoGeralCard.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/ClassificacaoGeralCard.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,17 +66,24 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.dotnet/packs/Microsoft.Android.Sdk.Darwin/34.0.154/tools/Xamarin.Android.Tooling.targets" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.dotnet/packs/Microsoft.MacCatalyst.Sdk.net8.0_18.0/18.0.8324/tools/msbuild/iOS/Xamarin.Shared.targets" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.nuget/packages/microsoft.windowsappsdk/1.5.240802000/include/WindowsAppSDK-VersionInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2871d8abe6fc4dd1ae00b32dfcea0c711e428/47/70d0b163/ApplyPropertiesVisitor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2e7e7e632d20584c425172331c9bc3d26782ebd22675ce2b46341387b91aaaf/ConstructorInvoker.Mono.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/45edcafe314ec2a52027f333baefe0564a21af2a2933eac97174699eb79a5f34/OrderedEnumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/487df95234d628de9d727a1471b5f6ba2751195/View_PC_PC_LoginView.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce2f9886c9ffc282e430e4f2fb46ca68dc4a25e66f911942a6c12a49ab81585f/ListViewRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CustomEntry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/viniciusyoshino/RiderProjects/Tabela/Models/ClassificacaoModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Android/MainApplication.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/Windows/App.xaml.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Repositories/Repositories/BaseRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/viniciusyoshino/RiderProjects/Tabela/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels_Celular/PrimeiroViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/View_PC/PC_MenuInicialView.xaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -97,26 +111,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Android.Tabela.executor&quot;: &quot;Run&quot;,
-    &quot;Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: Tabela&quot;: &quot;iPhone 11&quot;,
-    &quot;DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider&quot;: &quot;Simulator&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.3962963&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;iOS.Tabela.executor&quot;: &quot;Run&quot;,
-    &quot;macOS.Tabela.executor&quot;: &quot;Debug&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android.Tabela.executor": "Run",
+    "Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSSimulatorKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: Tabela": "iPhone 11",
+    "DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider": "Simulator",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "XThreadsFramesViewSplitterKey": "0.3962963",
+    "git-widget-placeholder": "main",
+    "iOS.Tabela.executor": "Run",
+    "macOS.Tabela.executor": "Debug",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="macOS.Tabela">
     <configuration name="Tabela" type="XamarinAndroidProject" factoryName="Xamarin.Android">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/Tabela.csproj" />
@@ -325,7 +339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755018428963</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="mac">
+      <option name="closed" value="true" />
+      <created>1755522535786</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1755522535786</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +383,8 @@
     <MESSAGE value="Fim de tela novo campeonato" />
     <MESSAGE value="pensar sobre a partidaview" />
     <MESSAGE value="Fim da NovoCampeonatoView" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fim da NovoCampeonatoView" />
+    <MESSAGE value="mac" />
+    <option name="LAST_COMMIT_MESSAGE" value="mac" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -509,72 +532,77 @@
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs</url>
-          <line>150</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" containingFunctionPresentation="Method 'AdicionarNovoCampeonatoExecute'">
+          <url>file://$PROJECT_DIR$/Repositories/Repositories/ClassificacaoRepository.cs</url>
+          <line>105</line>
+          <properties documentPath="$PROJECT_DIR$/Repositories/Repositories/ClassificacaoRepository.cs" containingFunctionPresentation="Method 'Teste'">
             <startOffsets>
-              <option value="3888" />
+              <option value="5170" />
             </startOffsets>
             <endOffsets>
-              <option value="3942" />
+              <option value="5171" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="143" />
+          <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs</url>
-          <line>59</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="Method 'CarregarDados'">
+          <line>107</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="Method 'GerarListaCampos'">
             <startOffsets>
-              <option value="2435" />
+              <option value="3453" />
             </startOffsets>
             <endOffsets>
-              <option value="2502" />
+              <option value="3513" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="144" />
+          <option name="timeStamp" value="203" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs</url>
-          <line>95</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="Method 'CadastrarPosicoesListaClassificacao'">
+          <line>148</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="Method 'GerarClassificacaoGeral'">
             <startOffsets>
-              <option value="3733" />
+              <option value="5666" />
             </startOffsets>
             <endOffsets>
-              <option value="3764" />
+              <option value="5726" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="145" />
+          <option name="timeStamp" value="204" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs</url>
-          <line>116</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="Method 'CarregarCadastrarCamposNulosListaClassificacao'">
+          <line>35</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="">
             <startOffsets>
-              <option value="4636" />
+              <option value="1627" />
             </startOffsets>
             <endOffsets>
-              <option value="4667" />
+              <option value="1657" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="146" />
+          <option name="timeStamp" value="210" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs</url>
-          <line>80</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="Method 'CarregarCadastrarPosicoes'">
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="">
             <startOffsets>
-              <option value="3338" />
+              <option value="1563" />
             </startOffsets>
             <endOffsets>
-              <option value="3369" />
+              <option value="1604" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="147" />
+          <option name="timeStamp" value="211" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="XamarinMacProject">
+        <watch expression="ListaClassificacaoCampo1" language="C#" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

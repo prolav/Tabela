@@ -204,6 +204,7 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
         {
             var partidaRepository = new PartidaRepository();
             var listAuxPartida = new List<PartidaModel>();
+            listaPartidas = completeTime(listaPartidas);
             foreach (var partida in listaPartidas)
             {
                // partida.FK_Campeonato_Id = Campeonato.Id;
@@ -224,11 +225,17 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
         }
     }
 
-    private void OrdenadorRodadasPartidas()
+    private List<PartidaModel> completeTime(List<PartidaModel> listaPartidas)
     {
         try
         {
-
+            var timerepository = new TimeRepository();
+            foreach (var item in listaPartidas)
+            {
+                item.TimeCasa = timerepository.GetById(item.TimeCasaId);
+                item.TimeFora = timerepository.GetById(item.TimeForaId);
+            }
+            return listaPartidas;
         }
         catch (Exception e)
         {
@@ -655,54 +662,7 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
     #endregion
 
 
-    #region MontarJogos
-
-    public List<PartidaModel> MontarJogos1(List<TimeModel> listaTime)
-    {
-        var random = new Random();
-        var partidas = new List<PartidaModel>();
-        var tentativas = 0;
-
-        var numeroPartidas = (listaTime.Count() * Campeonato.Campeonato_NumerosRodadas) / 2;
-
-        while (partidas.Count < numeroPartidas && tentativas < 5000)
-        {
-            tentativas++;
-
-            // Embaralhar times
-            var times = listaTime.OrderBy(x => random.Next()).ToList();
-
-            var timeCasa = times[0];
-            var timeFora = times[1];
-            var timejuiz = times[2];
-
-            // Regras de validação
-            bool jaExiste = partidas.Any(p =>
-                (p.TimeCasa == timeCasa && p.TimeFora == timeFora) ||
-                (p.TimeCasa == timeFora && p.TimeFora == timeCasa));
-
-            if (timeCasa != timeFora &&
-                timejuiz != timeCasa &&
-                timejuiz != timeFora &&
-                !jaExiste)
-            {
-                partidas.Add(new PartidaModel
-                {
-                    Partida_Rodada = partidas.Count + 1,
-                    TimeCasa = timeCasa,
-                    TimeFora = timeFora,
-                    TimeJuiz = timejuiz
-                });
-            }
-        }
-
-        return partidas;
-    }
-
-    #endregion
-
     #region MyRegion
-
     public List<PartidaModel> MontarJogos(List<TimeModel> times)
     {
         var campeonatoId = Campeonato.Id;
@@ -714,7 +674,7 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
             throw new InvalidOperationException("Este gerador só funciona para campeonatos com 5 ou 6 times.");
 
         // Garantir ordem fixa para previsibilidade
-        times = times.OrderBy(t => t.Clube.Clube_Nome).ToList();
+        //times = times.OrderBy(t => t.Clube.Clube_Nome).ToList();
 
         if (totalTimes == 5)
         {
@@ -723,17 +683,17 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
             partidas.Add(CriarPartida(1, times[1], times[0], times[4], campeonatoId, faseId));
             partidas.Add(CriarPartida(2, times[3], times[2], times[1], campeonatoId, faseId));
             // Rodada 2
-            partidas.Add(CriarPartida(3, times[1], times[4], times[3], campeonatoId, faseId));
-            partidas.Add(CriarPartida(4, times[2], times[0], times[1], campeonatoId, faseId));
+            partidas.Add(CriarPartida(3, times[0], times[4], times[3], campeonatoId, faseId));
+            partidas.Add(CriarPartida(4, times[2], times[1], times[0], campeonatoId, faseId));
             // Rodada 3
             partidas.Add(CriarPartida(5, times[4], times[3], times[2], campeonatoId, faseId));
             partidas.Add(CriarPartida(6, times[0], times[2], times[4], campeonatoId, faseId));
             // Rodada 4
-            partidas.Add(CriarPartida(7, times[2], times[4], times[1], campeonatoId, faseId));
-            partidas.Add(CriarPartida(8, times[3], times[0], times[2], campeonatoId, faseId));
+            partidas.Add(CriarPartida(7, times[1], times[3], times[0], campeonatoId, faseId));
+            partidas.Add(CriarPartida(8, times[2], times[4], times[1], campeonatoId, faseId));
             // Rodada 5
-            partidas.Add(CriarPartida(9, times[0], times[3], times[4], campeonatoId, faseId));
-            partidas.Add(CriarPartida(10, times[4], times[1], times[0], campeonatoId, faseId));
+            partidas.Add(CriarPartida(9, times[3], times[0], times[2], campeonatoId, faseId));
+            partidas.Add(CriarPartida(10, times[4], times[1], times[3], campeonatoId, faseId));
         }
         else if (totalTimes == 6)
         {
@@ -741,19 +701,19 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
             // Rodada 1
             partidas.Add(CriarPartida(1, times[1], times[0], times[5], campeonatoId, faseId));
             partidas.Add(CriarPartida(2, times[3], times[2], times[1], campeonatoId, faseId));
-            partidas.Add(CriarPartida(3, times[5], times[4], times[3], campeonatoId, faseId));
+            partidas.Add(CriarPartida(3, times[4], times[5], times[3], campeonatoId, faseId));
             // Rodada 2
-            partidas.Add(CriarPartida(4, times[1], times[4], times[5], campeonatoId, faseId));
-            partidas.Add(CriarPartida(5, times[2], times[0], times[1], campeonatoId, faseId));
-            partidas.Add(CriarPartida(6, times[5], times[3], times[2], campeonatoId, faseId));
+            partidas.Add(CriarPartida(4, times[2], times[1], times[4], campeonatoId, faseId));
+            partidas.Add(CriarPartida(5, times[5], times[0], times[2], campeonatoId, faseId));
+            partidas.Add(CriarPartida(6, times[4], times[3], times[2], campeonatoId, faseId));
             // Rodada 3
-            partidas.Add(CriarPartida(7, times[4], times[3], times[2], campeonatoId, faseId));
-            partidas.Add(CriarPartida(8, times[0], times[2], times[4], campeonatoId, faseId));
-            partidas.Add(CriarPartida(9, times[3], times[5], times[0], campeonatoId, faseId));
+            partidas.Add(CriarPartida(7, times[0], times[2], times[4], campeonatoId, faseId));
+            partidas.Add(CriarPartida(8, times[1], times[3], times[0], campeonatoId, faseId));
+            partidas.Add(CriarPartida(9, times[2], times[4], times[1], campeonatoId, faseId));
             // Rodada 4
-            partidas.Add(CriarPartida(10, times[2], times[4], times[1], campeonatoId, faseId));
-            partidas.Add(CriarPartida(11, times[3], times[0], times[2], campeonatoId, faseId));
-            partidas.Add(CriarPartida(12, times[5], times[1], times[3], campeonatoId, faseId));
+            partidas.Add(CriarPartida(10, times[3], times[5], times[2], campeonatoId, faseId));
+            partidas.Add(CriarPartida(11, times[0], times[4], times[3], campeonatoId, faseId));
+            partidas.Add(CriarPartida(12, times[5], times[1], times[0], campeonatoId, faseId));
         }
 
         // Retornar ordenado por rodada
@@ -763,6 +723,7 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
     private PartidaModel CriarPartida(int rodada, TimeModel casa, TimeModel fora, TimeModel juiz, Guid campeonatoId,
         Guid faseId)
     {
+        var timerepository = new TimeRepository();
         return new PartidaModel
         {
             FK_Campeonato_Id = campeonatoId,
@@ -771,8 +732,11 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
             Partida_NumeroCampo = casa.MontagemCampeonatoModel_NumeroCampo, // Ajuste se quiser mais campos
             Partida_DataHora = DateTime.Now, // Ajustar data real
             TimeCasaId = casa.Id,
+            TimeCasa = timerepository.GetById(casa.Id),
             TimeForaId = fora.Id,
+            TimeFora = timerepository.GetById(fora.Id),
             TimeJuizId = juiz.Id,
+            TimeJuiz = timerepository.GetById(juiz.Id),
             Partida_ComJogo = false
         };
     }

@@ -9,29 +9,37 @@ public class PC_ClassificacaoGeral_PartialViewModel:BaseViewModel
 {
     
     #region Fields
-    // private string _nomeUsuario;
     private CampeonatoModel _campeonato;
     private PC_DashBoardViewModel _pc_DashBoardVM;
-    private List<ClassificacaoModel> _listaClassificacaoCampo1;
-    private List<ClassificacaoModel> _listaClassificacaoCampo2;
-    private List<ClassificacaoModel> _listaClassificacaoCampo3;
-    private List<ClassificacaoModel> _listaClassificacaoCampo4;
-    private List<ClassificacaoModel> _listaClassificacaoCampo5;
+    private List<ClassificacaoModel> _listaClassificacaoCampo;
+    private bool _buttonCampo2_IsVisible;
+    private bool _buttonCampo3_IsVisible;
+    private bool _buttonCampo4_IsVisible;
+    private bool _buttonCampo5_IsVisible;
     #endregion
 
     #region Properties
     public CampeonatoModel Campeonato { get => _campeonato; set => SetProperty(ref _campeonato, value); }
-    public List<ClassificacaoModel> ListaClassificacaoCampo1 { get => _listaClassificacaoCampo1; set => SetProperty(ref _listaClassificacaoCampo1, value); }
-    public List<ClassificacaoModel> ListaClassificacaoCampo2 { get => _listaClassificacaoCampo2; set => SetProperty(ref _listaClassificacaoCampo2, value); }
-    public List<ClassificacaoModel> ListaClassificacaoCampo3 { get => _listaClassificacaoCampo3; set => SetProperty(ref _listaClassificacaoCampo3, value); }
-    public List<ClassificacaoModel> ListaClassificacaoCampo4 { get => _listaClassificacaoCampo4; set => SetProperty(ref _listaClassificacaoCampo4, value); }
-    public List<ClassificacaoModel> ListaClassificacaoCampo5 { get => _listaClassificacaoCampo5; set => SetProperty(ref _listaClassificacaoCampo5, value); }
-    //
-    // public string Senha { get => _senha; set => SetProperty(ref _senha, value); }
+    public List<ClassificacaoModel> ListaClassificacaoCampo { get => _listaClassificacaoCampo; set => SetProperty(ref _listaClassificacaoCampo, value); }
+    public bool ButtonCampo2_IsVisible { get => _buttonCampo2_IsVisible; set => SetProperty(ref _buttonCampo2_IsVisible, value); }
+    public bool ButtonCampo3_IsVisible { get => _buttonCampo3_IsVisible; set => SetProperty(ref _buttonCampo3_IsVisible, value); }
+    public bool ButtonCampo4_IsVisible { get => _buttonCampo4_IsVisible; set => SetProperty(ref _buttonCampo4_IsVisible, value); }
+    public bool ButtonCampo5_IsVisible { get => _buttonCampo5_IsVisible; set => SetProperty(ref _buttonCampo5_IsVisible, value); }
     #endregion
 
     #region Commands
-
+    public ICommand AtualizarListaCommand => new Command<object>(param =>
+    {
+        var numeroCampo = Convert.ToInt32(param); 
+        if (numeroCampo >= 1 && numeroCampo <= 6)
+        {
+            GerarListaCampos(numeroCampo);
+        }
+        else
+        {
+            GerarClassificacaoGeral();
+        }
+    });
     #endregion
     
     #region Constructor
@@ -50,10 +58,8 @@ public class PC_ClassificacaoGeral_PartialViewModel:BaseViewModel
         {
             var campeonatoRepository = new CampeonatoRepository();
             Campeonato = campeonatoRepository.GetAll().LastOrDefault();
-            CarregaListaCampos();
-            CarregarCadastrarCamposNulosListaClassificacao();
-            OrdenarListaClassificacao();
-            CarregarCadastrarPosicoes();
+            GerarListaCampos(1);
+            CarregarButtons();
         }
         catch (Exception e)
         {
@@ -61,34 +67,32 @@ public class PC_ClassificacaoGeral_PartialViewModel:BaseViewModel
         }
     }
 
-    private void CarregarCadastrarPosicoes()
+    private void CarregarButtons()
     {
         try
         {
-            if (Campeonato.Campeonato_NumerosCampos >= 1)
-                CadastrarPosicoesListaClassificacao(ListaClassificacaoCampo1);
-            if (Campeonato.Campeonato_NumerosCampos >= 2)
-                CadastrarPosicoesListaClassificacao(ListaClassificacaoCampo2);
-            if (Campeonato.Campeonato_NumerosCampos >= 3)
-                CadastrarPosicoesListaClassificacao(ListaClassificacaoCampo3);
-            if (Campeonato.Campeonato_NumerosCampos >= 4)
-                CadastrarPosicoesListaClassificacao(ListaClassificacaoCampo4);
-            if (Campeonato.Campeonato_NumerosCampos == 5)
-                CadastrarPosicoesListaClassificacao(ListaClassificacaoCampo5);
-        }
-        catch (Exception e)
-        {
-            throw new Exception(e.Message);
-        }
-    }
-
-    private void CadastrarPosicoesListaClassificacao(List<ClassificacaoModel> listaClassificacao)
-    {
-        try
-        {
-            for (int i = 0; i < listaClassificacao.Count; i++)
+            var maxCampos  = Campeonato.Campeonato_NumerosCampos;
+            if (maxCampos == 5)
             {
-                listaClassificacao[i].Classificacao_Posicao = i + 1;
+                ButtonCampo2_IsVisible = true;
+                ButtonCampo3_IsVisible = true;
+                ButtonCampo4_IsVisible = true;
+                ButtonCampo5_IsVisible = true;
+            }
+            else if (maxCampos == 4)
+            {
+                ButtonCampo2_IsVisible = true;
+                ButtonCampo3_IsVisible = true;
+                ButtonCampo4_IsVisible = true;
+            }
+            else if (maxCampos == 3)
+            {
+                ButtonCampo2_IsVisible = true;
+                ButtonCampo3_IsVisible = true;
+            }
+            else if (maxCampos == 2)
+            {
+                ButtonCampo2_IsVisible = true;
             }
         }
         catch (Exception e)
@@ -97,84 +101,83 @@ public class PC_ClassificacaoGeral_PartialViewModel:BaseViewModel
         }
     }
 
-    private void CarregarCadastrarCamposNulosListaClassificacao()
-    {
-        try
-        {
-            if (Campeonato.Campeonato_NumerosCampos >= 1)
-                CadastrarCamposNulosListaClassificacao(ListaClassificacaoCampo1);
-            if (Campeonato.Campeonato_NumerosCampos >= 2)
-                CadastrarCamposNulosListaClassificacao(ListaClassificacaoCampo2);
-            if (Campeonato.Campeonato_NumerosCampos >= 3)
-                CadastrarCamposNulosListaClassificacao(ListaClassificacaoCampo3);
-            if (Campeonato.Campeonato_NumerosCampos >= 4)
-                CadastrarCamposNulosListaClassificacao(ListaClassificacaoCampo4);
-            if (Campeonato.Campeonato_NumerosCampos == 5)
-                CadastrarCamposNulosListaClassificacao(ListaClassificacaoCampo5);
-        }
-        catch (Exception e)
-        {
-            throw new Exception(e.Message);
-        }
-    }
-
-    private void OrdenarListaClassificacao()
-    {
-        try
-        {
-            if (Campeonato.Campeonato_NumerosCampos >= 1)
-                ListaClassificacaoCampo1 = ListaClassificacaoCampo2.OrderByDescending(x => x.Classificacao_Vitoria).ThenByDescending(x => x.Classificacao_SaldoPontos).ThenByDescending(x => x.Classificacao_PontosPro).ToList();
-            if (Campeonato.Campeonato_NumerosCampos >= 2)
-                ListaClassificacaoCampo2 = ListaClassificacaoCampo2.OrderByDescending(x => x.Classificacao_Vitoria).ThenByDescending(x => x.Classificacao_SaldoPontos).ThenByDescending(x => x.Classificacao_PontosPro).ToList();
-            if (Campeonato.Campeonato_NumerosCampos >= 3)
-                ListaClassificacaoCampo3 = ListaClassificacaoCampo3.OrderByDescending(x => x.Classificacao_Vitoria).ThenByDescending(x => x.Classificacao_SaldoPontos).ThenByDescending(x => x.Classificacao_PontosPro).ToList();
-            if (Campeonato.Campeonato_NumerosCampos >= 4)
-                ListaClassificacaoCampo4 = ListaClassificacaoCampo4.OrderByDescending(x => x.Classificacao_Vitoria).ThenByDescending(x => x.Classificacao_SaldoPontos).ThenByDescending(x => x.Classificacao_PontosPro).ToList();
-            if (Campeonato.Campeonato_NumerosCampos == 5)
-                ListaClassificacaoCampo5 = ListaClassificacaoCampo5.OrderByDescending(x => x.Classificacao_Vitoria).ThenByDescending(x => x.Classificacao_SaldoPontos).ThenByDescending(x => x.Classificacao_PontosPro).ToList();
-        }
-        catch (Exception e)
-        {
-            throw new Exception(e.Message);
-        }
-    }
-
-    private void CadastrarCamposNulosListaClassificacao(List<ClassificacaoModel> listaClassificacao)
-    {
-        try
-        {
-            var timeRepository = new TimeRepository();
-            foreach (var classificacao in listaClassificacao)
-            {
-                classificacao.Time = new TimeModel();
-                classificacao.Time = timeRepository.GetAll().FirstOrDefault(a => a.Id == classificacao.Classificacao_TimeId);              
-            }
-        }
-        catch (Exception e)
-        {
-            throw new Exception(e.Message);
-        }
-    }
-
-
-    private void CarregaListaCampos()
+    private void GerarListaCampos(int campo)
     {
         try
         {
             var classificacaoRepository = new ClassificacaoRepository();
-            ListaClassificacaoCampo1 = classificacaoRepository.GetAll().Where(a => a.Classificacao_Campo == 1 && a.Classificacao_CampeonatoId == Campeonato.Id).ToList();
-            if (Campeonato.Campeonato_NumerosCampos >= 2)
-                ListaClassificacaoCampo2 = classificacaoRepository.GetAll().Where(a => a.Classificacao_Campo == 2 && a.Classificacao_CampeonatoId == Campeonato.Id).ToList();
-            if (Campeonato.Campeonato_NumerosCampos >= 3)
-                ListaClassificacaoCampo3 = classificacaoRepository.GetAll().Where(a => a.Classificacao_Campo == 3 && a.Classificacao_CampeonatoId == Campeonato.Id).ToList();
-            if (Campeonato.Campeonato_NumerosCampos >= 4)
-                ListaClassificacaoCampo4 = classificacaoRepository.GetAll().Where(a => a.Classificacao_Campo == 4 && a.Classificacao_CampeonatoId == Campeonato.Id).ToList();
-            if (Campeonato.Campeonato_NumerosCampos == 5)
-                ListaClassificacaoCampo5 = classificacaoRepository.GetAll().Where(a => a.Classificacao_Campo == 5 && a.Classificacao_CampeonatoId == Campeonato.Id).ToList();     
+            var timeRepository = new TimeRepository();
+            var listaClassificacaoCampos = new List<ClassificacaoModel>();
+            listaClassificacaoCampos = classificacaoRepository.GetAll()
+                        .Where(x => x.Classificacao_CampeonatoId == Campeonato.Id && x.Classificacao_Campo == campo)
+                        .GroupBy(x => new { x.Classificacao_TimeId, x.Classificacao_Campo })
+                        .Select((g, index) => new ClassificacaoModel
+                        {
+                            Classificacao_TimeId = g.Key.Classificacao_TimeId,
+                            Classificacao_CampeonatoId = Campeonato.Id,
+                            Classificacao_Vitoria = g.Sum(x => x.Classificacao_Vitoria),
+                            Classificacao_Derrota = g.Sum(x => x.Classificacao_Derrota),
+                            Classificacao_PontosPro = g.Sum(x => x.Classificacao_PontosPro),
+                            Classificacao_PontosContra = g.Sum(x => x.Classificacao_PontosContra),
+                            Classificacao_QtdeJogos = g.Sum(x => x.Classificacao_Vitoria + x.Classificacao_Derrota),
+                            Classificacao_Campo = g.Key.Classificacao_Campo, // ✅ pegando da lista
+                            Time = timeRepository.GetById(g.Key.Classificacao_TimeId),
+                            IsEven = index % 2 == 0
+                        })
+                        .OrderByDescending(x => x.Classificacao_Vitoria)
+                        .ThenByDescending(x => x.Classificacao_SaldoPontos)
+                        .ThenByDescending(x => x.Classificacao_PontosPro)
+                        .Select((x, i) =>
+                        {
+                            x.Classificacao_Posicao = i + 1;
+                            return x;
+                        })
+                        .ToList();
+            ListaClassificacaoCampo =  listaClassificacaoCampos;
+            OnPropertyChanged();
         }
         catch (Exception e)
         {
             throw new Exception(e.Message);
+        }
+    }
+
+    private void GerarClassificacaoGeral()
+    {
+        try
+        {
+            var classificacaoRepository = new ClassificacaoRepository();
+            var timeRepository = new TimeRepository();
+            var classificacoesGerais = classificacaoRepository.GetAll()
+                .Where(x => x.Classificacao_CampeonatoId == Campeonato.Id)
+                .GroupBy(x => x.Classificacao_TimeId)
+                .Select((g, index) => new ClassificacaoModel
+                {
+                    Classificacao_TimeId = g.Key,
+                    Classificacao_CampeonatoId = Campeonato.Id,
+                    Classificacao_Vitoria = g.Sum(x => x.Classificacao_Vitoria),
+                    Classificacao_Derrota = g.Sum(x => x.Classificacao_Derrota),
+                    Classificacao_PontosPro = g.Sum(x => x.Classificacao_PontosPro),
+                    Classificacao_PontosContra = g.Sum(x => x.Classificacao_PontosContra),
+                    Classificacao_QtdeJogos = g.Sum(x => x.Classificacao_QtdeJogos),
+                    Classificacao_Campo = 0, // Opcional: pode usar 0 ou -1 para indicar "Geral"
+                    Time = timeRepository.GetById(g.Key),
+                    IsEven = index % 2 == 0
+                })
+                .OrderByDescending(x => x.Classificacao_Vitoria)
+                .ThenByDescending(x => x.Classificacao_SaldoPontos)
+                .ThenByDescending(x => x.Classificacao_PontosPro)
+                .Select((x, i) =>
+                {
+                    x.Classificacao_Posicao = i + 1;
+                    return x;
+                })
+                .ToList();
+            ListaClassificacaoCampo =  classificacoesGerais;
+        }
+        catch (Exception e)
+        {
+            Application.Current.MainPage.DisplayAlert("Erro", e.Message, "OK");
         }
     }
     #endregion

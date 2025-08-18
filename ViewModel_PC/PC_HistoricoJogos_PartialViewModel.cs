@@ -54,10 +54,10 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
             Campeonato = campeonatoRepository.GetAll().LastOrDefault();
             _partidaRepository = new PartidaRepository();
             ListaPartidas = new List<PartidaModel>();
-            ListaPartidas = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id && a.Partida_NumeroCampo == 1).ToList();
-            //ListaPartidas =  ListaPartidas.Where(a => a.Partida_NumeroCampo == 1).ToList();
+            ListaPartidas = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id && a.Partida_NumeroCampo == 1).OrderBy(a =>a.Partida_Rodada).ToList();
             CarregarButtonsIsVisible();
             CarregarCamposPartidas();
+            OnPropertyChanged();
         }
         catch (Exception e)
         {
@@ -99,7 +99,6 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
     {
         try
         {
-            var x = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id).ToList(); 
             var maxCampos  = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id)
                 .Max(i => i.Partida_NumeroCampo);
             if (maxCampos == 5)

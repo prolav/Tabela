@@ -5,8 +5,8 @@
              x:Class="Tabela.View_PC.PC_Partial.PC_ClassificacaoGeral_Partial"
              xmlns:cards="clr-namespace:Tabela.View_PC.Cards_List">
 
-    <Grid  RowDefinitions="Auto, Auto, *" RowSpacing="20">
-        <Grid Grid.Row="0" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+    <Grid  RowDefinitions="Auto,Auto, *" RowSpacing="20">
+        <Grid Grid.Row="0" RowDefinitions="Auto,*" ColumnDefinitions="*,Auto">
             <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
                    Text="{Binding  Campeonato.Campeonato_Nome}"/>
             <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}"
@@ -25,30 +25,51 @@
             </Label>
         </Grid>
 
-        <Grid Grid.Row="1" RowDefinitions="Auto" ColumnDefinitions="10*, 50*,10*,10*,10*,10*"  VerticalOptions="Center">
-            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
-                Text="{Binding Classificacao_Posicao, StringFormat='{0}º'}" />
-            <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
-                Text="Time"/>
-            <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource Label24BoldStyle}"
-                Text="Vitórias" />
-            <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource Label24BoldStyle}"
-                Text="Derrota" />
-            <Label Grid.Row="0" Grid.Column="4" Style="{StaticResource Label24BoldStyle}"
-                Text="Saldo" />
-            <Label Grid.Row="0" Grid.Column="5" Style="{StaticResource Label24BoldStyle}"
-                Text="Pontos Pro" />
+        <Grid Row="1" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10">
+            <Button Grid.Column="0" Style="{StaticResource Button24_Vermelho}"
+                    Text="Mostrar Campo 1" Command="{Binding AtualizarListaCommand}" CommandParameter="1"/>
+            <Button Grid.Column="1" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo2_IsVisible}"
+                    Text="Mostrar Campo 2" Command="{Binding AtualizarListaCommand}" CommandParameter="2"/>
+            <Button Grid.Column="2" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo3_IsVisible}"
+                    Text="Mostrar Campo 3" Command="{Binding AtualizarListaCommand}" CommandParameter="3"/>
+            <Button Grid.Column="3" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo4_IsVisible}"
+                    Text="Mostrar Campo 4" Command="{Binding AtualizarListaCommand}" CommandParameter="4"/>
+            <Button Grid.Column="4" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo5_IsVisible}"
+                    Text="Mostrar Campo 5" Command="{Binding AtualizarListaCommand}" CommandParameter="5"/>
+            <Button Grid.Column="5" Style="{StaticResource Button24_Vermelho}"
+                    Text="Mostrar Classificação Geral" Command="{Binding AtualizarListaCommand}" CommandParameter="10"/>
         </Grid>
 
-        <ListView Grid.Row="2" ItemsSource="{Binding ListaClassificacaoCampo1}" HasUnevenRows="True" BackgroundColor="Transparent"
-                  SelectionMode="Single" SeparatorVisibility="None">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <cards:ClassificacaoGeralCard/>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Frame Grid.Row="2" BorderColor="{StaticResource GateVermelho}" BackgroundColor="Transparent" Padding="10">
+            <Grid RowDefinitions="Auto,*">
+                <Grid Grid.Row="0" RowDefinitions="Auto" ColumnDefinitions="10*, 40*,10*,10*,10*,10*,10*"  VerticalOptions="Center">
+                    <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
+                        Text="Posição" />
+                    <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
+                        Text="Time"/>
+                    <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
+                           Text="Jogos" />
+                    <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
+                        Text="Vitórias" />
+                    <Label Grid.Row="0" Grid.Column="4" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
+                        Text="Derrota" />
+                    <Label Grid.Row="0" Grid.Column="5" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
+                        Text="Saldo" />
+                    <Label Grid.Row="0" Grid.Column="6" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
+                        Text="Pontos Pro" />
+                </Grid>
+
+                <ListView Grid.Row="1" ItemsSource="{Binding ListaClassificacaoCampo}" HasUnevenRows="True" BackgroundColor="Transparent"
+                          SelectionMode="Single" SeparatorVisibility="None" VerticalOptions="Fill">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <cards:ClassificacaoGeralCard/>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Frame>
     </Grid>
 </ContentView>

@@ -15,18 +15,20 @@
     <Frame CornerRadius="15" HasShadow="False" HeightRequest="100" BorderColor="{StaticResource GateVermelho}"
            BackgroundColor="{Binding IsEven, Converter={StaticResource AlternationIndexToColorConverter}}"
            Padding="10" >
-        <Grid RowDefinitions="Auto" ColumnDefinitions="10*, 50*,10*,10*,10*,10*"  VerticalOptions="Center" ColumnSpacing="20">
+        <Grid RowDefinitions="Auto" ColumnDefinitions="10*, 40*,10*,10*,10*,10*,10*"  VerticalOptions="Center" ColumnSpacing="20">
             <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
                   Text="{Binding Classificacao_Posicao, StringFormat='{0}º'}"/>
             <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
                    Text="{Binding Time.Apelido_Time}"/>
             <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
-                Text="{Binding Classificacao_Vitoria}" />
+                   Text="{Binding Classificacao_QtdeJogos}"/>
             <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
-                Text="{Binding Classificacao_Derrota}" />
+                Text="{Binding Classificacao_Vitoria}" />
             <Label Grid.Row="0" Grid.Column="4" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
-                 Text="{Binding Classificacao_SaldoPontos}" />
+                Text="{Binding Classificacao_Derrota}" />
             <Label Grid.Row="0" Grid.Column="5" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
+                 Text="{Binding Classificacao_SaldoPontos}" />
+            <Label Grid.Row="0" Grid.Column="6" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
                  Text="{Binding Classificacao_PontosPro}" />
         </Grid>
     </Frame>
