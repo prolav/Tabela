@@ -1,6 +1,7 @@
 using System.Windows.Input;
 using Tabela.Models;
 using Tabela.Repositories;
+using Tabela.Repositories.Repositories;
 
 namespace Tabela.ViewModel_PC;
 
@@ -31,7 +32,6 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
     
     #region Commands
     public ICommand SalvarResultadosCommand => new Command(() => SalvarResultadosExecute(ListaPartidas[0].Partida_NumeroCampo));
-    //public ICommand MostrarCampoCommand => new Command<int>(campo => MostrarCampoExecute(campo));
     public ICommand MostrarCampoCommand => new Command<string>(
         obj => MostrarCampoExecute(obj));
     #endregion
@@ -161,8 +161,10 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
         {
             foreach (var partida in ListaPartidas)
             {
-                _partidaRepository.Update(partida);    
+                _partidaRepository.InsertOrReplace(partida);              
             }
+            var classificacaoRepository = new ClassificacaoRepository();
+            classificacaoRepository.SalvarClassificacaoByPartida(ListaPartidas);
             ListaPartidas = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id && a.Partida_NumeroCampo == campo).ToList();
             CarregarCamposPartidas();
             OnPropertyChanged();

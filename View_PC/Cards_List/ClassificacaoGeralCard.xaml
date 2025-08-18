@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Tabela.Controls"
              xmlns:cardsList="clr-namespace:Tabela.View_PC.Cards_List">
 
-       <ContentPage.Resources>
+     <ContentPage.Resources>
         <local:AlternationIndexToColorConverter x:Key="AlternationIndexToColorConverter"
                                                 TrueColor="{StaticResource GateCremeFundoDashBoard}"
                                                 FalseColor="{StaticResource GateCreme}"/>
@@ -15,23 +15,19 @@
     <Frame CornerRadius="15" HasShadow="False" HeightRequest="100" BorderColor="{StaticResource GateVermelho}"
            BackgroundColor="{Binding IsEven, Converter={StaticResource AlternationIndexToColorConverter}}"
            Padding="10" >
-        <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, 7*, 2*"  VerticalOptions="Center" ColumnSpacing="20">
-              <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
-                     Text="123"/>
-            <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" VerticalOptions="Center"
-                   Text="{Binding Clube_Nome}"/>
-
-              <Grid Grid.Row="0" Grid.Column="2" ColumnDefinitions="*,*,*,*" ColumnSpacing="20">
-                  <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource Label24BoldStyle}">
-                        <Label.FormattedText>
-                              <FormattedString>
-                                  <Span Text="1"/>
-                                  <Span Text=" V"/>
-                              </FormattedString>
-                        </Label.FormattedText>
-                  </Label>
-              </Grid>
-            
+        <Grid RowDefinitions="Auto" ColumnDefinitions="10*, 50*,10*,10*,10*,10*"  VerticalOptions="Center" ColumnSpacing="20">
+            <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
+                  Text="{Binding Classificacao_Posicao, StringFormat='{0}º'}"/>
+            <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
+                   Text="{Binding Time.Apelido_Time}"/>
+            <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
+                Text="{Binding Classificacao_Vitoria}" />
+            <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
+                Text="{Binding Classificacao_Derrota}" />
+            <Label Grid.Row="0" Grid.Column="4" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
+                 Text="{Binding Classificacao_SaldoPontos}" />
+            <Label Grid.Row="0" Grid.Column="5" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
+                 Text="{Binding Classificacao_PontosPro}" />
         </Grid>
     </Frame>
 </ContentView>

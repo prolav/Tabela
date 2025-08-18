@@ -33,7 +33,7 @@ public class DbContext
         _sqlConnection.CreateTable<RegionalModel>();
         _sqlConnection.CreateTable<MontagemCampeonatoModel>();
         _sqlConnection.CreateTable<CampoModel>();
-        
+        _sqlConnection.CreateTable<ClassificacaoModel>();
     }
 
     public SQLiteConnection Connection

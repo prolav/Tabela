@@ -37,10 +37,12 @@ public class PartidaModel : BaseModel, INotifyPropertyChanged
     public int Partida_PontosFora { get; set; }
     [SQLite.Column("Partida_ComJogo")] 
     public bool Partida_ComJogo { get; set; } = false;
-
+    public bool CadastradoClassificacao { get; set; }
+    [Ignore]
     public virtual bool IsTimeCasaVencedor => Partida_PontosCasa > Partida_PontosFora;
+    [Ignore]
     public virtual bool IsTimeForaVencedor => Partida_PontosFora > Partida_PontosCasa;
-
+    [Ignore]
     public virtual bool IsEven { get; set; } = false;
     #region Notify
     public event PropertyChangedEventHandler PropertyChanged;
