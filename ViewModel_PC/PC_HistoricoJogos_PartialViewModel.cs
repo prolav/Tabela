@@ -57,6 +57,7 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
             ListaPartidas = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id && a.Partida_NumeroCampo == 1).OrderBy(a =>a.Partida_Rodada).ToList();
             CarregarButtonsIsVisible();
             CarregarCamposPartidas();
+            CarregarClassificacaoGeral();
             OnPropertyChanged();
         }
         catch (Exception e)
@@ -65,6 +66,25 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
         }
     }
 
+    private void CarregarClassificacaoGeral()
+    {
+        try
+        {
+            for (int i = 1; i <= Campeonato.Campeonato_NumerosCampos; i++)
+            {
+                SalvarResultadosExecute(i);
+            }
+            var campeonatoRepository = new CampeonatoRepository();
+            Campeonato = campeonatoRepository.GetAll().LastOrDefault();
+            Campeonato.Campeonato_HistoricoJogos_Cadastrado = true;
+            campeonatoRepository.Insert(Campeonato);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
     private void CarregarObjetosNulos()
     {
         try

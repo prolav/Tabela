@@ -74,7 +74,8 @@
                 <Label Grid.Row="3"
                        Text="Classificação Geral"
                        Padding="40,20,0,20"
-                       Style="{StaticResource MenuButtonDashBoardStyle}">
+                       Style="{StaticResource MenuButtonDashBoardStyle}"
+                       IsEnabled="{Binding Campeonato.Campeonato_HistoricoJogos_Cadastrado}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
@@ -91,7 +92,8 @@
                 <Label Grid.Row="4"
                        Text="Histórico de Jogos"
                        Padding="40,20,0,20"
-                       Style="{StaticResource MenuButtonDashBoardStyle}">
+                       Style="{StaticResource MenuButtonDashBoardStyle}"
+                       IsEnabled="{Binding Campeonato.Campeonato_Cadastrado}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"

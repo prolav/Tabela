@@ -15,14 +15,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd0aee71-e14d-4067-a502-2f820f23b813" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/JogadorCard.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_PC/Cards_List/JogadorCard.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabela/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ClassificacaoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ClassificacaoModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/Repositories/ClassificacaoRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/Repositories/ClassificacaoRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/CampeonatoModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/CampeonatoModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/JogadorModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/JogadorModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/TimeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/TimeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroGeral_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroGeral_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_NovoCampeonato_PartialViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/Cards_List/ClassificacaoGeralCard.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/Cards_List/ClassificacaoGeralCard.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModel_PC/PC_Jogador_PartialViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_CadastroJogador_Partial.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ConfiguracaoInicial_NovoCampeonato_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_ConfiguracaoInicial_NovoCampeonato_Partial.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Jogador_Partial.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/View_PC/PC_Partial/PC_Jogador_Partial.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,8 +93,10 @@
     <setting file="file://$PROJECT_DIR$/Repositories/Repositories/BaseRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Users/viniciusyoshino/RiderProjects/Tabela/ViewModel_PC/PC_HistoricoJogos_PartialViewModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels_Celular/PrimeiroViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/viniciusyoshino/RiderProjects/Tabela/View_PC/Cards_List/ClassificacaoGeralCard.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/View_PC/PC_DashBoardView.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/View_PC/PC_MenuInicialView.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/viniciusyoshino/RiderProjects/Tabela/View_PC/PC_Partial/PC_ClassificacaoGeral_Partial.xaml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views_Celular/Primeiro.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views_Celular/Primeiro.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views_Celular/Primeiro.xaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -347,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755522535786</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Classicacao">
+      <option name="closed" value="true" />
+      <created>1755551728612</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1755551728612</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +402,8 @@
     <MESSAGE value="pensar sobre a partidaview" />
     <MESSAGE value="Fim da NovoCampeonatoView" />
     <MESSAGE value="mac" />
-    <option name="LAST_COMMIT_MESSAGE" value="mac" />
+    <MESSAGE value="Classicacao" />
+    <option name="LAST_COMMIT_MESSAGE" value="Classicacao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -520,7 +539,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs</url>
-          <line>167</line>
+          <line>191</line>
           <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_DashBoardViewModel.cs" containingFunctionPresentation="Method 'AtualizarPage'">
             <startOffsets>
               <option value="-1" />
@@ -532,69 +551,30 @@
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Repositories/Repositories/ClassificacaoRepository.cs</url>
-          <line>105</line>
-          <properties documentPath="$PROJECT_DIR$/Repositories/Repositories/ClassificacaoRepository.cs" containingFunctionPresentation="Method 'Teste'">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs</url>
+          <line>126</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs" containingFunctionPresentation="Method 'AdicionarJogadorExecute'">
             <startOffsets>
-              <option value="5170" />
+              <option value="4288" />
             </startOffsets>
             <endOffsets>
-              <option value="5171" />
+              <option value="4331" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="201" />
+          <option name="timeStamp" value="218" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs</url>
-          <line>107</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="Method 'GerarListaCampos'">
+          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs</url>
+          <line>119</line>
+          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_CadastroJogador_PartialViewModel.cs" containingFunctionPresentation="Method 'AdicionarJogadorExecute'">
             <startOffsets>
-              <option value="3453" />
+              <option value="3930" />
             </startOffsets>
             <endOffsets>
-              <option value="3513" />
+              <option value="3978" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="203" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs</url>
-          <line>148</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="Method 'GerarClassificacaoGeral'">
-            <startOffsets>
-              <option value="5666" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5726" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="204" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs</url>
-          <line>35</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="">
-            <startOffsets>
-              <option value="1627" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1657" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="210" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs</url>
-          <line>33</line>
-          <properties documentPath="$PROJECT_DIR$/ViewModel_PC/PC_ClassificacaoGeral_PartialViewModel.cs" containingFunctionPresentation="">
-            <startOffsets>
-              <option value="1563" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1604" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="211" />
+          <option name="timeStamp" value="219" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

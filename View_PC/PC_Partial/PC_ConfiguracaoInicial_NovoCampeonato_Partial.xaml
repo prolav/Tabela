@@ -36,7 +36,7 @@
             <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
                    Text="Número de Campos"/>
             <Border Grid.Row="4" Grid.Column="1" Style="{StaticResource BorderEntry}">
-                <Picker  Style="{StaticResource Entry24Style}"
+                <Picker  Style="{StaticResource Entry24Style}" 
                          SelectedItem="{Binding NumeroCamposSelecionado}" ItemsSource="{Binding ListaCampos}"/>
             </Border>
         </Grid>

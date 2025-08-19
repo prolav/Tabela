@@ -2,14 +2,23 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tabela.View_PC.PC_Partial.PC_Jogador_Partial">
-    <Grid  RowDefinitions="Auto, *">
-            
+             x:Class="Tabela.View_PC.PC_Partial.PC_Jogador_Partial"
+             xmlns:cards="clr-namespace:Tabela.View_PC.Cards_List">
+
+    <Grid  RowDefinitions="Auto, *"  RowSpacing="20">
         <Button Grid.Row="0" Style="{StaticResource Button24_Vermelho}"
                 Text="Cadastrar" Command="{Binding CadastrarJogadorCommand}" HorizontalOptions="End"/>
 
-        <ListView Grid.Row="1" BackgroundColor="blue">
-
+        <ListView Grid.Row="1" ItemsSource="{Binding ListaJogador}" HasUnevenRows="True" BackgroundColor="Transparent"
+                  SelectionMode="Single" SeparatorVisibility="None" SelectedItem="{Binding JogadorSelecionado, Mode=TwoWay}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <cards:JogadorCard EditarJogadorCommand="{Binding BindingContext.EditarJogadorCommand, Source={RelativeSource AncestorType={x:Type ContentView}}}"
+                                        ExcluirJogadorCommand="{Binding BindingContext.ExcluirJogadorCommand, Source={RelativeSource AncestorType={x:Type ContentView}}}"/>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </ContentView>

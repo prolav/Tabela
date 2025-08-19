@@ -46,6 +46,7 @@ public class TimeModel: BaseModel, INotifyPropertyChanged
             if (_clubeSelecionado != value)
             {
                 _clubeSelecionado = value;
+                _clubeSelecionado = value = Clube.Clube_Nome=="Nenhum" ? null : value;
                 OnPropertyChanged(nameof(Clube));
 
                 // Atualiza o Apelido_Time quando o item selecionado mudar

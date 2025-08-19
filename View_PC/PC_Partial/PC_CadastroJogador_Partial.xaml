@@ -10,7 +10,7 @@
                Text="Foto"/>
             
         <Border Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" Stroke="{StaticResource GateVermelho}">
-            <Image Aspect="AspectFit" MaximumHeightRequest="200" Source="{Binding ImagemClube}" />
+            <Image Aspect="AspectFit" MaximumHeightRequest="200" Source="{Binding ImagemJogador}" />
             <Border.GestureRecognizers>
 
             </Border.GestureRecognizers>
@@ -33,15 +33,20 @@
                       Text="{Binding NumeroJogador, Mode=TwoWay}"/>
         </Border>
 
-        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label16BoldStyle}"
-               VerticalOptions="Center"
-               Text="Clube:"/>
+        <Label Grid.Row="3" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
+               VerticalOptions="Center" Text="Clube:"/>
+        <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource BorderEntry}">
+              <Picker  FontSize="24" TextColor="{StaticResource GateVermelho}" ItemDisplayBinding="{Binding Clube_Nome}"
+                       ItemsSource="{Binding ListaClube}" SelectedItem="{Binding ClubeSelecionado}"/>
+        </Border>
 
-        <Picker Grid.Row="3" Grid.Column="1" FontSize="16" TextColor="{StaticResource GateVermelho}" 
-                ItemsSource="{Binding ListsClubes}" SelectedItem="{Binding ClubeJogador}"/>
-
-        <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource Button24_Vermelho}"
-                Text="Adicionar Clube" 
-                Command="{Binding AdicionarCommand, Mode=TwoWay}"/>
+       <Grid Grid.Row="4" Grid.Column="0" ColumnSpan="2" ColumnDefinitions="*,*" ColumnSpacing="20">
+              <Button Grid.Row="0" Grid.Column="0" Style="{StaticResource Button24_Vermelho}"
+                      Text="Voltar" VerticalOptions="End" 
+                      Command="{Binding VoltarCommand, Mode=TwoWay}"/>
+              <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource Button24_Vermelho}"
+                      Text="Adicionar Jogador" VerticalOptions="End" 
+                      Command="{Binding AdicionarCommand, Mode=TwoWay}"/>
+       </Grid>
     </Grid>
 </ContentView>

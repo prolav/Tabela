@@ -1,5 +1,6 @@
 using System.Windows.Input;
 using Tabela.Models;
+using Tabela.Repositories;
 using Tabela.View_PC;
 using Tabela.View_PC.PC_Partial;
 
@@ -14,6 +15,7 @@ public class PC_DashBoardViewModel: BaseViewModel
     private string _tituloCard;
     private int _rowContentView;
     private int _rowSpanContentView;
+    private CampeonatoModel  _campeonatoModel;
 
     public enum TipoPage
     {
@@ -33,6 +35,7 @@ public class PC_DashBoardViewModel: BaseViewModel
     #endregion
 
     #region Properties
+    public CampeonatoModel Campeonato { get; set; }
     public string SecaoAtual
     {
         get => _secaoAtual;
@@ -78,6 +81,7 @@ public class PC_DashBoardViewModel: BaseViewModel
         SecaoAtual = TipoPage.Dashboard.ToString();
         PC_DashBoardVM = this;
         AtualizarPage("DashBoard");
+        
     }
     #endregion
 
@@ -88,6 +92,8 @@ public class PC_DashBoardViewModel: BaseViewModel
         TituloCard = nomePage;
         RowContentView = 1;
         RowSpanContentView = 1;
+        var campeonatoRepository = new CampeonatoRepository();
+        Campeonato = campeonatoRepository.GetAll().LastOrDefault();
         
         if (nomePage == "DashBoard")
         {
@@ -138,7 +144,25 @@ public class PC_DashBoardViewModel: BaseViewModel
         }
         else if (nomePage == "Cadastro de Jogadores")
         {
-            CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM);
+            var jogadorModel = new JogadorModel();
+            jogadorModel = model as JogadorModel;
+            if (jogadorModel != null)
+            {
+                if (modoEdicao == false)
+                {
+                    TituloCard = "Visualizar Jogador";
+                    CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM, jogadorModel, false);
+                }
+                else
+                {
+                    TituloCard = "Editar Jogador";
+                    CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM, jogadorModel, true);
+                }
+            }
+            else
+            {
+                CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM, jogadorModel, true);
+            }
         }
         else if (nomePage == "Lista de Clubes")
         {
@@ -150,14 +174,14 @@ public class PC_DashBoardViewModel: BaseViewModel
         }
         else if (nomePage == "Novo Campeonato")
         {
-            var campeonatoModel = new CampeonatoModel();
-            campeonatoModel = model as CampeonatoModel;
-            if (campeonatoModel != null)
+            //var campeonatoModel = new CampeonatoModel();
+            Campeonato = model as CampeonatoModel;
+            if (Campeonato != null)
             {
                 TituloCard = "";
                 RowContentView = 0;
                 RowSpanContentView = 2;
-                CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM, campeonatoModel);
+                CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM, Campeonato);
             }
             else
             {

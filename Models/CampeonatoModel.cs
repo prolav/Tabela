@@ -19,7 +19,8 @@ public class CampeonatoModel : BaseModel, INotifyPropertyChanged
 
     [Column("Campeonato_Cadastrado")] 
     public bool Campeonato_Cadastrado { get; set; } = false;
-
+    [Column("Campeonato_HistoricoJogos_Cadastrado")] 
+    public bool Campeonato_HistoricoJogos_Cadastrado { get; set; } = false;
 
     [Ignore]
     public virtual List<FaseModel> Campeonato_Fases { get; set; } = new();

@@ -34,7 +34,6 @@ public class PC_CadastroGeral_PartialViewModel: BaseViewModel
     {
         _pc_DashBoardVM = pc_DashBoardVM;
         CarregarDados();
-        //ImagemClube = ImageSource.FromFile("sem_imagem.jpeg");
     }
 
     private void CarregarDados()
@@ -88,148 +87,125 @@ public class PC_CadastroGeral_PartialViewModel: BaseViewModel
 
             var regional = new RegionalModel()
             {
-                Id = Guid.NewGuid(),
                 Regional_Nome = "Seitô",
-                Dt_Alteracao = DateTime.Now,
-                Dt_Inclusao = DateTime.MinValue,
-                Regional_Dt_Fim = DateTime.MinValue
             };
             regionalRepository.InsertOrReplace(regional);
 
             regional = new RegionalModel()
             {
-                Id = Guid.NewGuid(),
                 Regional_Nome = "ABC",
-                Dt_Alteracao = DateTime.Now,
-                Dt_Inclusao = DateTime.MinValue,
-                Regional_Dt_Fim = DateTime.MinValue
             };
             regionalRepository.InsertOrReplace(regional);
 
             regional = new RegionalModel()
             {
-                Id = Guid.NewGuid(),
                 Regional_Nome = "Capital",
-                Dt_Alteracao = DateTime.Now,
-                Dt_Inclusao = DateTime.MinValue,
-                Regional_Dt_Fim = DateTime.MinValue
             };
             regionalRepository.InsertOrReplace(regional);
 
             var clube = new ClubeModel()
             {
-                Id = Guid.NewGuid(),
                 FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Seitô").FirstOrDefault().Id,
                 Clube_Nome = "Time",
                 Clube_Logo = "sem_imagem.jpeg",
                 Clube_Presidente = "Nobuo",
-                Dt_Alteracao = DateTime.Now,
-                Dt_Inclusao = DateTime.MinValue,
             };
             clubeRepository.InsertOrReplace(clube);
 
             clube = new ClubeModel()
             {
-                Id = Guid.NewGuid(),
                 FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Seitô").FirstOrDefault().Id,
                 Clube_Nome = "Kyoyu",
                 Clube_Logo = "sem_imagem.jpeg",
                 Clube_Presidente = "Nobuo",
-                Dt_Alteracao = DateTime.Now,
-                Dt_Inclusao = DateTime.MinValue,
             };
             clubeRepository.InsertOrReplace(clube);
 
             clube = new ClubeModel()
             {
-                Id = Guid.NewGuid(),
                 FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Seitô").FirstOrDefault().Id,
                 Clube_Nome = "Matilde",
                 Clube_Logo = "sem_imagem.jpeg",
                 Clube_Presidente = "Hatiro Honda",
-                Dt_Alteracao = DateTime.Now,
-                Dt_Inclusao = DateTime.MinValue,
             };
             clubeRepository.InsertOrReplace(clube);
 
             clube = new ClubeModel()
             {
-                Id = Guid.NewGuid(),
-                FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Capital").FirstOrDefault().Id,
+                FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Capital").FirstOrDefault()
+                    .Id,
                 Clube_Nome = "Casa Verde",
                 Clube_Logo = "sem_imagem.jpeg",
                 Clube_Presidente = "Hatiro Honda",
-                Dt_Alteracao = DateTime.Now,
-                Dt_Inclusao = DateTime.MinValue,
+            };
+            clubeRepository.InsertOrReplace(clube);
+
+            clube = new ClubeModel()
+            {
+                FK_Regional_Id = regionalRepository.GetAll().Where(a => a.Regional_Nome == "Capital").FirstOrDefault()
+                    .Id,
+                Clube_Nome = "Nenhum",
+                Clube_Logo = "sem_imagem.jpeg",
+                Clube_Presidente = "",
             };
             clubeRepository.InsertOrReplace(clube);
 
             var faseModel = new FaseModel()
             {
-                Id = Guid.NewGuid(),
                 Fase_Nome = "Grupos"
             };
             faseRepository.InsertOrReplace(faseModel);
 
             faseModel = new FaseModel()
             {
-                Id = Guid.NewGuid(),
                 Fase_Nome = "Oitavas"
             };
             faseRepository.InsertOrReplace(faseModel);
 
             faseModel = new FaseModel()
             {
-                Id = Guid.NewGuid(),
                 Fase_Nome = "Quartas"
             };
             faseRepository.InsertOrReplace(faseModel);
 
             faseModel = new FaseModel()
             {
-                Id = Guid.NewGuid(),
                 Fase_Nome = "Semi"
             };
             faseRepository.InsertOrReplace(faseModel);
 
             faseModel = new FaseModel()
             {
-                Id = Guid.NewGuid(),
                 Fase_Nome = "Final"
             };
             faseRepository.InsertOrReplace(faseModel);
 
             var campoModel = new CampoModel()
             {
-                Id = Guid.NewGuid(),
                 NomeCampo = "Campo 1"
             };
             campoRepository.InsertOrReplace(campoModel);
 
             campoModel = new CampoModel()
             {
-                Id = Guid.NewGuid(),
                 NomeCampo = "Campo 2"
             };
             campoRepository.InsertOrReplace(campoModel);
 
             campoModel = new CampoModel()
             {
-                Id = Guid.NewGuid(),
                 NomeCampo = "Campo 3"
             };
             campoRepository.InsertOrReplace(campoModel);
 
             campoModel = new CampoModel()
             {
-                Id = Guid.NewGuid(),
                 NomeCampo = "Campo 4"
             };
             campoRepository.InsertOrReplace(campoModel);
 
             campoModel = new CampoModel()
             {
-                Id = Guid.NewGuid(),
                 NomeCampo = "Campo 5"
             };
             campoRepository.InsertOrReplace(campoModel);
