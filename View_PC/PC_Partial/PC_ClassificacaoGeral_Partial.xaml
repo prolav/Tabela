@@ -27,17 +27,17 @@
 
         <Grid Row="1" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10">
             <Button Grid.Column="0" Style="{StaticResource Button24_Vermelho}"
-                    Text="Mostrar Campo 1" Command="{Binding AtualizarListaCommand}" CommandParameter="1"/>
+                    Text="Campo 1" Command="{Binding AtualizarListaCommand}" CommandParameter="1"/>
             <Button Grid.Column="1" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo2_IsVisible}"
-                    Text="Mostrar Campo 2" Command="{Binding AtualizarListaCommand}" CommandParameter="2"/>
+                    Text="Campo 2" Command="{Binding AtualizarListaCommand}" CommandParameter="2"/>
             <Button Grid.Column="2" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo3_IsVisible}"
-                    Text="Mostrar Campo 3" Command="{Binding AtualizarListaCommand}" CommandParameter="3"/>
+                    Text="Campo 3" Command="{Binding AtualizarListaCommand}" CommandParameter="3"/>
             <Button Grid.Column="3" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo4_IsVisible}"
-                    Text="Mostrar Campo 4" Command="{Binding AtualizarListaCommand}" CommandParameter="4"/>
+                    Text="Campo 4" Command="{Binding AtualizarListaCommand}" CommandParameter="4"/>
             <Button Grid.Column="4" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo5_IsVisible}"
-                    Text="Mostrar Campo 5" Command="{Binding AtualizarListaCommand}" CommandParameter="5"/>
+                    Text="Campo 5" Command="{Binding AtualizarListaCommand}" CommandParameter="5"/>
             <Button Grid.Column="5" Style="{StaticResource Button24_Vermelho}"
-                    Text="Mostrar Classificação Geral" Command="{Binding AtualizarListaCommand}" CommandParameter="10"/>
+                    Text="Classificação Geral" Command="{Binding AtualizarListaCommand}" CommandParameter="10"/>
         </Grid>
 
         <Frame Grid.Row="2" BorderColor="{StaticResource GateVermelho}" BackgroundColor="Transparent" Padding="10">

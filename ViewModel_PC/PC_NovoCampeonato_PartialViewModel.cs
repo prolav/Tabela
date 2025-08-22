@@ -207,15 +207,7 @@ public class PC_NovoCampeonato_PartialViewModel : BaseViewModel
             listaPartidas = completeTime(listaPartidas);
             foreach (var partida in listaPartidas)
             {
-               // partida.FK_Campeonato_Id = Campeonato.Id;
-                //partida.Partida_DataHora = Campeonato.Campeonato_Data;
-                //partida.FaseId = partida.TimeCasa.FK_Fase_Id;
-                //partida.TimeCasaId = partida.TimeCasa.Id;
-                //partida.TimeForaId = partida.TimeFora.Id;
-                //partida.TimeJuizId = partida.TimeJuiz.Id;
-                //partida.Partida_NumeroCampo = partida.TimeCasa.MontagemCampeonatoModel_NumeroCampo;
                 partida.Partida_ComJogo = true;
-                //listAuxPartida.Add(partida);
                 partidaRepository.InsertOrReplace(partida);
             }
         }

@@ -34,8 +34,7 @@ public class TimeModel: BaseModel, INotifyPropertyChanged
     public virtual bool CampoHabilitado { get; set; } = false;
     [Ignore]
     public virtual List<ClubeModel> ListaClube { get; set; }
-    //[Ignore]
-    //public virtual ClubeModel Clube { get; set; }
+
     private ClubeModel _clubeSelecionado;
     [Ignore]
     public virtual ClubeModel Clube

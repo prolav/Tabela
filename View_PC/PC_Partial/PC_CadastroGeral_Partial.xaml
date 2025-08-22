@@ -3,7 +3,7 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Tabela.View_PC.PC_Partial.PC_CadastroGeral_Partial">
-    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,*,Auto" ColumnDefinitions="*" RowSpacing="10" ColumnSpacing="30">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*" RowSpacing="10" ColumnSpacing="30">
         <Frame Grid.Row="0" Grid.Column="0" Style="{StaticResource FrameDashBoard}">
             <Label  Style="{StaticResource Label32BoldStyle}"
                     Text="Regional">
@@ -40,7 +40,25 @@
             </Label>
         </Frame>
 
-        <Frame Grid.Row="4" Grid.Column="0" Style="{StaticResource FrameDashBoard}"  IsVisible="{Binding CadastroCampeonatoAtivo}">
+        <Frame Grid.Row="4" Grid.Column="0" Style="{StaticResource FrameDashBoard}" >
+            <Label  Style="{StaticResource Label32BoldStyle}" IsEnabled="{Binding Campeonato.Campeonato_HistoricoJogos_Cadastrado}"
+                    Text="Gerenciar Planilhas">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Gerenciar Times" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Frame>
+
+        <!-- <Frame Grid.Row="5" Grid.Column="0" Style="{StaticResource FrameDashBoard}"  IsVisible="{Binding CadastroCampeonatoAtivo}"> -->
+        <!--     <Label  Style="{StaticResource Label32BoldStyle}" IsEnabled="{Binding Campeonato.Campeonato_HistoricoJogos_Cadastrado}" -->
+        <!--             Text="Gerenciar Planilhas" > -->
+        <!--         <Label.GestureRecognizers> -->
+        <!--             <TapGestureRecognizer Command="{Binding AtualizarPageCommand}" CommandParameter="Gerenciar Planilhas" /> -->
+        <!--         </Label.GestureRecognizers> -->
+        <!--     </Label> -->
+        <!-- </Frame> -->
+
+        <Frame Grid.Row="6" Grid.Column="0" Style="{StaticResource FrameDashBoard}"  IsVisible="{Binding CadastroCampeonatoAtivo}">
             <Label  Style="{StaticResource Label32BoldStyle}"
                     Text="Continuar Cadastro Campeonato" >
                 <Label.GestureRecognizers>
@@ -49,7 +67,7 @@
             </Label>
         </Frame>
 
-        <Frame Grid.Row="6" Grid.Column="0" Style="{StaticResource FrameDashBoard}"  IsVisible="{Binding CadastroBaseAtivo}">
+        <Frame Grid.Row="7" Grid.Column="0" Style="{StaticResource FrameDashBoard}"  IsVisible="{Binding CadastroBaseAtivo}">
             <Label  Style="{StaticResource Label32BoldStyle}"
                     Text="Cadastro Base" >
                 <Label.GestureRecognizers>
@@ -58,4 +76,5 @@
             </Label>
         </Frame>
     </Grid>
+
 </ContentView>

@@ -13,10 +13,10 @@ public class JogadorModel : BaseModel, INotifyPropertyChanged
 
     [SQLite.Column("Jogador_Imagem")]
     public string Jogador_Imagem { get; set; }
-    [MaxLength(100)][SQLite.Column("Jogador_Nome")]
+    [SQLite.Column("Jogador_Nome")]
     public string Jogador_Nome { get; set; }
-    [MaxLength(1)][SQLite.Column("Jogador_Numero")]
-    public int Jogador_Numero { get; set; } = 0;
+    [SQLite.Column("Jogador_Apelido")]
+    public string Jogador_Apelido { get; set; }
     [Ignore]
     public virtual ClubeModel Clube { get; set; }
     public virtual bool IsEven { get; set; } = false;

@@ -77,12 +77,11 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
             var campeonatoRepository = new CampeonatoRepository();
             Campeonato = campeonatoRepository.GetAll().LastOrDefault();
             Campeonato.Campeonato_HistoricoJogos_Cadastrado = true;
-            campeonatoRepository.Insert(Campeonato);
+            campeonatoRepository.InsertOrReplace(Campeonato);
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            throw new Exception(e.Message);
         }
     }
     private void CarregarObjetosNulos()

@@ -89,164 +89,171 @@ public class PC_DashBoardViewModel: BaseViewModel
 
     public void AtualizarPage(string nomePage, object model = null, bool modoEdicao = false)
     {
-        TituloCard = nomePage;
-        RowContentView = 1;
-        RowSpanContentView = 1;
-        var campeonatoRepository = new CampeonatoRepository();
-        Campeonato = campeonatoRepository.GetAll().LastOrDefault();
-        
-        if (nomePage == "DashBoard")
+        try
         {
-            SecaoAtual = nomePage;
-            CurrentView = new PC_DashBoard_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Tabela de Grupos")
-        {
-            SecaoAtual = nomePage;
-            CurrentView = new PC_Tabela_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Mata-Mata")
-        {
-            SecaoAtual = nomePage;
-            CurrentView = new PC_PlayOff_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Classificação Geral")
-        {
-            SecaoAtual = nomePage;
-            CurrentView = new PC_ClassificacaoGeral_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Histórico de Jogos")
-        {
-            SecaoAtual = nomePage;
-            CurrentView = new PC_HistoricoJogos_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Cadastro de Clubes")
-        {
-            var clubeModel = new ClubeModel();
-            clubeModel = model as ClubeModel;
-            if (clubeModel != null)
+            TituloCard = nomePage;
+            RowContentView = 1;
+            RowSpanContentView = 1;
+            var campeonatoRepository = new CampeonatoRepository();
+            Campeonato = campeonatoRepository.GetAll().LastOrDefault();
+            OnPropertyChanged();
+            
+            if (nomePage == "DashBoard")
             {
-                if (modoEdicao == false)
+                SecaoAtual = nomePage;
+                CurrentView = new PC_DashBoard_Partial(PC_DashBoardVM);
+            }
+            else if (nomePage == "Tabela de Grupos")
+            {
+                SecaoAtual = nomePage;
+                CurrentView = new PC_Tabela_Partial(PC_DashBoardVM);
+            }
+            else if (nomePage == "Mata-Mata")
+            {
+                SecaoAtual = nomePage;
+                CurrentView = new PC_PlayOff_Partial(PC_DashBoardVM);
+            }
+            else if (nomePage == "Classificação Geral")
+            {
+                SecaoAtual = nomePage;
+                CurrentView = new PC_ClassificacaoGeral_Partial(PC_DashBoardVM);
+            }
+            else if (nomePage == "Histórico de Jogos")
+            {
+                SecaoAtual = nomePage;
+                CurrentView = new PC_HistoricoJogos_Partial(PC_DashBoardVM);
+            }
+            else if (nomePage == "Cadastro de Clubes")
+            {
+                var clubeModel = new ClubeModel();
+                clubeModel = model as ClubeModel;
+                if (clubeModel != null)
                 {
-                    TituloCard = "Visualizar Clube";
-                    CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel, false);
+                    if (modoEdicao == false)
+                    {
+                        TituloCard = "Visualizar Clube";
+                        CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel, false);
+                    }
+                    else
+                    {
+                        TituloCard = "Editar Clube";
+                        CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel, true);
+                    }
                 }
                 else
                 {
-                    TituloCard = "Editar Clube";
                     CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel, true);
                 }
             }
-            else
+            else if (nomePage == "Cadastro de Jogadores")
             {
-                CurrentView = new PC_CadastroClube_Partial(PC_DashBoardVM, clubeModel, true);
-            }
-        }
-        else if (nomePage == "Cadastro de Jogadores")
-        {
-            var jogadorModel = new JogadorModel();
-            jogadorModel = model as JogadorModel;
-            if (jogadorModel != null)
-            {
-                if (modoEdicao == false)
+                var jogadorModel = new JogadorModel();
+                jogadorModel = model as JogadorModel;
+                if (jogadorModel != null)
                 {
-                    TituloCard = "Visualizar Jogador";
-                    CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM, jogadorModel, false);
+                    if (modoEdicao == false)
+                    {
+                        TituloCard = "Visualizar Jogador";
+                        CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM, jogadorModel, false);
+                    }
+                    else
+                    {
+                        TituloCard = "Editar Jogador";
+                        CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM, jogadorModel, true);
+                    }
                 }
                 else
                 {
-                    TituloCard = "Editar Jogador";
                     CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM, jogadorModel, true);
                 }
             }
-            else
+            else if (nomePage == "Lista de Clubes")
             {
-                CurrentView = new PC_CadastroJogador_Partial(PC_DashBoardVM, jogadorModel, true);
+                CurrentView = new PC_Clube_Partial(PC_DashBoardVM);
             }
-        }
-        else if (nomePage == "Lista de Clubes")
-        {
-            CurrentView = new PC_Clube_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Lista de Jogadores")
-        {
-            CurrentView = new PC_Jogador_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Novo Campeonato")
-        {
-            //var campeonatoModel = new CampeonatoModel();
-            Campeonato = model as CampeonatoModel;
-            if (Campeonato != null)
+            else if (nomePage == "Lista de Jogadores")
             {
-                TituloCard = "";
-                RowContentView = 0;
-                RowSpanContentView = 2;
-                CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM, Campeonato);
+                CurrentView = new PC_Jogador_Partial(PC_DashBoardVM);
             }
-            else
+            else if (nomePage == "Novo Campeonato")
             {
-                TituloCard = "Configuração Inicial do Campeonato";
-                CurrentView = new PC_ConfiguracaoInicial_NovoCampeonato_Partial(PC_DashBoardVM);
-            }
-
-            
-        }
-        else if (nomePage == "Cadastro Geral")
-        {
-            SecaoAtual = nomePage;
-            CurrentView = new PC_CadastroGeral_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Lista de Regionais")
-        {
-            CurrentView = new PC_Regional_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Cadastro de Regionais")
-        {
-            var regionalModel = new RegionalModel();
-            regionalModel = model as RegionalModel;
-            if (regionalModel != null)
-            {
-                if (modoEdicao == false)
+                Campeonato = model as CampeonatoModel;
+                if (Campeonato != null)
                 {
-                    TituloCard = "Visualizar Regional";
-                    CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel, false);
+                    TituloCard = "";
+                    RowContentView = 0;
+                    RowSpanContentView = 2;
+                    CurrentView = new PC_NovoCampeonato_Partial(PC_DashBoardVM, Campeonato);
                 }
                 else
                 {
-                    TituloCard = "Editar Regional";
+                    TituloCard = "Configuração Inicial do Campeonato";
+                    CurrentView = new PC_ConfiguracaoInicial_NovoCampeonato_Partial(PC_DashBoardVM);
+                }
+
+                
+            }
+            else if (nomePage == "Cadastro Geral")
+            {
+                SecaoAtual = nomePage;
+                CurrentView = new PC_CadastroGeral_Partial(PC_DashBoardVM);
+            }
+            else if (nomePage == "Lista de Regionais")
+            {
+                CurrentView = new PC_Regional_Partial(PC_DashBoardVM);
+            }
+            else if (nomePage == "Cadastro de Regionais")
+            {
+                var regionalModel = new RegionalModel();
+                regionalModel = model as RegionalModel;
+                if (regionalModel != null)
+                {
+                    if (modoEdicao == false)
+                    {
+                        TituloCard = "Visualizar Regional";
+                        CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel, false);
+                    }
+                    else
+                    {
+                        TituloCard = "Editar Regional";
+                        CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel, true);
+                    }
+                }
+                else
+                {
                     CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel, true);
                 }
             }
-            else
+            else if (nomePage == "Lista de Fases")
             {
-                CurrentView = new PC_CadastroRegional_Partial(PC_DashBoardVM, regionalModel, true);
+                CurrentView = new PC_Fase_Partial(PC_DashBoardVM);
             }
-        }
-        else if (nomePage == "Lista de Fases")
-        {
-            CurrentView = new PC_Fase_Partial(PC_DashBoardVM);
-        }
-        else if (nomePage == "Cadastro de Fases")
-        {
-            var faseModel = new FaseModel();
-            faseModel = model as FaseModel;
-            if (faseModel != null)
+            else if (nomePage == "Cadastro de Fases")
             {
-                if (modoEdicao == false)
+                var faseModel = new FaseModel();
+                faseModel = model as FaseModel;
+                if (faseModel != null)
                 {
-                    TituloCard = "Visualizar Fase";
-                    CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel, false);
+                    if (modoEdicao == false)
+                    {
+                        TituloCard = "Visualizar Fase";
+                        CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel, false);
+                    }
+                    else
+                    {
+                        TituloCard = "Editar Fase";
+                        CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel, true);
+                    }
                 }
                 else
                 {
-                    TituloCard = "Editar Fase";
                     CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel, true);
                 }
             }
-            else
-            {
-                CurrentView = new PC_CadastroFase_Partial(PC_DashBoardVM, faseModel, true);
-            }
+        }
+        catch (Exception e)
+        {
+            Application.Current.MainPage.DisplayAlert("Erro", e.Message, "OK");
         }
     }
     private void SairCommandExecute()

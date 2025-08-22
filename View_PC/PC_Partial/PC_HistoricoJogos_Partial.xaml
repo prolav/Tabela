@@ -8,19 +8,19 @@
        <Grid RowDefinitions="Auto,*" ColumnDefinitions="*" RowSpacing="5" ColumnSpacing="10">
               <Grid Grid.Row="0" Grid.Column="0"  ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,*" RowDefinitions="Auto" ColumnSpacing="10">
                      <Button Grid.Row="0" Grid.Column="0"  Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
-                             Text="Mostrar Campo 1" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
+                             Text="Campo 1" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
                              CommandParameter="1"/>
                      <Button Grid.Row="0" Grid.Column="1"  Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
-                             Text="Mostrar Campo 2" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
+                             Text="Campo 2" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
                              CommandParameter="2" IsVisible="{Binding ButtonCampo2_IsVisible}"/>
                      <Button Grid.Row="0" Grid.Column="2"  Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
-                             Text="Mostrar Campo 3" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
+                             Text="Campo 3" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
                              CommandParameter="3" IsVisible="{Binding ButtonCampo3_IsVisible}"/>
                      <Button Grid.Row="0" Grid.Column="3"  Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
-                             Text="Mostrar Campo 4" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
+                             Text="Campo 4" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
                              CommandParameter="4" IsVisible="{Binding ButtonCampo4_IsVisible}"/>
                      <Button Grid.Row="0" Grid.Column="4"  Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center"
-                             Text="Mostrar Campo 5" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
+                             Text="Campo 5" Command="{Binding MostrarCampoCommand, Mode=TwoWay}"
                              CommandParameter="5" IsVisible="{Binding ButtonCampo5_IsVisible}"/>
                      <Button Grid.Row="0" Grid.Column="5"  Style="{StaticResource Button24_Vermelho}" VerticalOptions="Center" HorizontalOptions="End"
                              Text="Salvar" Command="{Binding SalvarResultadosCommand, Mode=TwoWay}"/>

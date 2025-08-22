@@ -17,6 +17,7 @@ public class PC_CadastroGeral_PartialViewModel: BaseViewModel
 
     #region Properties
      public bool CadastroBaseAtivo { get => _cadastroBaseAtivo; set => SetProperty(ref _cadastroBaseAtivo, value); }
+     public CampeonatoModel Campeonato { get => _campeonato; set => SetProperty(ref _campeonato, value); }
      public bool CadastroCampeonatoAtivo { get => _cadastroCampeonatoAtivo; set => SetProperty(ref _cadastroCampeonatoAtivo, value); }
     #endregion
     
@@ -48,8 +49,8 @@ public class PC_CadastroGeral_PartialViewModel: BaseViewModel
                 CadastroBaseAtivo = false;
 
             var campeonatoRepository = new CampeonatoRepository();
-            _campeonato = campeonatoRepository.GetAll().LastOrDefault();
-            if (_campeonato != null && _campeonato.Campeonato_Cadastrado == false)
+            Campeonato = campeonatoRepository.GetAll().LastOrDefault();
+            if (Campeonato != null && Campeonato.Campeonato_Cadastrado == false)
                 CadastroCampeonatoAtivo = true;
             else
                 CadastroCampeonatoAtivo = false;
