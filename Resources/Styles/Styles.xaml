@@ -413,7 +413,7 @@
 
     <Style x:Key="MenuButtonDashBoardStyle" TargetType="Button">
         <Setter Property="BackgroundColor" Value="{StaticResource GateCreme}"/>
-        <Setter Property="TextColor" Value="{StaticResource GatePreto}"/>
+        <Setter Property="TextColor" Value="{StaticResource GateVermelho}"/>
         <Setter Property="CornerRadius" Value="10"/>
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontAttributes" Value="Bold"/>

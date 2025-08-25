@@ -15,7 +15,7 @@
             <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource Label24BoldStyle}"
                    Text="Data do Campeonato"/>
             <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource BorderEntry}">
-                <DatePicker TextColor="Red" FontSize="24" HorizontalOptions="Fill" VerticalOptions="Fill"
+                <DatePicker TextColor="{StaticResource GateVermelho}" FontSize="24" 
                        Date="{Binding DataSelecionada}"/>
             </Border>
 
@@ -41,7 +41,7 @@
             </Border>
         </Grid>
 
-        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+        <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="10">
             <Button Grid.Column="0" Style="{StaticResource Button24_Vermelho}"
                     Text="Voltar" VerticalOptions="Start"
                     Command="{Binding VoltarCommand, Mode=TwoWay}"/>

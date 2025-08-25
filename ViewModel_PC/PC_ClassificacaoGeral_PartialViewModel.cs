@@ -159,7 +159,7 @@ public class PC_ClassificacaoGeral_PartialViewModel:BaseViewModel
                     Classificacao_Derrota = g.Sum(x => x.Classificacao_Derrota),
                     Classificacao_PontosPro = g.Sum(x => x.Classificacao_PontosPro),
                     Classificacao_PontosContra = g.Sum(x => x.Classificacao_PontosContra),
-                    Classificacao_QtdeJogos = g.Sum(x => x.Classificacao_QtdeJogos),
+                    Classificacao_QtdeJogos = g.Sum(x => x.Classificacao_Vitoria + x.Classificacao_Derrota),
                     Classificacao_Campo = 0, // Opcional: pode usar 0 ou -1 para indicar "Geral"
                     Time = timeRepository.GetById(g.Key),
                     IsEven = index % 2 == 0

@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Tabela.Models;
 using Tabela.Repositories;
@@ -35,7 +37,11 @@ public class PC_DashBoardViewModel: BaseViewModel
     #endregion
 
     #region Properties
-    public CampeonatoModel Campeonato { get; set; }
+    public CampeonatoModel Campeonato
+    {
+        get => _campeonatoModel;
+        set => SetProperty(ref _campeonatoModel, value); // Se usar BaseViewModel com SetProperty
+    }
     public string SecaoAtual
     {
         get => _secaoAtual;
@@ -262,6 +268,8 @@ public class PC_DashBoardViewModel: BaseViewModel
 
     }
 
-    
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected void OnPropertyChanged([CallerMemberName] string name = null) =>
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     #endregion
 }

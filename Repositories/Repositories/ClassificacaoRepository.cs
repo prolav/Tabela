@@ -59,11 +59,10 @@ namespace Tabela.Repositories.Repositories
                     classificacaoRepository.InsertOrReplace(classificacaoCasa);
                     classificacaoRepository.InsertOrReplace(classificacaoFora);
 
-                    //partida.CadastradoClassificacao = true;
                     partidaRepository.InsertOrReplace(partida);
                 }
             }
-            Teste();
+           // Teste();
         }
 
         private void Teste()
@@ -71,7 +70,6 @@ namespace Tabela.Repositories.Repositories
             var classificacaoRepository = new ClassificacaoRepository();
             var timeRepository = new TimeRepository();
             var campeonatoRepository = new CampeonatoRepository();
-            //var Campeonato = new CampeonatoModel();
             var Campeonato = campeonatoRepository.GetAll().LastOrDefault();
             var ListaClassificacaoCampo1 = classificacaoRepository.GetAll()
                 .Where(x =>

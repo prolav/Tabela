@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     
       <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst;net9.0-windows10.0.19041.0</TargetFrameworks>
-      <RuntimeIdentifiers>maccatalyst-arm64</RuntimeIdentifiers>
-      <RuntimeIdentifiers>maccatalyst-arm64;maccatalyst-x64</RuntimeIdentifiers>
+      <!--<RuntimeIdentifiers>maccatalyst-arm64</RuntimeIdentifiers>
+      <RuntimeIdentifiers>maccatalyst-arm64;maccatalyst-x64</RuntimeIdentifiers>-->
     
 
 
@@ -16,10 +16,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <!-- Display name -->
-    <ApplicationTitle>Tabela</ApplicationTitle>
+    <ApplicationTitle>GateScore</ApplicationTitle>
 
     <!-- App Identifier -->
-    <ApplicationId>com.companyname.tabela</ApplicationId>
+    <ApplicationId>com.companyname.gatescore</ApplicationId>
     <ApplicationIdGuid>648e11be-4a54-42b6-8592-f40a9c9b8893</ApplicationIdGuid>
 
     <!-- Versions -->
@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <!-- App Icon -->
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <MauiIcon Include="Resources\AppIcon\icon.png" />
     <!-- Splash Screen -->
     <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
     <!-- Images -->

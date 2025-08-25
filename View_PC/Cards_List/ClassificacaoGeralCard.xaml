@@ -15,7 +15,7 @@
     <Frame CornerRadius="15" HasShadow="False" HeightRequest="100" BorderColor="{StaticResource GateVermelho}"
            BackgroundColor="{Binding IsEven, Converter={StaticResource AlternationIndexToColorConverter}}"
            Padding="10" >
-        <Grid RowDefinitions="Auto" ColumnDefinitions="10*, 40*,10*,10*,10*,10*,10*"  VerticalOptions="Center" ColumnSpacing="20">
+        <Grid RowDefinitions="Auto" ColumnDefinitions="12*,28*,12*,12*,12*,12*,12*"  VerticalOptions="Center" ColumnSpacing="20">
             <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 
                   Text="{Binding Classificacao_Posicao, StringFormat='{0}º'}"/>
             <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center" 

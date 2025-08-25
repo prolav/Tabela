@@ -14,11 +14,11 @@
     <Frame CornerRadius="15" HasShadow="False" BorderColor="{StaticResource GateVermelho}" Padding="5" 
            BackgroundColor="{Binding IsEven, Converter={StaticResource AlternationIndexToColorConverter}}" >
 
-        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto, *, Auto" ColumnSpacing="10">
+        <Grid RowDefinitions="Auto" ColumnDefinitions="Auto, *, *" ColumnSpacing="10">
                 <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label16BoldStyle}" HorizontalOptions="Center"
                        Text="{Binding NumeroClubeNaqueleCampo, StringFormat='Clube {0}'}"/>
 
-                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderEntry16}">
+                <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource BorderEntry16}" HorizontalOptions="Fill">
                     <Picker Style="{StaticResource Label16BoldStyle}"
                             ItemsSource="{Binding ListaClube, Mode=TwoWay}"
                             ItemDisplayBinding="{Binding Clube_Nome, Mode=TwoWay}"

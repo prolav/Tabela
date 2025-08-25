@@ -57,7 +57,8 @@ public class PC_HistoricoJogos_PartialViewModel: BaseViewModel
             ListaPartidas = _partidaRepository.GetAll().Where(a => a.FK_Campeonato_Id == Campeonato.Id && a.Partida_NumeroCampo == 1).OrderBy(a =>a.Partida_Rodada).ToList();
             CarregarButtonsIsVisible();
             CarregarCamposPartidas();
-            CarregarClassificacaoGeral();
+            if (Campeonato.Campeonato_HistoricoJogos_Cadastrado == false)
+                CarregarClassificacaoGeral();
             OnPropertyChanged();
         }
         catch (Exception e)

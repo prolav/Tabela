@@ -16,11 +16,35 @@ public class CampeonatoModel : BaseModel, INotifyPropertyChanged
     public int Campeonato_NumerosRodadas { get; set; }
     [Column("Campeonato_Local")]
     public string Campeonato_Local { get; set; }
-
+    private bool _campeonato_Cadastrado;
     [Column("Campeonato_Cadastrado")] 
-    public bool Campeonato_Cadastrado { get; set; } = false;
+    public bool Campeonato_Cadastrado
+    {
+        get => _campeonato_Cadastrado;
+        set
+        {
+            if (_campeonato_Cadastrado != value)
+            {
+                _campeonato_Cadastrado = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+    private bool _campeonato_HistoricoJogos_Cadastrado;
     [Column("Campeonato_HistoricoJogos_Cadastrado")] 
-    public bool Campeonato_HistoricoJogos_Cadastrado { get; set; } = false;
+    public bool Campeonato_HistoricoJogos_Cadastrado
+    {
+        get => _campeonato_HistoricoJogos_Cadastrado;
+        set
+        {
+            if (_campeonato_HistoricoJogos_Cadastrado != value)
+            {
+                _campeonato_HistoricoJogos_Cadastrado = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
 
     [Ignore]
     public virtual List<FaseModel> Campeonato_Fases { get; set; } = new();

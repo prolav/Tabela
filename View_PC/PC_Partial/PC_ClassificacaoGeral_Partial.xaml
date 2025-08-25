@@ -25,7 +25,7 @@
             </Label>
         </Grid>
 
-        <Grid Row="1" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10">
+        <Grid Row="1" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10" Margin="0,0,0,0">
             <Button Grid.Column="0" Style="{StaticResource Button24_Vermelho}"
                     Text="Campo 1" Command="{Binding AtualizarListaCommand}" CommandParameter="1"/>
             <Button Grid.Column="1" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo2_IsVisible}"
@@ -37,12 +37,12 @@
             <Button Grid.Column="4" Style="{StaticResource Button24_Vermelho}" IsVisible="{Binding ButtonCampo5_IsVisible}"
                     Text="Campo 5" Command="{Binding AtualizarListaCommand}" CommandParameter="5"/>
             <Button Grid.Column="5" Style="{StaticResource Button24_Vermelho}"
-                    Text="Classificação Geral" Command="{Binding AtualizarListaCommand}" CommandParameter="10"/>
+                    Text="Geral" Command="{Binding AtualizarListaCommand}" CommandParameter="10"/>
         </Grid>
 
         <Frame Grid.Row="2" BorderColor="{StaticResource GateVermelho}" BackgroundColor="Transparent" Padding="10">
             <Grid RowDefinitions="Auto,*">
-                <Grid Grid.Row="0" RowDefinitions="Auto" ColumnDefinitions="10*, 40*,10*,10*,10*,10*,10*"  VerticalOptions="Center">
+                <Grid Grid.Row="0" RowDefinitions="Auto" ColumnDefinitions="12*,28*,12*,12*,12*,12*,12*"  VerticalOptions="Center">
                     <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
                         Text="Posição" />
                     <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
@@ -56,7 +56,7 @@
                     <Label Grid.Row="0" Grid.Column="5" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
                         Text="Saldo" />
                     <Label Grid.Row="0" Grid.Column="6" Style="{StaticResource Label24BoldStyle}" HorizontalOptions="Center"
-                        Text="Pontos Pro" />
+                        Text="Pts Pro" />
                 </Grid>
 
                 <ListView Grid.Row="1" ItemsSource="{Binding ListaClassificacaoCampo}" HasUnevenRows="True" BackgroundColor="Transparent"

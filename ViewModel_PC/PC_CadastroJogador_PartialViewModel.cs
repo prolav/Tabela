@@ -99,7 +99,7 @@ public class PC_CadastroJogador_PartialViewModel : BaseViewModel,INotifyProperty
             else
             {
                 NomeJogador = jogador.Jogador_Nome;
-                NumeroJogador = jogador.Jogador_Numero;
+                //NumeroJogador = jogador.Jogador_Numero;
                 ImagemJogador = jogador.Jogador_Imagem;
                 var clube = clubeRepository.GetById(jogador.Jogador_ClubeId);
                 ClubeSelecionado =  clube;
@@ -123,7 +123,7 @@ public class PC_CadastroJogador_PartialViewModel : BaseViewModel,INotifyProperty
                 Jogador.Jogador_ClubeId = ClubeSelecionado.Id;
                 Jogador.Jogador_Imagem = ImagemJogador;
                 Jogador.Jogador_Nome = NomeJogador;
-                Jogador.Jogador_Numero = NumeroJogador;
+                //Jogador.Jogador_Numero = NumeroJogador;
                 jogadorRepository.InsertOrReplace(Jogador);
                 await Application.Current.MainPage.DisplayAlert("Atenção", "Cadastro efetuado com sucesso!", "OK");
                 _pc_DashBoardVM.AtualizarPage("Lista de Jogadores");
