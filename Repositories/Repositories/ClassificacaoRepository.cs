@@ -15,92 +15,64 @@ namespace Tabela.Repositories.Repositories
             var timeRepository = new TimeRepository();
             var classificacaoRepository = new ClassificacaoRepository();
             var partidaRepository = new PartidaRepository();
+
             foreach (var partida in listaPartida)
             {
-                bool jaExisteCasa = classificacaoRepository
-                    .GetAll()
-                    .Any(x => x.Classificacao_PartidaId == partida.Id && x.Classificacao_TimeId == partida.TimeCasaId);
+                // 1️⃣ Salva ou atualiza a partida
+                partidaRepository.InsertOrReplace(partida);
 
-                bool jaExisteFora = classificacaoRepository
-                    .GetAll()
-                    .Any(x => x.Classificacao_PartidaId == partida.Id && x.Classificacao_TimeId == partida.TimeForaId);
+                // --- TIME CASA ---
+                var classificacaoCasa = classificacaoRepository.GetAll()
+                    .FirstOrDefault(c => c.Classificacao_PartidaId == partida.Id &&
+                                         c.Classificacao_TimeId == partida.TimeCasaId);
 
-                if (!jaExisteCasa && !jaExisteFora)
+                if (classificacaoCasa == null)
                 {
-                    var classificacaoCasa = new ClassificacaoModel
+                    classificacaoCasa = new ClassificacaoModel
                     {
                         Classificacao_PartidaId = partida.Id,
-                        Classificacao_Campo = partida.Partida_NumeroCampo,
                         Classificacao_TimeId = partida.TimeCasaId,
-                        Time = timeRepository.GetById(partida.TimeCasaId),
-                        Classificacao_Vitoria = partida.IsTimeCasaVencedor ? 1 : 0,
-                        Classificacao_Derrota = partida.IsTimeForaVencedor ? 1 : 0,
-                        Classificacao_PontosPro = partida.Partida_PontosCasa,
-                        Classificacao_PontosContra = partida.Partida_PontosFora,
-                        Classificacao_QtdeJogos=1,
-
-                        Classificacao_CampeonatoId = partida.FK_Campeonato_Id
+                        Classificacao_CampeonatoId = partida.FK_Campeonato_Id,
+                        Time = timeRepository.GetById(partida.TimeCasaId)
                     };
+                }
 
-                    var classificacaoFora = new ClassificacaoModel
+                classificacaoCasa.Classificacao_Campo = partida.Partida_NumeroCampo;
+                classificacaoCasa.Classificacao_Vitoria = partida.IsTimeCasaVencedor ? 1 : 0;
+                classificacaoCasa.Classificacao_Derrota = partida.IsTimeForaVencedor ? 1 : 0;
+                classificacaoCasa.Classificacao_PontosPro = partida.Partida_PontosCasa;
+                classificacaoCasa.Classificacao_PontosContra = partida.Partida_PontosFora;
+                classificacaoCasa.Classificacao_QtdeJogos = classificacaoCasa.Classificacao_Vitoria + classificacaoCasa.Classificacao_Derrota;
+
+                classificacaoRepository.InsertOrReplace(classificacaoCasa);
+
+                // --- TIME FORA ---
+                var classificacaoFora = classificacaoRepository.GetAll()
+                    .FirstOrDefault(c => c.Classificacao_PartidaId == partida.Id &&
+                                         c.Classificacao_TimeId == partida.TimeForaId);
+
+                if (classificacaoFora == null)
+                {
+                    classificacaoFora = new ClassificacaoModel
                     {
                         Classificacao_PartidaId = partida.Id,
-                        Classificacao_Campo = partida.Partida_NumeroCampo,
                         Classificacao_TimeId = partida.TimeForaId,
-                        Time = timeRepository.GetById(partida.TimeForaId),
-                        Classificacao_Vitoria = partida.IsTimeForaVencedor ? 1 : 0,
-                        Classificacao_Derrota = partida.IsTimeCasaVencedor ? 1 : 0,
-                        Classificacao_PontosPro = partida.Partida_PontosFora,
-                        Classificacao_PontosContra = partida.Partida_PontosCasa,
-                        Classificacao_QtdeJogos = 1,
-                        Classificacao_CampeonatoId = partida.FK_Campeonato_Id
+                        Classificacao_CampeonatoId = partida.FK_Campeonato_Id,
+                        Time = timeRepository.GetById(partida.TimeForaId)
                     };
-
-                    classificacaoRepository.InsertOrReplace(classificacaoCasa);
-                    classificacaoRepository.InsertOrReplace(classificacaoFora);
-
-                    partidaRepository.InsertOrReplace(partida);
                 }
+
+                classificacaoFora.Classificacao_Campo = partida.Partida_NumeroCampo;
+                classificacaoFora.Classificacao_Vitoria = partida.IsTimeForaVencedor ? 1 : 0;
+                classificacaoFora.Classificacao_Derrota = partida.IsTimeCasaVencedor ? 1 : 0;
+                classificacaoFora.Classificacao_PontosPro = partida.Partida_PontosFora;
+                classificacaoFora.Classificacao_PontosContra = partida.Partida_PontosCasa;
+                classificacaoFora.Classificacao_QtdeJogos = classificacaoFora.Classificacao_Vitoria + classificacaoFora.Classificacao_Derrota;
+
+                classificacaoRepository.InsertOrReplace(classificacaoFora);
             }
-           // Teste();
         }
 
-        private void Teste()
-        {
-            var classificacaoRepository = new ClassificacaoRepository();
-            var timeRepository = new TimeRepository();
-            var campeonatoRepository = new CampeonatoRepository();
-            var Campeonato = campeonatoRepository.GetAll().LastOrDefault();
-            var ListaClassificacaoCampo1 = classificacaoRepository.GetAll()
-                .Where(x =>
-                    x.Classificacao_CampeonatoId == Campeonato.Id &&
-                    x.Classificacao_Campo == 1)
-                .GroupBy(x => x.Classificacao_TimeId)
-                .Select((g, index) => new ClassificacaoModel
-                {
-                    Classificacao_TimeId = g.Key,
-                    Classificacao_CampeonatoId = Campeonato.Id,
-                    Classificacao_Vitoria = g.Sum(x => x.Classificacao_Vitoria),
-                    Classificacao_Derrota = g.Sum(x => x.Classificacao_Derrota),
-                    Classificacao_PontosPro = g.Sum(x => x.Classificacao_PontosPro),
-                    Classificacao_PontosContra = g.Sum(x => x.Classificacao_PontosContra),
 
-                    // 🔧 Usar Count() em vez de somar campo problemático
-                    Classificacao_QtdeJogos = g.Count(),
-                    Classificacao_PartidaId = g.FirstOrDefault().Classificacao_PartidaId,
-                    Classificacao_Campo = 1,
-                    Time = timeRepository.GetById(g.Key),
-                    IsEven = index % 2 == 0
-                })
-                .OrderByDescending(x => x.Classificacao_Vitoria)
-                .ThenByDescending(x => x.Classificacao_SaldoPontos)
-                .ThenByDescending(x => x.Classificacao_PontosPro)
-                .Select((x, i) =>
-                {
-                    x.Classificacao_Posicao = i + 1;
-                    return x;
-                })
-                .ToList();
-        }
     }
 }

@@ -107,38 +107,75 @@ public class PC_ClassificacaoGeral_PartialViewModel:BaseViewModel
         {
             var classificacaoRepository = new ClassificacaoRepository();
             var timeRepository = new TimeRepository();
-            var listaClassificacaoCampos = new List<ClassificacaoModel>();
-            listaClassificacaoCampos = classificacaoRepository.GetAll()
-                        .Where(x => x.Classificacao_CampeonatoId == Campeonato.Id && x.Classificacao_Campo == campo)
-                        .GroupBy(x => new { x.Classificacao_TimeId, x.Classificacao_Campo })
-                        .Select((g, index) => new ClassificacaoModel
-                        {
-                            Classificacao_TimeId = g.Key.Classificacao_TimeId,
-                            Classificacao_CampeonatoId = Campeonato.Id,
-                            Classificacao_Vitoria = g.Sum(x => x.Classificacao_Vitoria),
-                            Classificacao_Derrota = g.Sum(x => x.Classificacao_Derrota),
-                            Classificacao_PontosPro = g.Sum(x => x.Classificacao_PontosPro),
-                            Classificacao_PontosContra = g.Sum(x => x.Classificacao_PontosContra),
-                            Classificacao_QtdeJogos = g.Sum(x => x.Classificacao_Vitoria + x.Classificacao_Derrota),
-                            Classificacao_Campo = g.Key.Classificacao_Campo, // ✅ pegando da lista
-                            Time = timeRepository.GetById(g.Key.Classificacao_TimeId),
-                            IsEven = index % 2 == 0
-                        })
-                        .OrderByDescending(x => x.Classificacao_Vitoria)
-                        .ThenByDescending(x => x.Classificacao_SaldoPontos)
-                        .ThenByDescending(x => x.Classificacao_PontosPro)
-                        .Select((x, i) =>
-                        {
-                            x.Classificacao_Posicao = i + 1;
-                            return x;
-                        })
-                        .ToList();
-            ListaClassificacaoCampo =  listaClassificacaoCampos;
-            OnPropertyChanged();
+
+            var classificacoesCampo = classificacaoRepository.GetAll()
+                .Where(x => x.Classificacao_CampeonatoId == Campeonato.Id && x.Classificacao_Campo == campo)
+                .ToList();
+
+            // Agrupa por time
+            var listaClassificacaoCampos = classificacoesCampo
+                .GroupBy(x => x.Classificacao_TimeId)
+                .Select(g =>
+                {
+                    int vitorias = g.Sum(x => x.Classificacao_Vitoria);
+                    int derrotas = g.Sum(x => x.Classificacao_Derrota);
+                    int pontosPro = g.Sum(x => x.Classificacao_PontosPro);
+                    int pontosContra = g.Sum(x => x.Classificacao_PontosContra);
+
+                    return new ClassificacaoModel
+                    {
+                        Classificacao_TimeId = g.Key,
+                        Classificacao_CampeonatoId = Campeonato.Id,
+                        Classificacao_Vitoria = vitorias,
+                        Classificacao_Derrota = derrotas,
+                        Classificacao_PontosPro = pontosPro,
+                        Classificacao_PontosContra = pontosContra,
+                        Classificacao_QtdeJogos = vitorias + derrotas,
+                        Classificacao_Campo = campo,
+                        Time = timeRepository.GetById(g.Key)
+                    };
+                })
+                // Ordena ranking: vitórias > saldo > pontos pro
+                .OrderByDescending(x => x.Classificacao_Vitoria)
+                .ThenByDescending(x => x.Classificacao_SaldoPontos)
+                .ThenByDescending(x => x.Classificacao_PontosPro)
+                .ToList();
+
+            // Calcula posições considerando empates
+            int posicao = 1;
+            for (int i = 0; i < listaClassificacaoCampos.Count; i++)
+            {
+                if (i > 0)
+                {
+                    var anterior = listaClassificacaoCampos[i - 1];
+                    var atual = listaClassificacaoCampos[i];
+
+                    // Se empate total, mantém mesma posição
+                    if (atual.Classificacao_Vitoria == anterior.Classificacao_Vitoria &&
+                        atual.Classificacao_SaldoPontos == anterior.Classificacao_SaldoPontos &&
+                        atual.Classificacao_PontosPro == anterior.Classificacao_PontosPro)
+                    {
+                        atual.Classificacao_Posicao = anterior.Classificacao_Posicao;
+                    }
+                    else
+                    {
+                        atual.Classificacao_Posicao = i + 1;
+                    }
+                }
+                else
+                {
+                    listaClassificacaoCampos[i].Classificacao_Posicao = posicao;
+                }
+
+                listaClassificacaoCampos[i].IsEven = (i % 2 == 0);
+            }
+
+            ListaClassificacaoCampo = listaClassificacaoCampos;
+            OnPropertyChanged(nameof(ListaClassificacaoCampo));
         }
         catch (Exception e)
         {
-            throw new Exception(e.Message);
+            throw new Exception($"Erro ao gerar lista de classificação por campo: {e.Message}");
         }
     }
 
@@ -148,37 +185,76 @@ public class PC_ClassificacaoGeral_PartialViewModel:BaseViewModel
         {
             var classificacaoRepository = new ClassificacaoRepository();
             var timeRepository = new TimeRepository();
-            var classificacoesGerais = classificacaoRepository.GetAll()
+
+            // Busca todas as classificações do campeonato
+            var classificacoes = classificacaoRepository.GetAll()
                 .Where(x => x.Classificacao_CampeonatoId == Campeonato.Id)
+                .ToList();
+
+            // Agrupa por time
+            var listaClassificacaoGeral = classificacoes
                 .GroupBy(x => x.Classificacao_TimeId)
-                .Select((g, index) => new ClassificacaoModel
+                .Select(g =>
                 {
-                    Classificacao_TimeId = g.Key,
-                    Classificacao_CampeonatoId = Campeonato.Id,
-                    Classificacao_Vitoria = g.Sum(x => x.Classificacao_Vitoria),
-                    Classificacao_Derrota = g.Sum(x => x.Classificacao_Derrota),
-                    Classificacao_PontosPro = g.Sum(x => x.Classificacao_PontosPro),
-                    Classificacao_PontosContra = g.Sum(x => x.Classificacao_PontosContra),
-                    Classificacao_QtdeJogos = g.Sum(x => x.Classificacao_Vitoria + x.Classificacao_Derrota),
-                    Classificacao_Campo = 0, // Opcional: pode usar 0 ou -1 para indicar "Geral"
-                    Time = timeRepository.GetById(g.Key),
-                    IsEven = index % 2 == 0
+                    int vitorias = g.Sum(x => x.Classificacao_Vitoria);
+                    int derrotas = g.Sum(x => x.Classificacao_Derrota);
+                    int pontosPro = g.Sum(x => x.Classificacao_PontosPro);
+                    int pontosContra = g.Sum(x => x.Classificacao_PontosContra);
+
+                    return new ClassificacaoModel
+                    {
+                        Classificacao_TimeId = g.Key,
+                        Classificacao_CampeonatoId = Campeonato.Id,
+                        Classificacao_Vitoria = vitorias,
+                        Classificacao_Derrota = derrotas,
+                        Classificacao_PontosPro = pontosPro,
+                        Classificacao_PontosContra = pontosContra,
+                        Classificacao_QtdeJogos = vitorias + derrotas,
+                        Classificacao_Campo = 0, // Geral
+                        Time = timeRepository.GetById(g.Key)
+                    };
                 })
+                // Ordena ranking: vitórias > saldo > pontos pró
                 .OrderByDescending(x => x.Classificacao_Vitoria)
                 .ThenByDescending(x => x.Classificacao_SaldoPontos)
                 .ThenByDescending(x => x.Classificacao_PontosPro)
-                .Select((x, i) =>
-                {
-                    x.Classificacao_Posicao = i + 1;
-                    return x;
-                })
                 .ToList();
-            ListaClassificacaoCampo =  classificacoesGerais;
+
+            // Calcula posições considerando empates
+            for (int i = 0; i < listaClassificacaoGeral.Count; i++)
+            {
+                if (i > 0)
+                {
+                    var anterior = listaClassificacaoGeral[i - 1];
+                    var atual = listaClassificacaoGeral[i];
+
+                    if (atual.Classificacao_Vitoria == anterior.Classificacao_Vitoria &&
+                        atual.Classificacao_SaldoPontos == anterior.Classificacao_SaldoPontos &&
+                        atual.Classificacao_PontosPro == anterior.Classificacao_PontosPro)
+                    {
+                        atual.Classificacao_Posicao = anterior.Classificacao_Posicao;
+                    }
+                    else
+                    {
+                        atual.Classificacao_Posicao = i + 1;
+                    }
+                }
+                else
+                {
+                    listaClassificacaoGeral[i].Classificacao_Posicao = 1;
+                }
+
+                listaClassificacaoGeral[i].IsEven = (i % 2 == 0);
+            }
+
+            ListaClassificacaoCampo = listaClassificacaoGeral;
+            OnPropertyChanged(nameof(ListaClassificacaoCampo));
         }
         catch (Exception e)
         {
             Application.Current.MainPage.DisplayAlert("Erro", e.Message, "OK");
         }
     }
+
     #endregion
 }

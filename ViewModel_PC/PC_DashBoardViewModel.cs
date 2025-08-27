@@ -182,7 +182,7 @@ public class PC_DashBoardViewModel: BaseViewModel
                 CurrentView = new PC_Jogador_Partial(PC_DashBoardVM);
             }
             else if (nomePage == "Novo Campeonato")
-            {
+            {                           
                 Campeonato = model as CampeonatoModel;
                 if (Campeonato != null)
                 {
@@ -195,9 +195,7 @@ public class PC_DashBoardViewModel: BaseViewModel
                 {
                     TituloCard = "Configuração Inicial do Campeonato";
                     CurrentView = new PC_ConfiguracaoInicial_NovoCampeonato_Partial(PC_DashBoardVM);
-                }
-
-                
+                }         
             }
             else if (nomePage == "Cadastro Geral")
             {
@@ -261,11 +259,6 @@ public class PC_DashBoardViewModel: BaseViewModel
         {
             Application.Current.MainPage.DisplayAlert("Erro", e.Message, "OK");
         }
-    }
-    private void SairCommandExecute()
-    {
-        
-
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

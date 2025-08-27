@@ -7,15 +7,16 @@ namespace Tabela.Models
 {
     public class ClassificacaoModel : BaseModel, INotifyPropertyChanged
     {
+        [PrimaryKey]
+        public Guid Classificacao_PartidaId { get; set; }
+
+        [PrimaryKey]
+        public Guid Classificacao_TimeId { get; set; }
+
         [ForeignKey("Classificacao_CampeonatoId")]
         [SQLite.Column("Classificacao_CampeonatoId")]
         public Guid Classificacao_CampeonatoId { get; set; }
-        [ForeignKey("Classificacao_TimeId")]
-        [SQLite.Column("Classificacao_TimeId")]
-        public Guid Classificacao_PartidaId { get; set; }
-        [ForeignKey("Classificacao_PartidaId")]
-        [SQLite.Column("Classificacao_PartidaId")]
-        public Guid Classificacao_TimeId { get; set; }
+
         [SQLite.Column("Classificacao_Vitoria")]
         public int Classificacao_Vitoria { get; set; } = 0;
 
@@ -27,18 +28,28 @@ namespace Tabela.Models
 
         [SQLite.Column("Classificacao_PontosContra")]
         public int Classificacao_PontosContra { get; set; } = 0;
+
         public virtual int Classificacao_QtdeJogos { get; set; } = 0;
+
         [Ignore]
         public virtual TimeModel Time { get; set; }
+
         [Ignore]
         public virtual int Classificacao_SaldoPontos => Classificacao_PontosPro - Classificacao_PontosContra;
+
         public int Classificacao_Campo { get; set; } = 0;
+
         [Ignore]
         public virtual int Classificacao_Posicao { get; set; } = 0;
+
         public virtual bool IsEven { get; set; } = false;
+
         #region Notify
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string propertyName = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public void OnPropertyChanged([CallerMemberName] string propertyName = "") =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         #endregion
     }
+
+
 }

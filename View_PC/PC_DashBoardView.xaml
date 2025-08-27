@@ -74,7 +74,7 @@
                        Text="Classificação Geral"
                        Padding="40,20,0,20"
                        Style="{StaticResource MenuButtonDashBoardStyle}"
-                       IsEnabled="{Binding Campeonato.Campeonato_HistoricoJogos_Cadastrado}">
+                       IsEnabled="{Binding Campeonato.Campeonato_HistoricoJogos_Cadastrado, FallbackValue=false}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
@@ -92,7 +92,7 @@
                        Text="Histórico de Jogos"
                        Padding="40,20,0,20"
                        Style="{StaticResource MenuButtonDashBoardStyle}"
-                       IsEnabled="{Binding Campeonato.Campeonato_Cadastrado}">
+                       IsEnabled="{Binding Campeonato.Campeonato_Cadastrado, FallbackValue=false}">
                     <Label.Triggers>
                         <DataTrigger TargetType="Label"
                                      Binding="{Binding SecaoAtual}"
